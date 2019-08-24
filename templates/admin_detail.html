@@ -1,0 +1,48 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+<section class="rt_wrap content mCustomScrollbar">
+    <div class="rt_content">
+        <div class="page_title">
+            <h2 class="fl">会员详情</h2>
+            <a href="adjust_funding.html" class="fr top_rt_btn money_icon">资金管理</a>
+        </div>
+        <ul class="ulColumn2">
+            <form action="{% url 'amd:adda' %}"></form>
+            <li>
+                <span class="item_name" style="width:120px;">上传头像：</span>
+                <label class="uploadImg">
+                    <input type="file"/>
+                    <span>上传头像</span>
+                </label>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">管理员账号：</span>
+                <input type="text" class="textbox textbox_225" value="DeathGhost" placeholder="管理员账号..."/>
+                <span class="errorTips">错误提示信息...</span>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">登陆密码：</span>
+                <input type="password" class="textbox textbox_225" value="1830000000" placeholder="管理员密码..."/>
+                <span class="errorTips">错误提示信息...</span>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">电子邮箱：</span>
+                <input type="email" class="textbox textbox_225" value="DeathGhost@sina.cn" placeholder="电子邮件地址..."/>
+                <span class="errorTips">错误提示信息...</span>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;">手机号码：</span>
+                <input type="tel" class="textbox textbox_225" value="18300000000" placeholder="手机号码..."/>
+                <span class="errorTips">错误提示信息...</span>
+            </li>
+            <li>
+                <span class="item_name" style="width:120px;"></span>
+                <input type="submit" class="link_btn" value="更新/保存"/>
+            </li>
+        </ul>
+    </div>
+</section>
+{% endblock content %}
+</body>
+</html>

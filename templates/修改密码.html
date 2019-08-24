@@ -1,0 +1,855 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% block head %}
+<head>
+    <title>TCL用户中心-账户安全</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TCL用户中心-</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-stand">
+    <link rel="stylesheet" href="{% static '/index/css/common.css' %}">
+    <link rel="stylesheet" href="{% static '/index/css/styles.css' %}">
+    <script charset="utf-8" src="{% static '/index/js/jquery-1.js' %}"></script>
+    <!--[if lt IE 9]>
+<script src="/js/json2.js"></script>
+<![endif]-->
+    <script charset="utf-8" src="{% static '/index/js/plugin.js' %}"></script>
+    <script charset="utf-8" src="{% static '/index/js/index.js' %}"></script>
+    <script charset="utf-8" src="{% static '/index/js/artTemplate.js' %}"></script>
+
+</head>
+{% endblock head %}
+<body>
+
+<!-- fans nav start -->
+<div class="headerbox">
+    <p class="header"><a class="logo fl" href="http://user.tcl.com/proxy/home/index"><img
+            src="{% static '/index/images/logo.png' %}"></a><span class="crumb fl J-UserTop">TCL账号</span>
+    </p>
+</div>
+<!-- fans nav end -->
+
+
+<div class="borderT"></div>
+<!-- main html start -->
+<div class="main01">
+    <!-- content html start -->
+
+    <style>
+        .layer-content {
+            margin: 0 auto;
+        }
+
+        .headerbox .header {
+            padding-top: 20px;
+        }
+    </style>
+
+    <div class="main01 pr">
+        <div class="accut-saftnav pr">
+            <a class="active" href="javascript:;">账号安全</a>
+            <a href="http://user.tcl.com/proxy/user/information">个人信息</a>
+            <a href="http://user.tcl.com/proxy/user/tbl">绑定授权</a>
+            <a href="http://user.tcl.com/proxy/service">TCL服务</a>
+            <a class="logout pa JS-logout" href="javascript:;">退出登录</a>
+        </div>
+        <div class="accut-security clearfloat">
+            <ul>
+                <li>
+                    <div class="sec-level J-secLevel">
+                        <p class="h1-sec fl">安全等级</p>
+                        <p class="h2-score fl"><span class="J-fraction">75</span> 分</p>
+                        <p class="h2-score01 fl pr">
+                            <span class="h2-progsbar pa" style="width: 75%;"><a class="bar-icon pa" href="javascript:;"
+                                                                                style="margin-right: 0px;"></a></span>
+                        </p>
+                        <p class="h3-risk fl">存在 <span class="J-risk">1</span> 项风险</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="accut-pswd-i fl ac-icon1"></span>
+                    <div class="accut-pswd-txt fl">
+                        <p class="m-title">账号密码</p>
+                        <p class="s-title">用于保护账号信息和登录安全</p>
+                    </div>
+                    <a class="btn-cgpawd fl btnCgpawd JS-modifyPwdBtn" href="javascript:;">修改密码</a>
+                </li>
+                <li>
+                    <span class="accut-pswd-i fl ac-icon2"></span>
+                    <div class="accut-pswd-txt fl">
+                        <p class="m-title">安全邮箱 <span class="marl10 JS-now-email"></span></p>
+                        <p class="s-title">安全邮箱将用于登录TCL账号和重置密码，建议立即设置</p>
+                    </div>
+                    <a class="btn-cgpawd fl J-mailBind JS-bindEmailBtn" data-who="Email" data-bound="false"
+                       data-email="" href="javascript:;">邮箱绑定</a>
+                </li>
+                <li>
+                    <span class="accut-pswd-i fl ac-icon3"></span>
+                    <div class="accut-pswd-txt fl">
+                        <p class="m-title">安全手机 <span class="marl10 JS-now-phone">15040748080</span></p>
+                        <p class="s-title red">安全手机可以用于登录TCL账号，重置密码或其他安全验证</p>
+                    </div>
+                    <a class="btn-cgpawd fl J-phonebind JS-bindPhoneBtn" data-who="Phone" data-bound="true"
+                       data-phone="15040748080" href="javascript:;">修改手机绑定</a>
+                </li>
+                <li>
+                    <span class="accut-pswd-i fl ac-icon4"></span>
+                    <div class="accut-pswd-txt fl"><p class="m-title mart20">人工申诉</p></div>
+                    <a class="btn-cgpawd fl JS-rgssBtn" href="javascript:;">人工申诉渠道</a>
+                </li>
+            </ul>
+        </div>
+        <p id="cover"></p>
+    </div>
+
+    <!-- layer [ -->
+    <div class="JS-layerWrapper" style="display: none;">
+
+        <!-- modify password [ -->
+
+        <!-- ] -->
+
+        <!-- bind email [ -->
+        <div class="verif-box layer-content JS-bindEmailLayerStep1">
+            <p class="ph-code pr"><span class="codeText pa">输入新邮箱</span></p>
+            <div class="f-group">
+                <input type="text" class="J-Code J-bindEmail captchaData JS-email" placeholder="请输入新邮箱">
+                <input type="text" class="J-Code JS-vcode" style="width: 50%;" placeholder="请输入图片验证码" maxlength="4"><img
+                    class="JS-img" src="" style="margin-top: 30px; vertical-align: top;" width="45%" height="47">
+                <a class="v-affirm JS-yes" href="javascript:;" data-who="Email">确认</a>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-bindEmailLayerStep2">
+            <p class="ph-code pr"><span class="codeText pa">验证新邮箱</span></p>
+            <div class="verif-text">
+                <p>请使用安全邮箱</p>
+                <p><span class="JS-email">695133381@qq.com</span>获取验证码</p>
+            </div>
+            <div class="f-group">
+                <input type="text" class="J-yzma J-phoneyzma fl JS-vcode" placeholder="请输入验证码" maxlength="6">
+                <a class="resend JS-countDownBtn" href="javascript:;">53秒后重新发送</a>
+                <div class="submit-btn">
+                    <a class="save JS-yes" href="javascript:;" data-who="Email">确定</a><a class="cancel JS-no"
+                                                                                         href="javascript:;"
+                                                                                         data-who="Email">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-bindEmailLayerStep3">
+            <p class="ph-code pr"><span class="codeText pa">完成</span></p>
+            <p class="carryoutTxt">你已成功绑定安全邮箱</p>
+            <div class="f-group"><a class="v-affirm JS-yes" href="javascript:;" data-who="Email">确认</a></div>
+        </div>
+        <!-- ] -->
+
+        <!-- modify email [ -->
+        <div class="verif-box layer-content JS-modifyEmailLayerStep1">
+            <p class="ph-code pr"><span class="codeText pa">验证新邮箱</span></p>
+            <div class="verif-text">
+                <p>请使用安全邮箱</p>
+                <p><span class="JS-email"></span>获取验证码</p>
+            </div>
+            <div class="f-group">
+                <input type="text" class="J-yzma J-phoneyzma fl JS-vcode" placeholder="请输入验证码" maxlength="6">
+                <a class="resend JS-countDownBtn" href="javascript:;">53秒后重新发送</a>
+                <div class="submit-btn">
+                    <a class="save JS-yes" href="javascript:;" data-who="Email">确定</a><a class="cancel JS-no"
+                                                                                         href="javascript:;"
+                                                                                         data-who="Email">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-modifyEmailLayerStep2">
+            <p class="ph-code pr"><span class="codeText pa">输入新邮箱</span></p>
+            <div class="f-group">
+                <input type="text" class="J-Code J-bindEmail captchaData JS-email" placeholder="请输入新邮箱">
+                <a class="v-affirm JS-yes" href="javascript:;" data-who="Email">确认</a>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-modifyEmailLayerStep3">
+            <p class="ph-code pr"><span class="codeText pa" style="width: 230px; left: 24%;">验证码已发送到您的新邮箱</span></p>
+            <div class="f-group">
+                <input type="text" class="J-Code J-bindEmail captchaData JS-vcode" placeholder="请输入验证码" maxlength="6">
+                <a class="v-affirm JS-yes" href="javascript:;" data-who="Email">确认</a>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-modifyEmailLayerStep4">
+            <p class="ph-code pr"><span class="codeText pa">完成</span></p>
+            <p class="carryoutTxt">你已成功更换安全邮箱</p>
+            <div class="f-group"><a class="v-affirm JS-yes" href="javascript:;" data-who="Email">确认</a></div>
+        </div>
+        <!-- ] -->
+
+        <!-- bind phone [ -->
+        <div class="verif-box layer-content JS-bindPhoneLayerStep1">
+            <p class="ph-code pr"><span class="codeText pa">输入新手机</span></p>
+            <div class="f-group">
+                <input type="text" class="J-Code J-bindPhone captchaData JS-phone" placeholder="请输入新手机">
+                <input type="text" class="J-Code JS-vcode" style="width: 50%;" placeholder="请输入图片验证码" maxlength="4"><img
+                    class="JS-img" src="" style="margin-top: 30px; vertical-align: top;" width="45%" height="47">
+                <a class="v-affirm JS-yes" href="javascript:;" data-who="Phone">确认</a>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-bindPhoneLayerStep2">
+            <p class="ph-code pr"><span class="codeText pa">验证新手机</span></p>
+            <div class="verif-text">
+                <p>请使用安全手机</p>
+                <p><span class="JS-phone">18670710001</span>获取验证码</p>
+            </div>
+            <div class="f-group">
+                <input type="text" class="J-yzma J-phoneyzma fl JS-vcode" placeholder="请输入验证码" maxlength="6">
+                <a class="resend JS-countDownBtn" href="javascript:;">53秒后重新发送</a>
+                <div class="submit-btn">
+                    <a class="save JS-yes" href="javascript:;" data-who="Phone">确定</a><a class="cancel JS-no"
+                                                                                         href="javascript:;"
+                                                                                         data-who="Phone">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-bindPhoneLayerStep3">
+            <p class="ph-code pr"><span class="codeText pa">完成</span></p>
+            <p class="carryoutTxt">你已成功绑定安全手机</p>
+            <div class="f-group"><a class="v-affirm JS-yes" href="javascript:;" data-who="Phone">确认</a></div>
+        </div>
+        <!-- ] -->
+
+        <!-- modify phone [ -->
+        <div class="verif-box layer-content JS-modifyPhoneLayerStep1">
+            <p class="ph-code pr"><span class="codeText pa">验证新手机</span></p>
+            <div class="verif-text">
+                <p>请使用安全手机</p>
+                <p><span class="JS-phone">15040748080</span>获取验证码</p>
+            </div>
+            <div class="f-group">
+                <input type="text" class="J-yzma J-phoneyzma fl JS-vcode" placeholder="请输入验证码" maxlength="6">
+                <a class="resend JS-countDownBtn" href="javascript:;">53秒后重新发送</a>
+                <div class="submit-btn">
+                    <a class="save JS-yes" href="javascript:;" data-who="Phone">确定</a><a class="cancel JS-no"
+                                                                                         href="javascript:;"
+                                                                                         data-who="Phone">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-modifyPhoneLayerStep2">
+            <p class="ph-code pr"><span class="codeText pa">输入新手机</span></p>
+            <div class="f-group">
+                <input type="text" class="J-Code J-bindEmail captchaData JS-phone" placeholder="请输入新手机">
+                <a class="v-affirm JS-yes" href="javascript:;" data-who="Phone">确认</a>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-modifyPhoneLayerStep3">
+            <p class="ph-code pr"><span class="codeText pa" style="width: 230px; left: 24%;">验证码已发送到您的新手机</span></p>
+            <div class="f-group">
+                <input type="text" class="J-Code J-bindEmail captchaData JS-vcode" placeholder="请输入验证码" maxlength="6">
+                <a class="v-affirm JS-yes" href="javascript:;" data-who="Phone">确认</a>
+            </div>
+        </div>
+        <div class="verif-box layer-content JS-modifyPhoneLayerStep4">
+            <p class="ph-code pr"><span class="codeText pa">完成</span></p>
+            <p class="carryoutTxt">你已成功更换安全手机</p>
+            <div class="f-group"><a class="v-affirm JS-yes" href="javascript:;" data-who="Phone">确认</a></div>
+        </div>
+        <!-- ] -->
+
+        <!-- rgss [ -->
+        <div class="verif-box pr layer-content JS-rgssLayer" style="padding-top: 20px;">
+            <p class="qr-npublic pa" style="line-height: 36px; top: -30px;">请扫码或者微信搜索tiefenvip<br>关注公众号进行申诉！</p>
+            <p class="qr-code" style="background: url(/img/qr-code.bmp) no-repeat; width: 234px; height: 233px;"></p>
+        </div>
+        <!-- ] -->
+
+        <div class="login layer-content JS-modifyPwdLayer">
+            <div class="form-group pr">
+                <span>原密码：</span><input type="password" class="pswdinfo JS-oldPwd" placeholder="">
+                <p class="tips pa">原密码输入错误</p>
+            </div>
+            <div class="form-group pr">
+                <span>新密码：</span><input type="password" class="pswdinfo JS-newPwd1" placeholder="">
+                <ul class="showbox pa JS-pwdStrength">
+                    <li class="JS-low">
+                        <p class="bod JS-icon"></p>
+                        <p class="f-txt JS-text">弱</p>
+                    </li>
+                    <li class="JS-medium">
+                        <p class="bod JS-icon"></p>
+                        <p class="f-txt JS-text">中</p>
+                    </li>
+                    <li class="JS-high">
+                        <p class="bod JS-icon"></p>
+                        <p class="f-txt JS-text">强</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-group"><span>再次输入：</span><input type="password" class="pswdinfo JS-newPwd2" placeholder="">
+            </div>
+            <div class="submit-btn"><a class="save JS-yes">保存</a><a class="cancel JS-no" type="button">取消</a></div>
+        </div>
+    </div>
+    <!-- ] -->
+
+    <script>
+        $(function () {
+
+            $('.J-UserTop').text('TCL账号');
+            // $('title').text('TCL用户中心-账户安全');
+            document.title = 'TCL用户中心-账户安全';
+            var submitting = false
+            var pwdRegExp = function (val) {
+                if (/^[ -~]*$/.test(val)) {
+                    if (val.length < 8 || val.length > 16) {
+                        return false;
+                    } else if (/^(?:\d+|[a-zA-Z]+)$/.test(val)) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
+            }
+            ///^(?![\d]+$)(?![a-zA-Z]+$)(?![!#$%^&*]+$)[\da-zA-Z!#$%^&*]{8,20}$/
+
+            $('.JS-modifyPwdBtn').click(function () {
+                plugin.openLayer({$el: $('.JS-modifyPwdLayer')})
+            })
+
+            $('.JS-bindEmailBtn, .JS-bindPhoneBtn').unbind().click(function () {
+                if (submitting) return
+                submitting = true
+                var $this = $(this), bound = $this.attr('data-bound'), who = $this.data('who'),
+                    contactType = who === 'Email' ? '2' : '3'
+                // console.log(bound);
+                if (bound == 'true' && bound) { // 已经绑定了
+                    http.post('/ajax/accountsafe/sendcode', {contactType: contactType}, function (res) {
+                        // res.code = 1 // todo test data
+                        // res.data.result = true // todo test data
+                        if (res.code === 1 && res.data.result) {
+                            plugin.openLayer({$el: $('.JS-modify' + who + 'LayerStep1')})
+                            var $countDownBtn = $('.JS-modify' + who + 'LayerStep1 .JS-countDownBtn')
+                            var send, resend
+                            send = function () {
+                                var countDown = 60
+                                $countDownBtn.text(countDown + '秒后重新发送')
+                                var interval = $countDownBtn.data('interval')
+                                if (interval) {
+                                    clearInterval(interval)
+                                }
+                                interval = setInterval(function () {
+                                    countDown--
+                                    if (countDown === 0) {
+                                        $countDownBtn.text('重新发送')
+                                        clearInterval(interval)
+                                        $countDownBtn.one('click', resend)
+                                    } else {
+                                        $countDownBtn.text(countDown + '秒后重新发送')
+                                    }
+                                }, 1000)
+                                $countDownBtn.data('interval', interval)
+                            }
+                            send()
+                            resend = function () {
+                                http.post('/ajax/accountsafe/sendcode', {contactType: contactType}, function (res) {
+                                    // res.code = 1 // todo test data
+                                    // res.data.result = true // todo test data
+                                    if (res.code === 1 && res.data.result) {
+                                        send()
+                                    } else {
+                                        plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                                        $countDownBtn.one('click', resend)
+                                    }
+                                })
+                            }
+                        } else {
+                            plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                        }
+                        submitting = false
+                    })
+                } else { // 还没有绑定
+                    http.get('/ajax/register/captcha' + '?' + (new Date()).getTime(), {}, function (res) {
+                        if (res.code === 1) {
+                            $('.JS-bind' + who + 'LayerStep1 .JS-img').data('key', res.data.key).attr('src', res.data.url)
+                            $('.JS-bind' + who + 'LayerStep1 .JS-vcode').val('')
+                            plugin.openLayer({$el: $('.JS-bind' + who + 'LayerStep1')})
+                        } else {
+                            plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                        }
+                        submitting = false
+                    })
+                }
+            })
+
+            //  $('.JS-bindPhoneBtn').click(function () {
+            //    console.log('c')
+            //  })
+
+            $('.JS-no').click(function () {
+                plugin.closeLayer()
+            })
+
+            $('.JS-newPwd1').keyup(function () {
+                var $this = $(this), val = $this.val()
+                $('.JS-pwdStrength p').removeClass('active act')
+                if (val) {
+                    if (pwdRegExp(val)) {
+                        if (val.length > 12) {
+                            $('.JS-pwdStrength .JS-icon').addClass('active')
+                            $('.JS-pwdStrength .JS-text').addClass('act')
+                        } else {
+                            $('.JS-pwdStrength .JS-low .JS-icon, .JS-pwdStrength .JS-medium .JS-icon').addClass('active')
+                            $('.JS-pwdStrength .JS-low .JS-text, .JS-pwdStrength .JS-medium .JS-text').addClass('act')
+                        }
+                    } else {
+                        $('.JS-pwdStrength .JS-low .JS-icon').addClass('active')
+                        $('.JS-pwdStrength .JS-low .JS-text').addClass('act')
+                    }
+                }
+            })
+
+            $('.JS-modifyPwdLayer .JS-yes').click(function () {
+                if (submitting) return
+                var oldPwd = $('.JS-modifyPwdLayer .JS-oldPwd').val()
+                var newPwd1 = $('.JS-modifyPwdLayer .JS-newPwd1').val()
+                var newPwd2 = $('.JS-modifyPwdLayer .JS-newPwd2').val()
+                if (!oldPwd || !newPwd1 || !newPwd2) {
+                    plugin.alert({title: '请将信息填写完整', becancel: false, preserve: '关闭'})
+                    return
+                }
+                // if (!pwdRegExp(oldPwd)) {
+                //   plugin.alert({title: '旧密码不正确', becancel: false, preserve: '关闭'})
+                //   return
+                // }
+                if (!pwdRegExp(newPwd1)) {
+                    plugin.alert({title: '新密码格式不正确,密码由8-16位英文字母、数字或者符号组成', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (newPwd1 === oldPwd) {
+                    plugin.alert({title: '新密码不能与旧密码相同', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (newPwd2 !== newPwd1) {
+                    plugin.alert({title: '两次密码不一致', becancel: false, preserve: '关闭'})
+                    return
+                }
+                submitting = true
+                http.post('/ajax/change/password', {
+                    password: util.encryptPwd(oldPwd),
+                    newPassword: util.encryptPwd(newPwd2)
+                }, function (res) {//密码加密
+                    //  res.code = 1 // todo test data
+                    if (res.code !== 1) {
+                        plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                    } else {
+                        plugin.alert({
+                            title: '修改成功，请使用新密码重新登录', becancel: false, preserve: '确定', final: function () {
+                                window.location.href = '/proxy/login'
+                            }
+                        })
+                        /*
+                        plugin.alert({title: '修改成功', becancel: false, preserve: '确定'}, function () {
+                          plugin.closeLayer({
+                            cb: function () {
+                              $('.JS-modifyPwdLayer').find('.JS-oldPwd, .JS-newPwd1, .JS-newPwd2').val('')
+                            }
+                          })
+                        })
+                        */
+                    }
+                    submitting = false
+                })
+            })
+
+            $('.JS-bindEmailLayerStep1 .JS-yes, .JS-bindPhoneLayerStep1 .JS-yes').click(function () {
+                if (submitting) return
+                var $this = $(this), who = $this.data('who'), who_lc = who.toLowerCase(),
+                    contactType = who === 'Email' ? '2' : '1'
+                var contactValue = $.trim($('.JS-bind' + who + 'LayerStep1 .JS-' + who_lc).val());
+                if (who == 'Email' && !contactValue) {
+                    plugin.alert({title: '邮箱未填写', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (who == 'Phone' && !contactValue) {
+                    plugin.alert({title: '手机未填写', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (who === 'Email' && !/^[a-zA-Z0-9_\.\-]+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})$/.test(contactValue)) {
+                    plugin.alert({title: '邮箱格式不正确', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (who === 'Phone' && !/^1[3-9]\d{9}$/.test(contactValue)) {
+                    plugin.alert({title: '手机格式不正确', becancel: false, preserve: '关闭'})
+                    return
+                }
+                var $vcode = $('.JS-bind' + who + 'LayerStep1 .JS-vcode'), vcode = $vcode.val();
+                if (!vcode) {
+                    plugin.alert({title: '图片验证码未填写', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (!/^\d{4}$/.test(vcode)) {
+                    plugin.alert({title: '图片验证码格式不正确', becancel: false, preserve: '关闭'})
+                    return
+                }
+                submitting = true
+                var $img = $('.JS-bind' + who + 'LayerStep1 .JS-img'), vcodeKey = $img.data('key')
+                http.post('/ajax/accountsafe/sendfirst', {
+                    contactType: contactType,
+                    contactValue: contactValue,
+                    captchadata: vcode,
+                    captchakey: vcodeKey
+                }, function (res) {
+                    // res.code = 1 // todo test data
+                    if (res.code === 1) {
+                        plugin.closeLayer({
+                            cb: function () {
+                                $('.JS-bind' + who + 'LayerStep2 .JS-' + who_lc).text(contactValue)
+                                $('.JS-bind' + who + 'LayerStep2 .JS-vcode').val('')
+                                plugin.openLayer({$el: $('.JS-bind' + who + 'LayerStep2')})
+                                var $countDownBtn = $('.JS-bind' + who + 'LayerStep2 .JS-countDownBtn')
+                                $countDownBtn.off('click')
+                                var send, resend
+                                send = function () {
+                                    var countDown = 60
+                                    $countDownBtn.text(countDown + '秒后重新发送')
+                                    var interval = $countDownBtn.data('interval')
+                                    if (interval) {
+                                        clearInterval(interval)
+                                    }
+                                    interval = setInterval(function () {
+                                        countDown--
+                                        if (countDown === 0) {
+                                            $countDownBtn.text('重新发送')
+                                            clearInterval(interval)
+                                            $countDownBtn.one('click', resend)
+                                        } else {
+                                            $countDownBtn.text(countDown + '秒后重新发送')
+                                        }
+                                    }, 1000)
+                                    $countDownBtn.data('interval', interval)
+                                }
+                                send()
+                                resend = function () {
+                                    plugin.closeLayer({
+                                        cb: function () {
+                                            $('.JS-bind' + who + 'Btn').click()
+                                        }
+                                    })
+                                    /*
+                                    http.post('/ajax/accountsafe/sendfirst', {contactType: contactType, contactValue: contactValue, captchadata: vcode, captchakey: vcodeKey}, function (res) {
+                                      // res.code = 1 // todo test data
+                                      if (res.code === 1) {
+                                        send()
+                                      } else {
+                                        plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                                        $countDownBtn.one('click', resend)
+                                      }
+                                    })
+                                    */
+                                }
+                            }
+                        })
+                    } else {
+                        plugin.alert({
+                            title: res.msgChi, becancel: false, preserve: '关闭', final: function () {
+                                $img.click()
+                            }
+                        })
+                    }
+                    submitting = false
+                })
+            })
+
+            var bindValue = '';
+            $('.JS-bindEmailLayerStep2 .JS-yes, .JS-bindPhoneLayerStep2 .JS-yes').click(function () {
+                if (submitting) return
+                var $this = $(this), who = $this.data('who'), who_lc = who.toLowerCase(),
+                    contactType = who === 'Email' ? '2' : '1'
+                var vcode = $('.JS-bind' + who + 'LayerStep2 .JS-vcode').val();
+                if (!vcode) {
+                    plugin.alert({title: '验证码未填写', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (!/^\d{6}$/.test(vcode)) {
+                    plugin.alert({title: '验证码格式不正确', becancel: false, preserve: '关闭'})
+                    return
+                }
+                submitting = true
+                var contactValue = bindValue = $('.JS-bind' + who + 'LayerStep2 .JS-' + who_lc).text();
+                http.post('/ajax/accountsafe/bind', {
+                    contactType: contactType,
+                    contactValue: contactValue,
+                    validCode: vcode
+                }, function (res) {
+                    // res.code = 1 // todo test data
+                    if (res.code === 1) {
+                        plugin.closeLayer({
+                            cb: function () {
+                                $('.JS-now-' + who_lc).text(contactValue)
+                                plugin.openLayer({$el: $('.JS-bind' + who + 'LayerStep3')})
+                            }
+                        })
+                    } else {
+                        plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                    }
+                    submitting = false
+                })
+            })
+
+            $('.JS-bindEmailLayerStep3 .JS-yes, .JS-bindPhoneLayerStep3 .JS-yes').click(function () {
+                var $this = $(this), who = $this.data('who'), prefix = 'JS-bind' + who + 'LayerStep'
+                $('.' + prefix + '1 input, .' + prefix + '2 input, .' + prefix + '3 input').val('');
+                var bindBtnElem = $('.JS-bind' + who + 'Btn');
+                bindBtnElem.text('修改' + bindBtnElem.text());
+                bindBtnElem.attr('data-bound', true);
+                bindBtnElem.data('bound', true);
+                bindBtnElem.attr('data-' + who.toLowerCase(), bindValue);
+                $('.JS-email').text(bindValue)
+                plugin.closeLayer()
+            })
+
+            $('.JS-modifyEmailLayerStep1 .JS-yes, .JS-modifyPhoneLayerStep1 .JS-yes').click(function () {
+                if (submitting) return
+                var $this = $(this), who = $this.data('who'), contactType = who === 'Email' ? '2' : '3'
+                var vcode = $('.JS-modify' + who + 'LayerStep1 .JS-vcode').val()
+                if (!vcode) {
+                    plugin.alert({title: '验证码未填写', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (!/^\d{6}$/.test(vcode)) {
+                    plugin.alert({title: '验证码格式不正确', becancel: false, preserve: '关闭'})
+                    return
+                }
+                submitting = true
+                http.post('/ajax/accountsafe/verifycode', {contactType: contactType, validCode: vcode}, function (res) {
+                    // res.code = 1 // todo test data
+                    // res.data.result = true // todo test data
+                    if (res.code === 1 && res.data.result) {
+                        plugin.closeLayer({
+                            cb: function () {
+                                plugin.openLayer({$el: $('.JS-modify' + who + 'LayerStep2')})
+                            }
+                        })
+                    } else {
+                        plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                    }
+                    submitting = false
+                })
+            })
+
+            $('.JS-modifyEmailLayerStep2 .JS-yes, .JS-modifyPhoneLayerStep2 .JS-yes').click(function () {
+                if (submitting) return
+                var $this = $(this), who = $this.data('who'), who_lc = who.toLowerCase(),
+                    contactType = who === 'Email' ? '2' : '3', oldContactType = who === 'Email' ? '2' : '3'
+                var newContactVal = $.trim($('.JS-modify' + who + 'LayerStep2 .JS-' + who_lc).val());
+                if (who === 'Email' && !newContactVal) {
+                    plugin.alert({title: '邮箱未填写', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (who === 'Phone' && !newContactVal) {
+                    plugin.alert({title: '手机未填写', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (who === 'Email' && !/^[a-zA-Z0-9_\.\-]+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})$/.test(newContactVal)) {
+                    plugin.alert({title: '邮箱格式不正确', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (who === 'Phone' && !/^1[3-9]\d{9}$/.test(newContactVal)) {
+                    plugin.alert({title: '手机格式不正确', becancel: false, preserve: '关闭'})
+                    return
+                }
+                submitting = true
+                var vcode = $('.JS-modify' + who + 'LayerStep1 .JS-vcode').val()
+                http.post('/ajax/accountsafe/sendcode/newaccount', {
+                    newContactVal: newContactVal,
+                    contactType: contactType,
+                    validCode: vcode,
+                    oldContactType: oldContactType
+                }, function (res) {
+                    // res.code = 1 // todo test data
+                    // res.data.result = true // todo test data
+                    if (res.code === 1 && res.data.result) {
+                        plugin.closeLayer({
+                            cb: function () {
+                                plugin.openLayer({$el: $('.JS-modify' + who + 'LayerStep3')})
+                            }
+                        })
+                    } else {
+                        plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                    }
+                    submitting = false
+                })
+            })
+
+            $('.JS-modifyEmailLayerStep3 .JS-yes, .JS-modifyPhoneLayerStep3 .JS-yes').click(function () {
+                if (submitting) return
+                var $this = $(this), who = $this.data('who'), who_lc = who.toLowerCase(),
+                    contactType = who === 'Email' ? '2' : '3'
+                var vcode = $('.JS-modify' + who + 'LayerStep3 .JS-vcode').val();
+                if (!vcode) {
+                    plugin.alert({title: '验证码未填写', becancel: false, preserve: '关闭'})
+                    return
+                }
+                if (!/^\d{6}$/.test(vcode)) {
+                    plugin.alert({title: '验证码格式不正确', becancel: false, preserve: '关闭'})
+                    return
+                }
+                submitting = true
+                var newContactVal = bindValue = $('.JS-modify' + who + 'LayerStep2 .JS-' + who_lc).val()
+                http.post('/ajax/accountsafe/changebind', {
+                    newContactVal: newContactVal,
+                    newValidCode: vcode,
+                    contactType: contactType
+                }, function (res) {
+                    // res.code = 1 // todo test data
+                    // res.data.result = true // todo test data
+                    if (res.code === 1 && res.data.result) {
+                        plugin.closeLayer({
+                            cb: function () {
+                                $('.JS-now-' + who_lc).text(newContactVal)
+                                $('.JS-email').text(newContactVal)
+                                var bindBtnElem = $('.JS-bind' + who + 'Btn');
+                                bindBtnElem.attr('data-bound', true);
+                                bindBtnElem.data('bound', true);
+                                bindBtnElem.attr('data-' + who.toLowerCase(), bindValue);
+                                plugin.openLayer({$el: $('.JS-modify' + who + 'LayerStep4')})
+                            }
+                        })
+                    } else {
+                        plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                    }
+                    submitting = false
+                })
+            })
+
+            $('.JS-modifyEmailLayerStep4 .JS-yes, .JS-modifyPhoneLayerStep4 .JS-yes').click(function () {
+                var $this = $(this), who = $this.data('who'), prefix = 'JS-modify' + who + 'LayerStep'
+                $('.' + prefix + '1 input, .' + prefix + '2 input, .' + prefix + '3 input, .' + prefix + '4 input').val('')
+                plugin.closeLayer()
+            })
+
+            $('.JS-bindEmailLayerStep1 .JS-img, .JS-bindPhoneLayerStep1 .JS-img').click(function () {
+                if (submitting) return
+                var $this = $(this)
+                submitting = true
+                http.get('/ajax/register/captcha' + '?' + (new Date()).getTime(), {}, function (res) {
+                    if (res.code === 1) {
+                        $this.data('key', res.data.key).attr('src', res.data.url)
+                    } else {
+                        plugin.alert({title: res.msgChi, becancel: false, preserve: '关闭'})
+                    }
+                    submitting = false
+                })
+            })
+
+            $('.JS-rgssBtn').click(function () {
+                plugin.openLayer({$el: $('.JS-rgssLayer')})
+            })
+
+            $('.JS-logout').click(function () {
+                window.acquire.SignOut()
+            })
+            //获取用户信息
+//    http.get('/ajax/user/info',{},function(data){
+//        if(data.code==1&&data.data){
+//              if(!data.data.bindEmail&&!data.data.bindMobileNo&&data.data.userName.indexOf('@fanli')!=-1){
+//                  location.href='/proxy/user/information'
+//              }
+//        }
+//    })
+
+        })
+    </script>
+</div>
+
+<!-- main html end -->
+<script type="text/javascript">(function () {
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg)) return unescape(arr[2]); else return null
+    }
+
+    var uc_token = getCookie("uc_token");
+    if (uc_token == null || uc_token == "") {
+        history.go(1)
+    }
+})();</script>
+
+<div id="footer_help">
+    <div class="w">
+        <div class="help_list">
+            <ul class="cc clearfloat">
+                <li class="l1">
+                    <h4>帮助中心</h4>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=159#hy2" target="_blank">铁粉等级</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=159#hy3" target="_blank">TCL铁粉权益</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=159#hy4" target="_blank">什么是积分</a></p>
+                </li>
+                <li class="l2">
+                    <h4>&nbsp;</h4>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=159#hy5" target="_blank">积分用途</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=159#hy6" target="_blank">积分兑换</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=159#hy7" target="_blank">如何赚取积分</a></p>
+                </li>
+                <li class="l3">
+                    <h4>&nbsp;</h4>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=159#hy8" target="_blank">积分退返</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail/id/173.html" target="_blank">机身码在哪里</a></p>
+                </li>
+                <li class="l4">
+                    <h4>铁粉权益</h4>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#mianyun" target="_blank">免运费</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#sheng" target="_blank">积分抵现</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#tie" target="_blank">铁粉日专享</a></p>
+                </li>
+                <li class="l5">
+                    <h4>&nbsp;</h4>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#you" target="_blank">疯狂星期四</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#mianxi" target="_blank">免费清洗</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#kua" target="_blank">免费安装</a></p>
+                </li>
+                <li class="l6">
+                    <h4>&nbsp;</h4>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#xin" target="_blank">跨界权益</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#mianan" target="_blank">优先试用</a></p>
+                    <p><a href="http://hy.tcl.com/mall/news/detail?id=171#tui" target="_blank">优先参与</a></p>
+                </li>
+                <li class="l7">
+                    <h4>TCL官方服务</h4>
+                    <img src="{% static '/index/images/bottom_code.jpg' %}" alt="">
+                    <span>问题咨询加关注</span>
+                </li>
+                <li class="l8">
+                    <h4>TCL铁粉社区微博</h4>
+                    <a href="http://weibo.com/p/1006065174479096" target="_blank">
+                        <img style="margin-left:30px;" src="{% static '/index/images/webo_code.jpg' %}"
+                             alt="">
+                    </a>
+                    <span style="margin-left:30px;">点击关注</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="copyright">
+    <div class="w cc clearfloat">
+        <div class="text text_bottom cc clearfloat">
+            <img class="logo" src="{% static '/index/images/logo.png' %}" alt="" width="58">
+            <div class="text_p">
+                <p><a href="http://www.tcl.com/group/companyInfo/index" target="_blank">关于TCL</a> | <a
+                        href="http://www.tcl.com/group/societyDuty/index" target="_blank">社会责任</a> | <a
+                        href="http://www.tcl.com/group/investors/index" target="_blank">投资者关系</a> | <a
+                        href="http://www.tcl.com/group/news/index" target="_blank">新闻中心</a></p>
+                <p>©2010-2011 TCL CORPORATION All Rights Reserved. 使用条款 TCL集团股份有限公司版权所有 粤ICP备05040863号</p>
+            </div>
+            <div class="foot-r">
+                    <span>
+                        <img src="{% static '/index/images/xin.png' %}" alt="">
+                        诚信网站
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

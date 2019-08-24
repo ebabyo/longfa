@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TCL用户中心-账号密码登录</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TCL用户中心-</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-stand">
+    <link rel="stylesheet"
+          href="{% static '/index/css/common.css' %}">
+    <link rel="stylesheet"
+          href="{% static '/index/css/styles.css' %}">
+    <script charset="utf-8"
+            src="{% static '/index/js/jquery-1.js' %}"></script>
+    <!--[if lt IE 9]>
+<script src="{% static '/index/js/json2.js' %}"></script>
+<![endif]-->
+    <script charset="utf-8"
+            src="{% static '/index/js/plugin.js' %}"></script>
+    <script charset="utf-8"
+            src="{% static '/index/js/index.js' %}"></script>
+    <script charset="utf-8"
+            src="{% static '/index/js/artTemplate.js' %}"></script>
+
+</head>
+<body>
+
+<!-- fans nav start -->
+<div class="headerbox">
+    <p class="header"><a class="logo fl" href="http://user.tcl.com/proxy/home/index"><img
+            src="{% static '/index/images/logo.png' %}"></a><span
+            class="crumb fl J-UserTop">TCL账号登录</span></p>
+</div>
+<!-- fans nav end -->
+
+
+<!-- main html start -->
+<div class="login-box">
+    <div class="main pr">
+        <div class="login-cont pa">
+            <div class="login-cont-hd">
+                <h3>推荐第三方登录</h3>
+                <p class="t-party-ico">
+                    <a class="ico01" href="http://user.tcl.com/loginthird/login?type=3&amp;from="></a>
+                    <a class="ico02" href="http://user.tcl.com/loginthird/login?type=2&amp;from="></a>
+                    <a class="ico03" href="http://user.tcl.com/loginthird/login?type=1&amp;from="></a>
+                </p>
+            </div>
+            <p class="log-title">账号密码登录</p>
+            <form action="{% url 'app:login' %}" method="post">
+            <div class="fm-group pr">
+                <span class="ikyuser pa iky01"></span>
+
+                <input type="text" class="linfo J-UserName" placeholder="手机号 / 邮箱 / 用户名" name="username">
+                <span class="hint J-UserLoginHint"></span>
+            </div>
+            <div class="fm-group pr">
+                <span class="ikyuser pa iky02"></span>
+                <input type="password" class="linfo J-PassWord" placeholder="登录密码" name="password">
+                <span class="hint J-UserPassHint"> {{ errormessage }}</span>
+
+            </div>
+                <div>
+                    <input type="submit" value="登录" style="background-color: red ;width: 275px;height: 45px"></div>
+            </form>
+            <div class="fm-group pr ds" id="verifiCode">
+                <span class="ikyuser pa iky03"></span>
+                <input type="text" class="linfo J-ImgCode" placeholder="图片验证码" maxlength="6">
+                <span class="yzm-code pa"><img class="J-GetImgCode" src="" id="imgcode"></span>
+                <span class="hint J-ImgCodeHint"></span>
+            </div>
+{#            <p class="login-btn"><a class="J-Login" href="{% url 'app:index' %}">登录</a></p>  #这里是原来的登录按钮#}
+            <p class="o-methds"><a id="btn-quickLogin"
+                                   href="http://user.tcl.com/proxy/quick/login?from=http://www.tcl.com/search/search?keyword=%E9%A2%86%E5%88%B8%E7%AB%8B%E5%87%8F&amp;sortBy=sortWeight">短信验证登录</a><a
+                    id="btn-register"
+                    href="http://user.tcl.com/proxy/register?from=http://www.tcl.com/search/search?keyword=%E9%A2%86%E5%88%B8%E7%AB%8B%E5%87%8F&amp;sortBy=sortWeight">注册TCL账号</a><a
+                    href="http://user.tcl.com/proxy/find/password/nologin?from=http://www.tcl.com/search/search?keyword=%E9%A2%86%E5%88%B8%E7%AB%8B%E5%87%8F&amp;sortBy=sortWeight">找回密码</a>
+            </p>
+        </div>
+    </div>
+{#    <script type="text/javascript">#}
+{#        localStorage.clear();#}
+{#        sessionStorage.clear();#}
+{#        $('.J-UserTop').text('TCL账号登录');#}
+{#        document.title = 'TCL用户中心-账号密码登录';#}
+{#        var myreg = /^1[3-9]\d{9}$/,#}
+{#            mailreg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;#}
+{#        window._get = {#}
+{#            locationParam: function (from) {#}
+{#                var urlParam = location.search.slice(1).split('&'),#}
+{#                    locationParam = {};#}
+{#                for (var i = 0; i < urlParam.length; i++) {#}
+{#                    var dataArr = urlParam[i].split('=');#}
+{#                    locationParam[dataArr[0]] = dataArr[1];#}
+{#                }#}
+{#                return locationParam[from] ? locationParam[from] : '';#}
+{#            }#}
+{#        };#}
+{#        $(function () {#}
+{#            //判断有没有登录态，有则直接进入跳转的页面#}
+{#//        http.postForLogin('/ajax/user/info',{},function(data){#}
+{#//            if(data&&data.code==1){#}
+{#//                if(util.getUrlParam('from')){#}
+{#//                    location.href=util.getUrlParam('from');#}
+{#//                }#}
+{#//                else{#}
+{#//                    location.href='/';#}
+{#//                }#}
+{#//#}
+{#//            }#}
+{#//        })#}
+{#            //记录来源#}
+{#            if (!$.cookie('referrer')) {#}
+{#                $.cookie('referrer', document.referrer, {path: '/'});#}
+{#            }#}
+{#            //初始化链接，该带参数的带参数,true为需要带上来源document.referrer参数#}
+{#            util.setUrlParm($('.o-methds'), true);#}
+{#            var obj = {};#}
+{#            $(document).on('click', '.J-GetImgCode', function () {#}
+{#                acquire.GetRegisterImg(function (data) {#}
+{#                    if (data && data.code == 1) {#}
+{#                        obj.key = data.data.key;#}
+{#                        $('.J-ImgCodeHint').text('');#}
+{#                        $('.J-GetImgCode').attr('src', data.data.url);#}
+{#                    } else {#}
+{#                        $('.J-ImgCodeHint').text('验证码获取失败，请重新获取！');#}
+{#                    }#}
+{#                });#}
+{#            }).on('blur', '.J-UserName', function () {#}
+{#                var val = $.trim($('.J-UserName').val());#}
+{#                if (!val && val == '') {#}
+{#                    $('.J-UserLoginHint').text('请输入手机号 / 邮箱 / 用户名！');#}
+{#                    return false;#}
+{#                }#}
+{#                ;#}
+{#                if (!myreg.test(val) && !mailreg.test(val) && !(val.length <= 12)) {#}
+{#                    $('.J-UserLoginHint').text('请输入合法的手机号码 / 邮箱 / 用户名！');#}
+{#                    return false;#}
+{#                }#}
+{#                ;#}
+{#                $('.J-UserLoginHint').text('');#}
+{#            }).on('blur', '.J-PassWord', function () {#}
+{#                var val = $('.J-PassWord').val();#}
+{#                if (!val && $.trim(val) == '') {#}
+{#                    $('.J-UserPassHint').text('请输入登录密码！');#}
+{#                    return false;#}
+{#                }#}
+{#                ;#}
+{#                $('.J-UserPassHint').text('');#}
+{#            }).on('blur', '.J-ImgCode', function () {#}
+{#                var val = $.trim($('.J-ImgCode').val());#}
+{#                if (!val && val == '') {#}
+{#                    $('.J-ImgCodeHint').text('请输入图片验证码！');#}
+{#                    return false;#}
+{#                }#}
+{#                ;#}
+{#                $('.J-ImgCodeHint').text('');#}
+{#            });#}
+{##}
+{#            // 点击登录#}
+{#            $(document).on('click', '.J-Login', function () {#}
+{#                obj.userName = $.trim($('.J-UserName').val());#}
+{#                obj.passWord = $('.J-PassWord').val();#}
+{#                obj.validCode = $('.J-ImgCode').val();#}
+{#                obj.callBackUrl = util.getUrlParam('from');#}
+{##}
+{#                if (!obj.userName || obj.userName == '') {#}
+{#                    $('.J-UserLoginHint').text('请输入手机号 / 邮箱 / 用户名！');#}
+{#                    return false;#}
+{#                }#}
+{#                ;#}
+{#                if (!myreg.test(obj.userName) && !mailreg.test(obj.userName) && !(obj.userName.length <= 12)) {#}
+{#                    $('.J-UserLoginHint').text('请输入合法的手机号码 / 邮箱 / 用户名！');#}
+{#                    return false;#}
+{#                }#}
+{#                ;#}
+{#                if (!obj.passWord || $.trim(obj.passWord) == '') {#}
+{#                    $('.J-UserPassHint').text('请输入登录密码！');#}
+{#                    return false;#}
+{#                }#}
+{#                ;#}
+{#                if (!$('#verifiCode').hasClass('ds')) {#}
+{#                    if (!obj.validCode || $.trim(obj.validCode) == '') {#}
+{#                        $('.J-ImgCodeHint').text('请输入图片验证码！');#}
+{#                        return false;#}
+{#                    }#}
+{#                    ;#}
+{#                    if (!obj.key || $.trim(obj.key) == '') {#}
+{#                        $('.J-ImgCodeHint').text('验证码错误！');#}
+{#                        return false;#}
+{#                    }#}
+{#                    ;#}
+{#                }#}
+{#                var otherParam = util.getUrlParam();//表单以外的其它乱七八糟的参数#}
+{#                for (var key in otherParam) {#}
+{#                    if (!util.loginExternalParam[key]) {#}
+{#                        delete otherParam[key];#}
+{#                    }#}
+{#                }#}
+{#                if ($.cookie('fanliId')) {#}
+{#                    otherParam.fanliId = $.cookie('fanliId');#}
+{#                }#}
+{#                $.extend(obj, otherParam);#}
+{#                obj.passWord = util.encryptPwd(obj.passWord);//加密密码#}
+{#                // 登录请求#}
+{#                http.post('/ajax/login/commit', obj, function (data) {#}
+{#                    if (data && data.code == 1 && data.data) {#}
+{#                        var callUrl = data.data.callUrl ? data.data.callUrl : '/';#}
+{#                        if ('PRODUCTION' == 'DEV' || 'PRODUCTION' == 'TEST') {#}
+{#                            document.cookie = 'uc_uid=' + data.data.uid + '; path=/'#}
+{#                            document.cookie = 'uc_token="' + data.data.token + '"; path=/';#}
+{#                        }#}
+{#                        $.cookie('fanliId', null, {path: '/'})//清除返利Id#}
+{#                        window.location.href = obj.callBackUrl ? obj.callBackUrl : callUrl;#}
+{#                    } else {#}
+{#                        if (data.data.key) {#}
+{#                            $('#verifiCode').removeClass('ds');#}
+{#                            $('.J-GetImgCode').attr('src', data.data.url);#}
+{#                            obj.key = data.data.key;#}
+{#                            $('.J-UserPassHint').text('');#}
+{#                            $('.J-ImgCodeHint').text(data.msgChi);#}
+{##}
+{#                        } else {#}
+{#                            $('.J-ImgCodeHint').text('');#}
+{#                            $('.J-UserPassHint').text(data.msgChi);#}
+{#                        }#}
+{#                    }#}
+{#                });#}
+{#            });#}
+{#            //enter键触发登入#}
+{#            $(document).on('keyup', 'body', function (e) {#}
+{#                if (e.keyCode == '13')#}
+{#                    $('.J-Login').trigger('click');#}
+{#            })#}
+{#        });#}
+{#    </script>#}
+</div>
+<!-- main html end -->
+
+
+<!-- @main html end -->
+
+<!-- footer html start -->
+<div class="footerbox">
+    <p class="footnav"><a href="http://www.tcl.com/group/companyInfo/index">关于TCL</a> <a
+            href="http://www.tcl.com/group/societyDuty/index">社会责任</a> <a
+            href="http://www.tcl.com/group/investors/index">投资者关系</a> <a
+            href="http://www.tcl.com/group/news/index">新闻中心</a> <a href="http://www.tcl.com/dealer/toLogin">经销商之家</a>
+    </p>
+    <p class="copyright"> ©2010-2016 TCL CORPORATION All Rights Reserved. <a
+            href="http://www.tcl.com/frontshow/content/getContent/bf9d8fe2ec834c178f7bd2ba2272adfa">使用条款</a>
+        TCL集团股份有限公司版权所有 粤ICP备05040863号</p>
+</div>
+<!-- footer html end -->
+
+
+</body>
+</html>

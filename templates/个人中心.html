@@ -1,0 +1,2323 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" async=""
+            src="{% static '/index/js/collect.js' %}"></script>
+    <script async=""
+            src="{% static '/index/js/jice.js' %}"></script>
+    <script type="text/javascript" async=""
+            src="{% static '/index/js/collect.js' %}"></script>
+    <script async=""
+            src="{% static '/index/js/jice.js' %}"></script>
+    <script src="{% static '/index/js/tm.js' %}"
+            async=""></script>
+    <script src="{% static '/index/asc/hm.asc' %}"></script>
+    <script src="{% static '/index/js/tm.js' %}"
+            async=""></script>
+    <script src="{% static '/index/js/hm.asc' %}"></script>
+    <script async=""
+            src="{% static '/index/js/gio.js' %}"></script>
+    <title>TCL用户中心-个人中心</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TCL用户中心-</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-stand">
+    <link rel="stylesheet"
+          href="{% static '/index/css/common.css' %}">
+    <link rel="stylesheet"
+          href="{% static '/index/css/styles.css' %}">
+    <script charset="utf-8"
+            src="{% static '/index/js/jquery-1.js' %}"></script>
+    <!--[if lt IE 9]>
+<script src="/js/json2.js"></script>
+<![endif]-->
+{#    <script charset="utf-8"#}
+{#            src="{% static '/index/js/plugin.js' %}"></script>#}
+{#    <script charset="utf-8"#}
+{#            src="{% static '/index/js/index.js' %}"></script>#}
+{#    <script charset="utf-8"#}
+{#            src="{% static '/index/js/artTemplate.js' %}"></script>#}
+{##}
+{#    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Service"#}
+{#            src="{% static '/index/html/undefined.html' %}"></script>#}
+{#</head>#}
+<body>
+<!-- if the source is 1 -->
+<style type="text/css">
+    .menu-late-search span {
+        top: 8px !important;
+    }
+</style>
+
+<div class="source-header">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="360-site-verification" content="648523929a97ca92a6c1fa942ebf1e18">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet"
+          href="{% static '/index/css/index-d9b4a0aee2.css' %}">
+    <link rel="icon" href="http://www.tcl.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet"
+          href="{% static '/index/css/global.css' %}">
+    <link rel="stylesheet"
+          href="{% static '/index/css/style.css' %}">
+    <link rel="stylesheet"
+          href="{% static '/index/css/channel.css' %}">
+
+    <style id="headerapi-style">
+        .menu-late-search span {
+            top: 3px;
+        }
+
+        .input-list {
+            top: 33px;
+        }
+
+        #onlyName {
+            width: 80px;
+            display: inline-block;
+        }
+
+        #onlyName, .divclear, .excess {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #onlyName, .excess, .menu > div {
+            overflow: hidden;
+        }
+
+        #onlyName, img, input {
+            vertical-align: middle;
+        }
+
+        body {
+            background: #fff !important;
+        }
+    </style>
+
+    <script src="{% static '/index/js/vendor_002.js' %}"></script>
+
+
+    <div class="header translucent fixed" style="z-index: 111">
+
+        {% if 'username' in request.session %}
+
+            <div class="top-bar">
+                <div class="top-bar-wrap">
+                    <ul class="nav-left" id="top_bar_nav">
+
+
+                        <li><a target="_blank" href="http://www.tcl.com/group/news/index" titel="TCL新闻"
+                               style="color: rgb(204, 204, 204);">TCL新闻</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow"
+                               href="http://www.tcl.com/pages/bulkpurchase/newBulkpurchase.html"
+                               titel="企业采购" style="color: rgb(204, 204, 204);">企业采购</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow" href="http://www.tcl.com/dealer/toLogin" titel="经销商之家"
+                               style="color: rgb(204, 204, 204);">经销商之家</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/uec/operation" titel="用户体验中心"
+                               style="color: rgb(204, 204, 204);">用户体验中心</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/" titel="铁粉社区"
+                               style="color: rgb(204, 204, 204);">铁粉社区</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow" href="http://zhaopin.tcl.com/" titel="人才招聘"
+                               style="color: rgb(204, 204, 204);">人才招聘</a></li>
+
+
+                    </ul>
+                    <ul class="nav-right" id="nav-right">
+                        <li class="wechat_box" id="wechat"><a href="#" style="color: rgb(255,255, 255);">微信商城</a>
+                            <div class="wechat" style="display: none;" id="chat"><img
+                                    src="{% static '/index/images/wechat.jpg' %}">
+                                <p>关注公众号<br>一键下单购买</p>
+
+                            </div>
+                        </li>
+                       <script>
+                         var a= document.getElementById('wechat');
+                         var b= document.getElementById('chat');
+
+                            a.onmouseover=function () {
+
+                                b.style.display= 'block';
+                            };
+                            a.onmouseout=function () {
+
+                               b.style.display= 'none';
+                            }
+
+                        </script>
+                        <i></i>
+                        <li><a href="http://www.tcl.com/pages/orderList/orderList.html"
+                               style="color: rgb(204, 204, 204);">我的订单</a></li>
+                        <i></i>
+                        <li class="index_cart_li"><a class="index_cart shoping" href="{% url 'app:shopcar' %}"
+                                                     style="color: rgb(204, 204, 204);">购物车</a><span
+                                class="newheader-circle"
+                                id="newhead_cart">（{{ length }}）</span>
+                        </li>
+                        <i></i>
+                        <li class="index_cus_id" id="person2"><a href="javascript:;" id="onlyName"
+                                                    data-id="e356d7bf0dc6456292d66a7c0669665a"
+                                                    style="color: rgb(204, 204, 204);"> {{ request.session.username }} </a>
+
+
+                            <div class="info clearfix" style="display: none;" id="person1">
+                                <div class="infotop clearfix"><a href="http://user.tcl.com/proxy/user/information"
+                                                                 style="color: rgb(204, 204, 204);"><img
+                                        src="{% static '/index/images/tcl_image1.jpeg' %}"></a>
+                                    <div class="inforight">
+                                        <div class="p1"><span class="user_name"
+                                                              title=" 15040748080">{{ request.session.username }}</span><span><img
+                                                id="userlevel"
+                                                src="{% static '/index/images/Artboard1.png' %}"></span>
+                                        </div>
+                                        <div class="p2"><span>积分</span> <a id="userjifen"
+                                                                           href="http://user.tcl.com/proxy/integral"
+                                                                           title="110"
+                                                                           style="color: rgb(204, 204, 204);">110</a>　<span>优惠券 </span>
+                                            <a href="http://www.tcl.com/pages/coupondetails/coupondetails.html"
+                                               title="0"
+                                               style="color: rgb(204, 204, 204);">0</a></div>
+                                    </div>
+                                </div>
+                                <div class="infobom clearfix" id="person"><a href="{% url 'app:person' %}"
+                                                                 style="color: rgb(204, 204, 204);"><span>个人中心</span></a><a
+                                        href="http://hy.tcl.com/account/product/myproduct.html"
+                                        style="color: rgb(204, 204, 204);"><span>我的产品<span></span></span></a><a
+                                        href="http://user.tcl.com/proxy/equity/index"
+                                        style="color: rgb(204, 204, 204);"><span>我的权益<span></span></span></a><a
+                                        href="http://user.tcl.com/proxy/my/collection/goods"
+                                        style="color: rgb(204, 204, 204);"><span>我的收藏</span></a><a
+                                        href="http://user.tcl.com/proxy/user/information" target="_blank"
+                                        style="color: rgb(204, 204, 204);"><span>账号管理</span></a><a
+                                        href="http://www.tcl.com/pages/productappraise/productappraise.html#productappraise"
+                                        style="color: rgb(204, 204, 204);"><span>评价管理<span></span></span></a><a
+                                        id="exit"
+                                        href="{% url 'app:logout' %}"
+                                        style="color: rgb(204, 204, 204);"><span>退出登录</span></a>
+                                </div>
+                                <script>
+                                    var a = document.getElementById('person2')
+                                    var b = document.getElementById('person1')
+                                    a.onmouseover=function () {
+
+                                    b.style.display= 'block';
+                                                                };
+                                    a.onmouseout=function () {
+
+                                     b.style.display= 'none';}
+
+                                </script>
+                                <script>
+                                    var c = document.getElementById('wechat')
+                                    var d = document.getElementById('chat')
+                                    c.onmouseover=function () {
+
+                                    d.style.display= 'block';
+                                                                };
+                                    c.onmouseout=function () {
+
+                                     d.style.display= 'none';}
+
+                                </script>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        {% else %}
+
+
+            <div class="top-bar">
+            <div class="top-bar-wrap">
+                <ul class="nav-left" id="top_bar_nav">
+
+
+                    <li><a target="_blank" href="http://www.tcl.com/group/news/index" titel="TCL新闻">TCL新闻</a></li>
+
+
+                    <li><a target="_blank" rel="nofollow"
+                           href="http://www.tcl.com/pages/bulkpurchase/newBulkpurchase.html"
+                           titel="企业采购">企业采购</a></li>
+
+
+                    <li><a target="_blank" rel="nofollow" href="http://www.tcl.com/dealer/toLogin"
+                           titel="经销商之家">经销商之家</a>
+                    </li>
+
+
+                    <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/uec/operation"
+                           titel="用户体验中心">用户体验中心</a>
+                    </li>
+
+
+                    <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/" titel="铁粉社区">铁粉社区</a></li>
+
+
+                    <li><a target="_blank" rel="nofollow" href="http://zhaopin.tcl.com/" titel="人才招聘">人才招聘</a></li>
+
+
+                </ul>
+                <ul class="nav-right" id="nav-right">
+                    <li class="wechat_box" id="wechat"><a href="#" style="color: rgb(204, 204, 204);">微信商城</a>
+                        <div class="wechat" style="display: none;" id="chat"><img
+                                src="{% static '/index/images/wechat.jpg' %}">
+                            <p>关注公众号<br>一键下单购买</p></div>
+                    </li>
+                     <script>
+                         var a= document.getElementById('wechat');
+                         var b= document.getElementById('chat');
+
+                            a.onmouseover=function () {
+
+                                b.style.display= 'block';
+                            };
+                            b.onmouseout=function () {
+
+
+                               b.style.display= 'none';
+                            }
+
+                        </script>
+
+                    <i></i>
+                    <li class="index_cart_li"><a class="index_cart" rel="nofollow"
+                                                 href="{% url 'app:shopcar' %}">购物车</a><span
+                            class="newheader-circle" id="newhead_cart">( 0 )</span>
+                    </li>
+                    <i></i>
+                    <li><a class="index_reg" href="{% url 'app:register' %}" rel="nofollow">注册</a></li>
+                    <i></i>
+                    <li><a class="index_login" href="{% url 'app:login' %}" rel="nofollow">登录</a></li>
+
+                </ul>
+            </div>
+                {% endif %}
+
+{#            <div class="top-bar-wrap">#}
+{#                <ul class="nav-left" id="top_bar_nav">#}
+{##}
+{##}
+{#                    <li><a target="_blank" href="http://www.tcl.com/group/news/index" titel="TCL新闻">TCL新闻</a></li>#}
+{##}
+{##}
+{#                    <li><a target="_blank" href="http://www.tcl.com/pages/bulkpurchase/newBulkpurchase.html"#}
+{#                           titel="企业采购">企业采购</a></li>#}
+{##}
+{##}
+{#                    <li><a target="_blank" href="http://www.tcl.com/dealer/toLogin" titel="经销商之家">经销商之家</a></li>#}
+{##}
+{##}
+{#                    <li><a target="_blank" href="http://fans.tcl.com/uec/operation" titel="用户体验中心">用户体验中心</a></li>#}
+{##}
+{##}
+{#                    <li><a target="_blank" href="http://fans.tcl.com/" titel="铁粉社区">铁粉社区</a></li>#}
+{##}
+{##}
+{#                    <li><a target="_blank" href="http://zhaopin.tcl.com/" titel="人才招聘">人才招聘</a></li>#}
+{##}
+{##}
+{#                </ul>#}
+{##}
+{#                <ul class="nav-right" id="nav-right">#}
+{#                    <li class="wechat_box"><a href="###">微信商城</a>#}
+{#                        <div class="wechat" style="display:none"><img#}
+{#                                src="{% static '/index/images/wechat.jpg' %}">#}
+{#                            <p>关注公众号<br>一键下单购买</p></div>#}
+{#                    </li>#}
+{#                    <i></i>#}
+{#                    <li><a href="http://www.tcl.com/pages/orderList/orderList.html">我的订单</a></li>#}
+{#                    <i></i>#}
+{#                    <li class="index_cart_li"><a class="index_cart shoping"#}
+{#                                                 href="http://www.tcl.com/pages/cart/cart.html">购物车</a><span#}
+{#                            class="newheader-circle" id="newhead_cart">（5）</span></li>#}
+{#                    <i></i>#}
+{#                    <li class="index_cus_id"><a href="javascript:;" id="onlyName">{{ request.session.username }}</a><em#}
+{#                            class="arrow webfont"></em>#}
+{#                        <div class="info clearfix" style="display: none;">#}
+{#                            <div class="infotop clearfix"><a href="http://user.tcl.com/proxy/user/information"><img#}
+{#                                    src="{% static '/index/images/tcl_image1.jpeg' %}"></a>#}
+{#                                <div class="inforight">#}
+{#                                    <div class="p1"><span class="user_name">{{ phone }}</span><span><img#}
+{#                                            src="{% static '/index/images/Artboard1.png' %}"></span>#}
+{#                                    </div>#}
+{#                                    <div class="p2"><span>积分</span> <a href="http://user.tcl.com/proxy/integral">120</a>　<span>优惠券 </span>#}
+{#                                        <a href="http://www.tcl.com/pages/coupondetails/coupondetails.html">5</a></div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="infobom clearfix"><a#}
+{#                                    href="http://user.tcl.com/proxy/home/index"><span>个人中心</span></a><a#}
+{#                                    href="http://hy.tcl.com/account/product/myproduct.html"><span>我的产品<span></span></span></a><a#}
+{#                                    href="http://user.tcl.com/proxy/equity/index"><span>我的权益<span></span></span></a><a#}
+{#                                    href="http://user.tcl.com/proxy/my/collection/goods"><span>我的收藏</span></a><a#}
+{#                                    href="http://user.tcl.com/proxy/user/information" target="_blank"><span>账号管理</span></a><a#}
+{#                                    href="http://www.tcl.com/pages/productappraise/productappraise.html"><span>评价管理<span></span></span></a><a#}
+{#                                    id="exit" href="javascript:;"><span>退出登录</span></a></div>#}
+{#                        </div>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </div>#}
+{#        </div>#}
+        <div class="nav">
+            <div class="nav-bor">
+                <div class="nav-bar"><span class="close"></span>
+                    <!--<div class="hea-box hot"></div>-->
+                    <div class="saerch">
+                        <span class="fl"></span>
+                        <input type="text" class="nav-saerch" placeholder="输入查询的商品">
+                        <div class="hot-words"></div>
+                    </div>
+                    <div class="menu-wrap">
+                        <h1 class="hea-box fl"><a title="TCL官网-TCL官方商城" href="/home" class="logo"
+                                                  style="font-size: 55px;color: white;background-color: red">TCL</a>
+                        </h1>
+                        <div class="act-box">
+
+                        </div>
+                        <div class="menu fl">
+                            <i class="menu_line"></i>
+                            <div class="mes" data-id="0">
+                                <a href="http://www.tcl.com/home">首页</a>
+                            </div>
+                            <div class="mes" data-id="1">
+                                <a href="http://www.tcl.com/air">空调</a>
+                            </div>
+                            <div class="mes" data-id="2">
+                                <a href="http://www.tcl.com/tv">电视</a>
+                            </div>
+                            <div class="mes" data-id="3">
+                                <a href="http://www.tcl.com/refrigerator">冰箱</a>
+                            </div>
+                            <div class="mes" data-id="4">
+                                <a href="http://www.tcl.com/washer">洗衣机</a>
+                            </div>
+                            <div class="mes" data-id="5">
+                                <a href="http://www.tcl.com/homeappliance">健康电器</a>
+                            </div>
+                            <div class="mes" data-id="6">
+                                <a href="http://www.tcl.com/smart">智能硬件</a>
+                            </div>
+                        </div>
+                        <div class="menu-late fr">
+                            <font class="font"></font>
+                            <a href="http://www.tcl.com/pages/service-home/index.html" target="_blank">服务</a>
+                            <a href="http://www.tcl.com/pages/serviceRevision/autoCheck.html" rel="nofollow"
+                               target="_blank">视频教程</a>
+                            <a href="http://www.tcl.com/pages/xess-shopShow/index.html" rel="nofollow" target="_blank">XESS门店</a>
+                            <a href="http://hy.tcl.com/" target="_blank">积分兑换</a>
+                            <span class="menu-late-search">
+                                <input class="ser-input" placeholder="领券立减">
+                                <span><font class="sear"></font></span>
+                                <ul class="input-list" style="display: none;">
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-list" style="display: none; height: 210px;">
+
+            <div class="li" data-id="0"></div>
+
+            <div class="li menuBarLi" data-id="1">
+                <ul>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=dfc16b89558148de9ee85883d369175d">
+                            <span class="m_img"><img
+                                    src="{% static '/index/images/loading.gif' %}"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/BA/Ckgbll0i5TWAP7JeAABAQhKzWms449.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL大3匹三级变频冷暖空调</p>
+                            <p class="red" id="plathead_'dfc16b89558148de9ee85883d369175d">
+
+                                4399.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=b7574aa561d44ac5805ee45d45ff5d68">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_dvKAZo8AAAA8EMijr8A215.png"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL大2匹除湿钛金柜机空调</p>
+                            <p class="red" id="plathead_'b7574aa561d44ac5805ee45d45ff5d68">
+
+                                2999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=8edc495716304e399f2dc4f878510698">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/AE/Ckgbll0JD2iAS79aAAA5F_sw1K8459.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL大1匹钛金静音冷暖空调</p>
+                            <p class="red" id="plathead_'8edc495716304e399f2dc4f878510698">
+
+                                1499.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=675e7bad0c584091a6f8cd184ecf9a4c">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/9D/Ckgbllzp9vmAF-NpAAA86w_lT4U310.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL 大1匹1级能效冷暖变频空调</p>
+                            <p class="red" id="plathead_'675e7bad0c584091a6f8cd184ecf9a4c">
+
+                                2299.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=941fa77e0ba1431fbb473be26a0c4769">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/AE/Ckgbll0JD4qAMOCjAAApLwvlWVk684.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL大1.5匹变频1级节能冷暖空调</p>
+                            <p class="red" id="plathead_'941fa77e0ba1431fbb473be26a0c4769">
+
+                                2199.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="li menuBarLi" data-id="2">
+                <ul>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=dd686e8a90b0442fa3d43bac93444556">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/C9/Ckgbll1O3TWALH3kAADTuHJx2RM918.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">XESS 65A100T 65英寸 新造型美学 浮窗全场景TV</p>
+                            <p class="red" id="plathead_'dd686e8a90b0442fa3d43bac93444556">
+
+                                19999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=3b99ec94351f4d4f93cc900012fb3466">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/C9/Ckgbll1O3VKAVwTzAADZQV78_Hg701.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">XESS 55A100U 55英寸 东方美学 浮窗全场景TV</p>
+                            <p class="red" id="plathead_'3b99ec94351f4d4f93cc900012fb3466">
+
+                                11999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=5e64a8ac38fa43f68d284454646c16d1">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_di6AZ9SnAADx2RpkBmc451.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL 75A950U 75英寸哈曼卡顿巨幕4K电视</p>
+                            <p class="red" id="plathead_'5e64a8ac38fa43f68d284454646c16d1">
+
+                                8999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=fac3b6484ffd403c91535923c47865bc">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/AF/Ckgbll0KDByATMtqABx4Sv_1Q_A601.png"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">65T6 65英寸全场景AI人工智能电视</p>
+                            <p class="red" id="plathead_'fac3b6484ffd403c91535923c47865bc">
+
+                                4999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=4ae188c589a24e7598c7bc9a0bd8d0ef">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/AF/Ckgbll0KDGGAUR59ACA3_I_davE426.png"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">55Q2 55英寸旗舰新剧院电视</p>
+                            <p class="red" id="plathead_'4ae188c589a24e7598c7bc9a0bd8d0ef">
+
+                                5499.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="li menuBarLi" data-id="3">
+                <ul>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=d087efe4f731466494e9eaa26e61b482">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_eemARdUTAABRQsgcw0g233.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL519L对开门风冷无霜冰箱</p>
+                            <p class="red" id="plathead_'d087efe4f731466494e9eaa26e61b482">
+
+                                1999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=521b3b80bee742c6bd8496cbf6db87a3">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/BE/Ckgbll0xh76ABhmyAABX8cQvXKo630.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL410升T形对开门风冷养鲜</p>
+                            <p class="red" id="plathead_'521b3b80bee742c6bd8496cbf6db87a3">
+
+                                2999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=a52f9e7c0b0a400bb51f659181d479ee">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/BE/Ckgbll0xh8KAOn21AAA6_KagK9k211.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL228L三门风冷无霜冰箱</p>
+                            <p class="red" id="plathead_'a52f9e7c0b0a400bb51f659181d479ee">
+
+                                2049.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=931674b455924694aea8538e39a3e957">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/9D/Ckgbllzp-XGAGM1zAABRXmi4nVE379.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL205L三门节能静音冰箱</p>
+                            <p class="red" id="plathead_'931674b455924694aea8538e39a3e957">
+
+                                1199.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=4e9612debdbb4e26936b7e8e197850cd">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_ek-AHT2wAAAp7U_q8Pg002.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL163L双门节能家用小冰箱</p>
+                            <p class="red" id="plathead_'4e9612debdbb4e26936b7e8e197850cd">
+
+                                1049.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="li menuBarLi" data-id="4">
+                <ul>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=ebb9d75a94eb49658646e0f5c652619a">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/BE/Ckgbll0xhrWAc2RsAACsnuSfX6Q232.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL10公斤洗烘一体全自动滚筒洗衣机</p>
+                            <p class="red" id="plathead_'ebb9d75a94eb49658646e0f5c652619a">
+
+                                2299.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=f663dc52b6a949bbbec4c3e0f5b6aae7">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_fDGAG2KzAACDYcXDNps542.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL9公斤变频滚筒洗衣机</p>
+                            <p class="red" id="plathead_'f663dc52b6a949bbbec4c3e0f5b6aae7">
+
+                                1699.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=41846988aac04d30ae30d88871b2b937">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/B1/Ckgbll0Mi6qAEac9AABUN73yUgo440.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL 9公斤全自动波轮洗衣机</p>
+                            <p class="red" id="plathead_'41846988aac04d30ae30d88871b2b937">
+
+                                999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=7e74fc484e4f431cb099603e58063ef9">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_fASAD1CtAABEm0JbQpY959.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL 7公斤全自动波轮洗衣机</p>
+                            <p class="red" id="plathead_'7e74fc484e4f431cb099603e58063ef9">
+
+                                769.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=f3ae6e6d152d42f3a6a4e7eb20467d03">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/B2/Ckgbll0MoI2AIMRRAABW3OxQDJI642.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL5.5公斤小型全自动波轮洗衣机</p>
+                            <p class="red" id="plathead_'f3ae6e6d152d42f3a6a4e7eb20467d03">
+
+                                699.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="li menuBarLi" data-id="5">
+                <ul>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=4a2381fbef244d26a3cdcffe00afc02f">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/9D/Ckgbllzp_vmAEtNcAACpFoEpsRI024.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL 3222J+5205B液化气烟灶套装组合</p>
+                            <p class="red" id="plathead_'4a2381fbef244d26a3cdcffe00afc02f">
+
+                                1248.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=f3b1d815da9b4a538658206efc733a3c">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/8D/Ckgblly5Z_uAXI5ZAACPlsI652E279.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL 3626J+5602B液化气烟灶套装组合</p>
+                            <p class="red" id="plathead_'f3b1d815da9b4a538658206efc733a3c">
+
+                                2258.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=16de9035e13847bfad74713d8c7122f6">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/9D/Ckgbllzp_zCAb70IAABN14fJWlM330.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL嵌入式智能烘干消毒柜</p>
+                            <p class="red" id="plathead_'16de9035e13847bfad74713d8c7122f6">
+
+                                899.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=722b9586c7f142c895a8580fc57f019e">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/8D/Ckgblly5Z-6AO43DAABs302TBrs260.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL60L变频节能速热电热水器</p>
+                            <p class="red" id="plathead_'722b9586c7f142c895a8580fc57f019e">
+
+                                1099.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=fe416b906e054ee0b8d9ce06c906b2eb">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/B1/Ckgbll0Mhw2AAfJ_AABW7C7G5Pg314.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL三档大出风口移动冷风扇（A款）</p>
+                            <p class="red" id="plathead_'fe416b906e054ee0b8d9ce06c906b2eb">
+
+                                459.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="li menuBarLi" data-id="6">
+                <ul>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=c797d9e8dfeb4d23bfbbdcbed09e9751">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/8C/Ckgblly4H9CARyUVAABAcpM03RY837.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">XESS时尚智能美妆镜R1</p>
+                            <p class="red" id="plathead_'c797d9e8dfeb4d23bfbbdcbed09e9751">
+
+                                699.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=2859c5a8c2854ea1a3544b8f970ce7df">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/8C/Ckgblly4JOiAA9WuAAA9a49KrcA840.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">XESS智能V脸射频美容仪BR-1</p>
+                            <p class="red" id="plathead_'2859c5a8c2854ea1a3544b8f970ce7df">
+
+                                2499.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=4bd35ab9b3504e99b25c3170514d0fbf">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/8C/Ckgblly4HNOAaqPdAABYdZrgNPo109.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">XESS光波双净智能牙刷D3 宫廷红</p>
+                            <p class="red" id="plathead_'4bd35ab9b3504e99b25c3170514d0fbf">
+
+                                999.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=919bf7abf0da4fe8ae022530d44d33e2">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/90/CkgbllzBHEmAE3RRAAA2CY1lf0A145.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL物联网智能门锁K1S-W</p>
+                            <p class="red" id="plathead_'919bf7abf0da4fe8ae022530d44d33e2">
+
+                                2199.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a target="_blank"
+                           href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=056169cdb3d840a0853ed5ed9022110b">
+                            <span class="m_img"><img
+                                    src="TCL%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83-%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83_files/loading.gif"
+                                    data-o="http://s0.mall.tcl.com/group1/M00/05/8C/Ckgblly4HUKAJuZxAABDOsf_mIc980.jpg"
+                                    data-load="false" class="header_img"></span>
+                            <p class="m_tit">TCL SOCL100入耳式耳机 深空灰</p>
+                            <p class="red" id="plathead_'056169cdb3d840a0853ed5ed9022110b">
+
+                                69.00
+                                元
+                            </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        //百度的
+        var _hmt = _hmt || [];
+        if (location.host.indexOf('.tcl.com') > -1) {//只对生产环境产生统计
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?34c66f7b3d3ed0d0791c81ebe5ee7340";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        }
+        //广告监测
+        !(function (a, b, c, d, e, f) {
+            var g = "", h = a.sessionStorage, i = "__admaster_ta_param__", j = "tmDataLayer" !== d ? "&dl=" + d : "";
+            if (a[f] = {}, a[d] = a[d] || [], a[d].push({startTime: +new Date, event: "tm.js"}), h) {
+                var k = a.location.search,
+                    l = new RegExp("[?&]" + i + "=(.*?)(&|#|$)").exec(k) || [];
+                l[1] && h.setItem(i, l[1]), l = h.getItem(i), l && (g = "&p=" + l + "&t=" + +new Date)
+            }
+            var m = b.createElement(c), n = b.getElementsByTagName(c)[0];
+            m.src = "//tag.cdnmaster.cn/tmjs/tm.js?id=" + e + j + g,
+                m.async = !0, n.parentNode.insertBefore(m, n)
+        })(window, document, "script", "tmDataLayer", "TM-I92QS0", "admaster_tm");
+
+    </script>
+
+
+</div>
+<script>
+    // 如果node层接口错误,补全顶部
+    var owHost = "http://www.tcl.com";
+    var header = $('.source-header').eq(0);
+    if (header.length && !header.html().trim()) {
+        $.ajax({
+            method: 'GET',
+            url: owHost + '/api/html/header',
+            success: function (data) {
+                header.html(data);
+            }
+        });
+    }
+</script>
+
+
+<!--面包屑导航-->
+<div class="h-nav">
+    <div><span>首页/</span><span id="level2-nav">用户中心</span>/<span id="level3-nav">个人中心</span></div>
+</div>
+<!-- main html start -->
+
+
+<div class="main">
+
+
+    <!-- menu html start -->
+    <div class="unified-menu">
+        <div class="item">
+            <h3 class="title">产品订单</h3>
+            <ul>
+                <!--<li><a href="/proxy/tclmicroshp/order/list">我的订单</a><i class="badg"></i></li>-->
+                <li class="J-MenuItem"><a href="http://www.tcl.com/pages/orderList/orderList.html">我的订单</a><i
+                        class="badg"></i></li>
+                <!--<li class="J-MenuItem"><a href="http://hy.tcl.com/account/buyer/order.html">我的订单</a><i class="badg"></i></li>-->
+                <li class="J-MenuItem"><a
+                        href="http://www.tcl.com/pages/productappraise/productappraise.html">评价管理</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a href="http://www.tcl.com/pages/reserveorder/reserveorder.html">我的预约</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a href="http://www.tcl.com/pages/aftersale/aftersale.html">退款换货</a><i
+                        class="badg"></i></li>
+                <!--<li class="J-MenuItem"><a href="http://hy.tcl.com/account/refundbuyer/buyer.html">退款换货</a><i class="badg"></i></li>-->
+                <li class="J-MenuItem"><a data-href="/proxy/invoice/vat/list"
+                                          href="http://user.tcl.com/proxy/invoice/vat/list">我的发票</a><i class="badg"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="item">
+            <h3 class="title">用户中心</h3>
+            <ul>
+                <li class="J-MenuItem active"><a data-href="/proxy/home/index"
+                                                 href="http://user.tcl.com/proxy/home/index">个人中心</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a data-href="/proxy/integral" href="http://user.tcl.com/proxy/integral">我的积分</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a data-href="/proxy/equity/index" href="http://user.tcl.com/proxy/equity/index">我的权益</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a href="http://www.tcl.com/pages/coupondetails/coupondetails.html">我的优惠券</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a data-href="/proxy/my/collection/goods"
+                                          href="http://user.tcl.com/proxy/my/collection/goods">我的收藏</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a data-href="/proxy/my/browse/goods"
+                                          href="http://user.tcl.com/proxy/my/browse/goods">我的足迹</a><i class="badg"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="item">
+            <h3 class="title">用户服务</h3>
+            <ul>
+                <li class="J-MenuItem"><a href="http://user.tcl.com/proxy/my/product"
+                                          data-href="/proxy/my/product">我的产品</a><i class="badg"></i></li>
+                <li class="J-MenuItem"><a href="http://www.tcl.com/pages/service-home/index.html#policy">售后服务</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a data-href="/proxy/service/record/query"
+                                          href="http://user.tcl.com/proxy/service/record/query">服务记录</a><i
+                        class="badg"></i></li>
+                <li class="J-MenuItem"><a href="http://www.tcl.com/pages/tcode/tcode.html">我的T码</a><i class="badg"></i>
+                </li>
+                <!-- <li><a href="#">消息通知</a><i class="badg"></i></li> -->
+            </ul>
+        </div>
+        <div class="item">
+            <h3 class="title">铁粉社区</h3>
+            <ul>
+                <li class="J-MenuItem"><a
+                        href="http://fans.tcl.com/home.php?mod=spacecp&amp;ac=credit&amp;showcredit=1">社区中心</a><i
+                        class="badg"></i></li>
+                <li><a href="http://fans.tcl.com/home.php?mod=space&amp;do=pm">社区通知</a><i class="badg"></i></li>
+                <!--<li class="J-MenuItem"><a href="http://fans.tcl.com/home.php?mod=spacecp&ac=profile&op=verify">我的认证</a><i class="badg"></i></li>-->
+            </ul>
+        </div>
+        <div class="item">
+            <h3 class="title">账户管理</h3>
+            <ul>
+                <li class="J-MenuItem"><a data-href="/proxy/accountsafe" href="http://user.tcl.com/proxy/accountsafe"
+                                          id="menuAccountSafe">账号管理</a><i class="badg"></i></li>
+                <li class="J-MenuItem"><a data-href="/proxy/address/shipping/list"
+                                          href="http://user.tcl.com/proxy/address/shipping/list">收货地址</a><i
+                        class="badg"></i></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- menu html start -->
+
+    <script type="text/javascript">
+        var url = location.href.slice(location.href.indexOf('proxy/') - 1, location.href.indexOf('?') == -1 ? location.href.length : location.href.indexOf('?'));
+        var elmObj = $('.unified-menu').find('a[data-href=\"' + url + '\"]');
+        var loactionUrlArr = url.split('/');
+        if (!elmObj.length) {
+            if (url.indexOf('invoice') != -1) {
+                elmObj = $('.unified-menu').find('a[data-href="/proxy/invoice/vat/list"]');
+            } else if (url.indexOf('product') != -1) {
+                elmObj = $('.unified-menu').find('a[data-href="/proxy/my/product"]');
+            } else {
+                $('.unified-menu').find('a').each(function (i, item) {
+                    if ($(item).data('href')) {
+                        var menuUrlArr = $(item).data('href').split('/');
+                        for (var i = loactionUrlArr.length - 1; i > 2; i--) {
+                            if (loactionUrlArr[i] == menuUrlArr[i] && loactionUrlArr[i - 1] == menuUrlArr[i - 1]) {
+                                elmObj = $(item);
+                                return false;
+                            }
+                        }
+                    }
+                })
+            }
+        }
+        //    if(!elmObj.length){
+        //        url=document.referrer.slice(document.referrer.indexOf('proxy/')-1,document.referrer.indexOf('?')==-1?location.href.length:document.referrer.indexOf('?'));
+        //        elmObj=$('.unified-menu').find('a[data-href=\"'+url+'\"]');
+        //    }
+        elmObj.parent().addClass('active');
+        $('#level2-nav').text($(elmObj).parents('.item').find('.title').text());
+        $('#level3-nav').text($(elmObj).text());
+        //获取用户信息
+        http.get('/ajax/user/info', {}, function (data) {
+            if (data.code == 1 && data.data) {
+                if (!data.data.bindEmail && !data.data.bindMobileNo && data.data.userName.indexOf('@fanli') != -1) {
+                    $('#menuAccountSafe').attr("href", "/proxy/user/information").attr("data-href", "/proxy/user/information");
+                }
+            }
+        })
+    </script>
+    <!-- content html start -->
+    <div class="content">
+
+        <div class="personal">
+            <div class="interests">
+                <div class="back">
+                    <div class="fl">为提高用户体验，系统已对您在TCL官网、铁粉社区、积分商城上的基础信息做了合并，您可以在2018年2月28日前修改和确认</div>
+                    <div class="fr"><a href="http://user.tcl.com/proxy/user/information" class="submit">立即查看</a></div>
+                </div>
+                <div class="inter-box">
+                    <div class="fl">
+                        <p class="pr"><img class="marginL"
+                                           src="{% static '/index/images/tcl_image1.jpeg' %}">
+
+                            <span class="T-userName pa T-uN01"></span>
+
+
+                        </p>
+                    </div>
+                    <div class="infor">
+                        <p>
+                            <a href="http://user.tcl.com/proxy/user/information" class="red">修改个人信息 &gt;&gt; </a>
+                            <span class="user-name">{{ user.username }}</span>
+                        </p>
+                        <p>
+                            <a href="http://hy.tcl.com/" class="red">积分兑换 &gt;&gt; </a>
+                            可用积分：<span class="J-c-useInteValue">{{ user.grade }}</span>
+                        </p>
+                        <div>
+                            <div class="grow">
+                                <span class="score J-c-historyIntegral">{{ user.grade }}</span>
+                                <span class="light-box"><span class="light" style="width: 12%;"></span></span>
+                            </div>
+                            我的成长值
+                        </div>
+                        <p>
+                            <a href="http://fans.tcl.com/k_misign-sign.html" class="submit active sign-enter">签到领积分</a>
+                        </p>
+                    </div>
+                    <div class="security">
+                        <p>账户安全：{{ level }}</p>
+                        <p>
+                            绑定手机：
+
+                            {{ user.phone }}
+
+                        </p>
+                        <p>
+                            绑定邮箱：
+
+
+                            无<a href="http://user.tcl.com/proxy/accountsafe" class="submit active">绑定</a>
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <!--<h3 class="title"><a href="/proxy/tclmicroshp/order/list" class="more">更多 >> </a> 我的订单</h3>-->
+                <!--<h3 class="title"><a href="http://www.tcl.com/pages/orderList/orderList.html" class="more">更多 >> </a> 我的订单</h3>-->
+                <h3 class="title"><a href="http://www.tcl.com/pages/orderList/orderList.html" class="more">更多
+                    &gt;&gt; </a> 我的订单</h3>
+                <div class="box">
+                    <ul class="order-list fl J-offGroup">
+                        <li class="top">官方商城</li>
+                        <li><a href="http://www.tcl.com/pages/orderList/orderList.html?1" class="fr red">0<img
+                                src="{% static '/index/images/fr.png' %}"
+                                class="rarrow"></a>
+                            <p>待支付订单</p></li>
+                        <li class="hasbackground"><a href="http://www.tcl.com/pages/orderList/orderList.html?6"
+                                                     class="fr red">0<img
+                                src="{% static '/index/images/fr.png' %}"
+                                class="rarrow"></a>
+                            <p>待收货订单</p></li>
+                        <li><a href="http://www.tcl.com/pages/orderList/orderList.html?11" class="fr red">0<img
+                                src="{% static '/index/images/fr.png' %}"
+                                class="rarrow"></a>
+                            <p>待评价订单</p></li>
+                    </ul>
+                    <ul class="order-list fl J-imGroup">
+                        <li class="top">积分商城</li>
+                        <li><a href="http://hy.tcl.com/account/buyer/order/auctionStatus/1" class="fr red">0<img
+                                src="{% static '/index/images/fr.png' %}"
+                                class="rarrow"></a>
+                            <p>待支付订单</p></li>
+                        <li class="hasbackground"><a href="http://hy.tcl.com/account/buyer/order/auctionStatus/2"
+                                                     class="fr red">0<img
+                                src="{% static '/index/images/fr.png' %}"
+                                class="rarrow"></a>
+                            <p>待发货订单</p></li>
+                        <li><a href="http://hy.tcl.com/account/buyer/order/auctionStatus/3" class="fr red">0<img
+                                src="{% static '/index/images/fr.png' %}"
+                                class="rarrow"></a>
+                            <p>待收货订单</p></li>
+                    </ul>
+                    <ul class="order-list fr J-otGroup" style="display: none">
+                        <li class="top">其他订单</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column">
+                <h3 class="title"><a href="http://user.tcl.com/proxy/my/product" class="more">更多 &gt;&gt; </a> 我的产品</h3>
+                <div class="box">
+                    <ul class="goods-list" id="goods-list" style="height:307px">
+                        <li class="tAvatar fl"><p><img
+                                src="{% static '/index/images/t-noinfo.jpg' %}">
+                        </p></li>
+                        <li class="fr">
+                            <div class="goods-fr marb15">
+                                <p>线上购买可直接领取积分</p>
+                                <p><a href="http://user.tcl.com/proxy/my/product" class="submit active mart20 width120">领取积分</a>
+                                </p>
+                            </div>
+                            <div class="goods-fr high">
+                                <p>商场等实体店购买绑定产品即可领取积分</p>
+                                <p><a href="http://user.tcl.com/proxy/my/product" class="submit active mart20 width120">立即绑定</a>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="font12 gcolor"><a href="http://hy.tcl.com/mall/news/detail?id=174" class="marr10 gcolor">为什么要绑定产品?</a>
+                        | <a href="http://hy.tcl.com/mall/news/detail/id/173.html"
+                             class="marl10 marr10 gcolor">什么是机身码?</a> | <a
+                                href="http://hy.tcl.com/mall/news/detail?id=159#hy7"
+                                class="marl10 gcolor">购买后如何获得积分?</a></p>
+                </div>
+            </div>
+            <div class="column nobor">
+
+                <h3 class="title">
+                    <div class="fr more">
+                        <!--<a href="##" class="iconfont J-left">换一批</a>-->
+                        <a href="javascript:;" class="iconfont JS-zj-left"><img
+                                src="{% static '/index/images/zj-leftico.jpg' %}"></a>
+                        <a href="javascript:;" class="iconfont JS-zj-right"><img
+                                src="{% static '/index/images/zj-rightico.jpg' %}"></a>
+                    </div>
+                    我的足迹
+                </h3>
+                <div class="box goods-box J-goods-box">
+                    <ul class="goods-list goods-ab J-goods-list JS-zj-list" style="width: 951px;">
+                        <li class="border" data-cid="102423127" data-goodsid="3c0e04a8987e4fcc8040d35e283e3714">
+                            <a href="http://www.tcl.com/3c0e04a8987e4fcc8040d35e283e3714" class="good-product"><img
+                                    src="{% static '/index/asc/0000721325.asc' %}"></a>
+                            <p class="name"><a href="http://www.tcl.com/3c0e04a8987e4fcc8040d35e283e3714">【整机保5年】65T6
+                                65英寸全场景AI人工智能电视</a></p>
+                            <p class="price red">5399元</p>
+                        </li>
+
+                        <li class="border" data-cid="102422689" data-goodsid="b47090477bfd49fa95c7124d8685ffa2">
+                            <a href="http://www.tcl.com/b47090477bfd49fa95c7124d8685ffa2" class="good-product"><img
+                                    src="{% static '/index/asc/0000511575.asc' %}"></a>
+                            <p class="name"><a href="http://www.tcl.com/b47090477bfd49fa95c7124d8685ffa2">XESS 65A100H
+                                65英寸 装饰美学 浮窗全场景TV</a></p>
+                            <p class="price red">19999元</p>
+                        </li>
+
+                        <li class="border" data-cid="102423126" data-goodsid="eca41cc8dd3e481ab1b52b964dbe137d">
+                            <a href="http://www.tcl.com/eca41cc8dd3e481ab1b52b964dbe137d" class="good-product"><img
+                                    src="{% static '/index/asc/0000721079.asc' %}"></a>
+                            <p class="name"><a href="http://www.tcl.com/eca41cc8dd3e481ab1b52b964dbe137d">【整机保3年】65T6
+                                65英寸全场景AI人工智能电视</a></p>
+                            <p class="price red">5299元</p>
+                        </li>
+
+                        <li class="border" data-cid="102423124" data-goodsid="fac3b6484ffd403c91535923c47865bc">
+                            <a href="http://www.tcl.com/fac3b6484ffd403c91535923c47865bc" class="good-product"><img
+                                    src="{% static '/index/asc/0000726638.asc' %}"></a>
+                            <p class="name"><a href="http://www.tcl.com/fac3b6484ffd403c91535923c47865bc">65T6
+                                65英寸全场景AI人工智能电视</a></p>
+                            <p class="price red">4999元</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                if (false) {
+                    $('.J-MenuItem').find('a[data-href="/proxy/accountsafe"]').attr("href", "/proxy/user/information").attr("data-href", "/proxy/user/information");
+                }
+                document.title = 'TCL用户中心-个人中心';
+                // 获取用户积分
+                http.get('/ajax/integral/info', {}, function (data) {
+                    if (data && data.code == 1 && data.data) {
+                        $('.T-userName').addClass('T-uN0' + data.data.levelNo);
+                        if (data.data.useInteValue) {
+                            $('.J-c-useInteValue').text(data.data.useInteValue);
+                        }
+
+                        if (data.data.historyIntegral) {
+                            $('.J-c-historyIntegral').text(data.data.historyIntegral);
+                        }
+
+                        if (data.data.useInteValue && data.data.historyIntegral) {
+                            $('.J-c-haveUseInteValue').text(data.data.historyIntegral - data.data.useInteValue);
+                        }
+                        caculatePercentWidth(data.data)
+                    }
+                });
+                // 获取用户签到状态
+                http.get('/ajax/sign/status', {}, function (data) {
+                    if (data && data.code == 1 && data.data) {
+                        if (data.data.signStatus) {
+                            $('.sign-enter').attr('href', 'javascript:;');
+                            $('.sign-enter').text('已签到');
+                        }
+                    }
+                });
+
+                var power = true,
+                    len = $('.J-goods-list').find('li').length,
+                    wid = $('.J-goods-list').find('li').width() + 2 + parseInt($('.J-goods-list').find('li').css('margin-right')),
+                    box = wid * 4,
+                    max = len * wid - box;
+
+                // 获取订单数量
+                http.post('/ajax/order/count', {}, function (data) {
+                    if (data && data.code == 1) {
+                        var obj = data.data.offGroup;
+                        var html = '<li><a href="http://www.tcl.com/pages/orderList/orderList.html?1" class="fr red">' + obj.notPayCount + '<img src="../../img/fr.png" class="rarrow"></a></a>' +
+                            '<p>待支付订单</p></li><li class="hasbackground">' +
+                            '<a href="http://www.tcl.com/pages/orderList/orderList.html?6" class="fr red">' + obj.notReceivedCount + '<img src="../../img/fr.png" class="rarrow"></a>' +
+                            '<p>待收货订单</p></li><li>' +
+                            '<a href="http://www.tcl.com/pages/orderList/orderList.html?11" class="fr red">' + obj.notEvaluated + '<img src="../../img/fr.png" class="rarrow"></a></a>' +
+                            '<p>待评价订单</p></li>';
+                        $('.J-offGroup').append(html);
+                        obj = data.data.imGroup;
+                        html = '<li><a href="http://hy.tcl.com/account/buyer/order/auctionStatus/1" class="fr red">' + obj.notPayCount + '<img src="../../img/fr.png" class="rarrow"></a></a>' +
+                            '<p>待支付订单</p></li><li class="hasbackground">' +
+                            '<a href="http://hy.tcl.com/account/buyer/order/auctionStatus/2" class="fr red">' + obj.notSendCount + '<img src="../../img/fr.png" class="rarrow"></a></a>' +
+                            '<p>待发货订单</p></li><li>' +
+                            '<a href="http://hy.tcl.com/account/buyer/order/auctionStatus/3" class="fr red">' + obj.notReceivedCount + '<img src="../../img/fr.png" class="rarrow"></a></a>' +
+                            '<p>待收货订单</p></li>';
+                        $('.J-imGroup').append(html);
+                    } else {
+                        var html = '<li><span class="fr red">-</span>' +
+                            '<p>待支付订单</p></li><li>' +
+                            '<span class="fr red">-</span>' +
+                            '<p>待收货订单</p></li><li>' +
+                            '<span class="fr red">-</span>' +
+                            '<p>待评价订单</p></li>';
+                        $('.J-offGroup, .J-imGroup, .J-otGroup').append(html);
+//                $('.J-imGroup').append(html);
+                    }
+                });
+
+
+                $('.J-goods-list').width(len * wid);
+
+                //计算距离下已等级显示百分比
+                function caculatePercentWidth(o) {
+                    var Tlevel = 1000;
+                    switch (o.level) {
+                        case 'T1':
+                            Tlevel = 1000;
+                            break;
+                        case 'T2':
+                            Tlevel = 5000;
+                            break;
+                        case 'T3':
+                            Tlevel = 10000;
+                            break;
+                        case 'T4':
+                            Tlevel = 20000;
+                            break;
+                        case 'T5':
+                            Tlevel = 20000;
+                            break;
+                        case 'T6':
+                            Tlevel = 9990000;
+                            break;
+                    }
+                    var linboxW = o.historyIntegral / Tlevel * 100;
+                    linboxW = linboxW > 100 ? 100 : linboxW;
+                    $('.light').css('width', linboxW + '%');
+                }
+
+                //获取足迹
+                ;~function () {
+                    var curPage = 1;
+                    var getHistory = function (page, psize, callback) {
+//                http.post('/ajax/my/browse/goods', {source: 20001, page: page, psize: psize}, function (res) {
+                        http.post('/ajax/my/browse/goods', {source: 20000, page: page, psize: psize}, function (res) {
+                            if (res.code === 1) {
+                                if (res.data && JSON.stringify(res.data) !== "{}") {
+                                    var zjList = [];
+                                    for (var i in res.data) {
+                                        var tempArr = res.data[i]
+                                        for (var j in tempArr) {
+                                            zjList.push(tempArr[j])
+                                        }
+                                    }
+                                    $('.JS-zj-list').html(template('zj-tpl', {list: zjList}))
+                                    callback && callback();
+                                } else if (JSON.stringify(res.data) === "{}") {
+                                    curPage = curPage - 1;
+                                    callback && callback();
+                                }
+                            } else {
+                                $('.JS-zj-list').html('<li class="noinfo01"><img src="../../img/t-noinfo01.jpg"></li>');
+                            }
+                        })
+                    }
+                    getHistory(curPage, 4);
+                    $(".JS-zj-right").on("click", function () {
+                        var $this = $(this);
+                        curPage++;
+                        if (!$this.attr("submit-wait")) {
+                            $this.attr("submit-wait", true)
+                            getHistory(curPage, 4, function () {
+                                $this.removeAttr("submit-wait")
+                            })
+                        }
+                    })
+                    $(".JS-zj-left").on("click", function () {
+                        var $this = $(this);
+                        curPage = curPage - 1;
+                        if (curPage >= 0) {
+                            if (!$this.attr("submit-wait")) {
+                                $this.attr("submit-wait", true)
+                                getHistory(curPage, 4, function () {
+                                    $this.removeAttr("submit-wait")
+                                })
+                            }
+                        } else {
+                            curPage = 0;
+                        }
+                    })
+
+                }()
+
+            });
+            ~function () {
+                http.post('/ajax/productRegister/myProduct', {page: 1, psize: 3}, function (data) {
+                    if (data.data.list.length) {
+                        $('#goods-list').prepend(template('product-tpl', {list: data.data.list}))
+                    } else {
+                        $('#goods-list').prepend('<li class="tAvatar fl"><p><img src="../../img/t-noinfo.jpg"></p></li>')
+                    }
+                })
+            }()
+        </script>
+    </div>
+</div>
+<!-- main html end -->
+<script type="text/javascript">(function () {
+    function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg)) return unescape(arr[2]); else return null
+    }
+
+    var uc_token = getCookie("uc_token");
+    if (uc_token == null || uc_token == "") {
+        history.go(1)
+    }
+})();</script>
+
+<script type="text/javascript" src="/js/index.min.js"></script> -->
+<div class="officeFooter">
+    <style type="text/css">
+        /**,.al-warning-box {
+            box-sizing: border-box
+        }*/
+
+        .box, html {
+            width: 100%
+        }
+
+        *, input {
+            padding: 0;
+            margin: 0
+        }
+
+        .fl, li {
+            float: left
+        }
+
+        #topads .divs, .box, body {
+            position: relative
+        }
+
+        #onlyName, img, input {
+            vertical-align: middle
+        }
+
+        #onlyName, .clearfloat:after, .excess, .menu > div {
+            overflow: hidden
+        }
+
+        .input-list li, .menu-late-search input, .saerch input {
+            text-indent: 10px
+        }
+
+        .footer, .header, .help {
+            min-width: 1226px
+        }
+
+        #t-event-close, .help .last-r .font, .help .last-r i, .iconfont-tcl, .input-list li i, .login-text i, .padding-box .page-skip, .padding-box .page-skip em, .red, .shadowBoxList .row .tc-left em, .webfont {
+            font-style: normal
+        }
+
+        #onlyName, .divclear, .excess {
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        {#@font-face {#}
+        {#    font-family: iconfont-tcl;#}
+        {#    src: url(iconfont/iconfont.eot);#}
+        {#    src: url(iconfont/iconfont.eot?#iefix) format('embedded-opentype'), url(iconfont/iconfont.woff) format('woff'), url(iconfont/iconfont.ttf) format('truetype'), url(iconfont/iconfont.svg#iconfont-tcl) format('svg')#}
+        {#}#}
+
+        .cart .black .shoping, .goTop .item, .goTop a {
+            font-family: iconfont-tcl
+        }
+
+        /** {
+            border: 0;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -o-box-sizing: border-box;
+            -ms-box-sizing: border-box
+        }*/
+
+        html {
+            height: 100%;
+            font-size: 14px \9
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC";
+            color: #666;
+            font-size: 100%;
+            left: 0;
+            background-color: #FFF;
+            transition-duration: .3s;
+            -o-transition-duration: .3s;
+            -ms-transition-duration: .3s;
+            -moz-transition-duration: .3s;
+            -webkit-transition-duration: .3s
+        }
+
+        iframe {
+            display: none
+        }
+
+        .iconfont-tcl {
+            font-family: iconfont-tcl
+        }
+
+        .box {
+            background-color: #f0f0f0;
+            z-index: 2
+        }
+
+        .gray-back {
+            background-color: #e3e3e3
+        }
+
+        .white-back {
+            background-color: #fff
+        }
+
+        .red-back {
+            background-color: red
+        }
+
+        .blue-back {
+            background-color: #3d58ef
+        }
+
+        .yellow-back {
+            background-color: #f1e04a
+        }
+
+        a, button, input {
+            outline: 0
+        }
+
+        .line-through {
+            text-decoration: line-through
+        }
+
+        a, a:hover {
+            text-decoration: none
+        }
+
+        .wd1228 {
+            width: 1228px
+        }
+
+        input::-ms-clear {
+            display: none
+        }
+
+        li, ul {
+            list-style-type: none
+        }
+
+        a {
+            color: #555;
+            outline: 0
+        }
+
+        .mar20 {
+            margin-top: 20px
+        }
+
+        .margin70 {
+            margin-top: 70px
+        }
+
+        .exhibition a, .new-product a {
+            width: 100%;
+            height: 100%;
+            display: block
+        }
+
+        .fr {
+            float: right
+        }
+
+        .hea-box, .hot, .logo, .menu > div, .search {
+            float: left
+        }
+
+        {#@font-face {#}
+        {#    font-family: iconfont-tcl;#}
+        {#    src: url(//www.tcl.com/app/css/iconfont/iconfont.eot);#}
+        {#    src: url(//www.tcl.com/app/css/iconfont/iconfont.eot?#iefix) format('embedded-opentype'), url(//www.tcl.com/app/css/iconfont/iconfont.woff) format('woff'), url(//www.tcl.com/app/css/iconfont/iconfont.ttf) format('truetype'), url(//www.tcl.com/app/css/iconfont/iconfont.svg#iconfont-tcl) format('svg')#}
+        {#}#}
+
+        {#.iconfont-tcl {#}
+        {#    font-family: iconfont-tcl#}
+        {#}#}
+
+
+        .clearfloat:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden
+        }
+
+        .al-ico:before, .footer .foot-logo:after {
+            content: ' '
+        }
+
+        .font24 {
+            font-size: 24px
+        }
+
+        .font30 {
+            font-size: 30px;
+            line-height: 30px !important
+        }
+
+        .font35 {
+            font-size: 35px
+        }
+
+        .min-wid {
+            width: 1226px;
+            margin: 0 auto
+        }
+
+        .help {
+            width: 100%;
+            height: auto;
+            padding: 40px 0 41px;
+            background-color: #f0f0f0
+        }
+
+        .help .min-wid {
+            overflow: hidden;
+            position: relative
+        }
+
+        .help > ul {
+            width: 1226px;
+            margin: 0 auto;
+            display: block
+        }
+
+        .help dl {
+            float: left;
+            margin-right: 112px
+        }
+
+        .help dl > dt {
+            font-size: 14px;
+            line-height: 14px;
+            padding-bottom: 20px;
+            color: #333;
+            font-weight: 700
+        }
+
+        .help dl > dd {
+            display: block;
+            line-height: 12px
+        }
+
+        .help dl a {
+            color: #999;
+            outline: 0;
+            display: inline-block;
+            padding-bottom: 12px;
+            font-size: 12px
+        }
+
+        .footer a:hover, .help dl a:hover {
+            color: #666;
+            text-decoration: underline
+        }
+
+        .help .last-r {
+            width: 172px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: center;
+            margin-right: 0
+        }
+
+        .help .last-r i {
+            color: red;
+            font-size: 22px;
+            font-family: iconfont-tcl;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 8px;
+            line-height: 30px
+        }
+
+        .footer .foot-logo, .nav-bor .close {
+            font-family: iconfont-tcl
+        }
+
+        .help .last-r .phone {
+            font-size: 20px;
+            line-height: 20px;
+            padding-bottom: 2px;
+            text-align: center;
+            letter-spacing: 2px
+        }
+
+        .help .last-r .grey {
+            font-size: 12px;
+            color: #999;
+            line-height: 18px;
+            text-align: center
+        }
+
+        .help .last-r .marT5 {
+            margin-top: 5px
+        }
+
+        .help .last-r a {
+            width: 160px;
+            height: 36px;
+            color: red;
+            font-size: 12px;
+            padding: 2px;
+            margin-top: 20px;
+            border: 1px solid red;
+            display: inline-block;
+            -webkit-user-select: none;
+            line-height: 32px
+        }
+
+        .help .last-r a:hover {
+            background-color: red;
+            text-decloration: none;
+            color: #FFF
+        }
+
+        .help .last-r a:hover i {
+            color: #FFF
+        }
+
+        .R1-wrap {
+            width: 1226px;
+            margin: 0 auto;
+            height: 90%;
+            position: relative;
+            z-index: 1001
+        }
+
+        .R1-wrap .font24 {
+            color: #555;
+            font-size: 24px
+        }
+
+        .R1-wrap .font50 {
+            color: #333;
+            margin: 33px 0 15px;
+            line-height: 50px;
+            font-size: 50px
+        }
+
+        .R1-wrap .font32 {
+            font-size: 32px;
+            margin-top: 70px;
+            color: red
+        }
+
+        .nav-bor .close {
+            width: 40px;
+            height: 40px;
+            color: #333;
+            font-size: 18px;
+            position: absolute;
+            line-height: 22px;
+            top: 50%;
+            margin-top: -11px;
+            display: block;
+            right: 30px;
+            -webkit-transition-duration: .3s;
+            transition-duration: .3s;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            z-index: 0
+        }
+
+        .footer {
+            width: 100%;
+            padding: 25px 0;
+            font-size: 12px;
+            color: #999;
+            background-color: #e3e3e3
+        }
+
+        .footer > div {
+            width: 1226px;
+            margin: 0 auto;
+            line-height: 22px;
+            position: relative
+        }
+
+        .footer .blod a:nth-child(1) {
+            padding-left: 0
+        }
+
+        .footer .blod a {
+            padding: 0 15px
+        }
+
+        .footer .foot-logo {
+            width: 50px;
+            height: 40px;
+            color: red;
+            font-size: 50px;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            z-index: 2;
+            display: none
+        }
+
+        .footer .foot-logo span {
+            position: relative;
+            z-index: 1
+        }
+
+        .footer .foot-logo:after {
+            width: 48px;
+            position: absolute;
+            left: 0;
+            top: 20px;
+            height: 20px;
+            background-color: #FFF;
+            z-index: -1
+        }
+
+        .footer .marginL {
+            margin-left: 10px
+        }
+
+        .footer p > a {
+            color: #999
+        }
+
+        .footer p.blod > a {
+            color: #666
+        }
+
+        .footer .foot-logo img {
+            max-width: 100%
+        }
+
+        .footer .foot-r {
+            line-height: 29px;
+            position: absolute;
+            top: 10px;
+            right: 0;
+            z-index: 10
+        }
+
+        .footer .foot-r > div {
+            margin-left: 10px;
+            vertical-align: top;
+            display: inline-block
+        }
+
+        .footer .language {
+            height: 29px;
+            position: relative
+        }
+
+        .footer .language .lang-item {
+            width: auto;
+            padding: 0 12px;
+            display: inline-block;
+            bottom: 29px;
+            cursor: pointer;
+            -webkit-transition-duration: .3s;
+            transition-duration: .3s
+        }
+
+        .footer .foot-r span {
+            color: #999;
+            font-size: 12px
+        }
+
+        .footer .foot-r em {
+            font-family: iconfont-tcl;
+            font-style: normal;
+            font-size: 22px;
+            color: #999;
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 5px;
+            margin-top: -1px
+        }
+
+        .footer .foot-r img {
+            display: inline-block;
+            vertical-align: top
+        }
+
+        .footer .goTop, .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 150px;
+            z-index: 20000;
+            width: 46px;
+            height: 46px
+        }
+
+        .goTop a {
+            width: 54px;
+            height: 54px;
+            display: block;
+            cursor: pointer;
+            vertical-align: top;
+            text-align: center;
+            transition: all .2s;
+            border: 1px solid #ededed;
+            background-color: #FFF;
+            font-family: "iconfont-tcl";
+            color: #979797;
+            font-size: 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goTop .item {
+            border: none;
+            height: 33px;
+            line-height: 35px;
+        }
+
+        .goTop .item-1 {
+            font-size: 10px;
+            line-height: 14px;
+            height: 14px;
+        }
+
+        .goTop .drift .m_sinia, .goTop .item .drift-box {
+            overflow: visible;
+            position: absolute;
+            text-align: center;
+            background: #fff;
+            bottom: 0
+        }
+
+        .goTop .item:hover .drift-box {
+            display: block
+        }
+
+        .goTop .item .drift-box {
+            right: 38px;
+            font-size: 14px;
+            color: #666;
+            display: none;
+            padding-right: 30px
+        }
+
+        .goTop .item:hover, .goTop a:hover, .red {
+            color: red
+        }
+
+        .goTop .drift .m_sinia, .goTop .item .drift {
+            padding: 15px 0;
+            border: 1px solid #ccc
+        }
+
+        .goTop .drift .m_siniabox {
+            width: 160px;
+            line-height: 22px;
+            display: block
+        }
+
+        .goTop .drift .m_sinia {
+            right: 60px
+        }
+
+        .goTop a {
+            display: block
+        }
+
+        .AC {
+            text-align: center
+        }
+
+        .AC > div {
+            display: inline-block
+        }
+
+        .AC > div img {
+            /*width: 88px;*/
+            height: 32px;
+            margin: 0 2px
+        }
+
+        #tclActivity, #shadowtcl {
+            display: none;
+        }
+    </style>
+    <div class="help">
+        <div class="min-wid">
+            <dl>
+                <dt>帮助中心</dt>
+                <dd>
+                    <a target="_blank" rel="nofollow" href="http://www.tcl.com/pages/service/toHelp.html?hid=1">购物指南</a>
+                </dd>
+                <dd>
+                    <a target="_blank" rel="nofollow" href="http://www.tcl.com/pages/service/toHelp_pay.html">支付方式</a>
+                </dd>
+                <dd>
+                    <a target="_blank" rel="nofollow" href="http://www.tcl.com/pages/service/toHelp_send.html">配送方式</a>
+                </dd>
+                <dd>
+                    <a target="_blank" rel="nofollow" href="http://www.tcl.com/pages/service/toHelp_terms.html">交易条款</a>
+                </dd>
+                <dd>
+                    <a target="_blank" rel="nofollow"
+                       href="http://www.tcl.com/pages/service/toHelp_invoice.html">电子发票</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>服务支持</dt>
+                <dd>
+                    <a target="_blank" rel="nofollow"
+                       href="http://www.tcl.com/page/serviceRevision/policy?id=56d4f28d21ca473f871a3b845f61aee9">售后服务</a>
+                </dd>
+                <dd>
+                    <a target="_blank" rel="nofollow"
+                       href="http://www.tcl.com/pages/serviceRevision/repair.html">自助服务</a>
+                </dd>
+                <dd>
+                    <a target="_blank" rel="nofollow"
+                       href="http://www.tcl.com/pages/service-home/index.html#query-wrapper">进度查询</a>
+                </dd>
+                <dd>
+                    <a target="_blank" rel="nofollow" href="http://fans.tcl.com/uec/operation">用户体验中心</a>
+                </dd>
+                <dd>
+                    <a target="_blank" style="color:red" rel="nofollow"
+                       href="http://www.tcl.com/pages/serviceRevision/autoCheck.html">视频教程</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>客户服务</dt>
+                <dd><a style="color:red" target="_blank" href="http://staff.tcl.com/" rel="nofollow">内购平台</a></dd>
+                <dd><a target="_blank" href="http://www.tcl.com/pages/bulkpurchase/newBulkpurchase.html" rel="nofollow">企业采购</a>
+                </dd>
+                <dd><a target="_blank" rel="nofollow" href="http://www.tcl.com/dealer/toLogin">经销商之家</a></dd>
+                <dd><a target="_blank" href="http://www.shifendaojia.com/index.html" rel="nofollow">十分到家</a></dd>
+            </dl>
+            <dl>
+                <dt>关注我们</dt>
+                <dd><a target="_blank" rel="nofollow" href="http://www.tcl.com/pages/connectWithUs/connectWithUs.html">联系我们</a>
+                </dd>
+                <dd><a target="_blank" rel="nofollow" class="botSina"
+                       href="http://weibo.com/tcljituan?topnav=1&amp;wvr=6&amp;topsug=1&amp;is_hot=1">官方微博</a></dd>
+                <dd><a target="_blank" rel="nofollow" href="http://fans.tcl.com/">铁粉社区</a></dd>
+            </dl>
+            <dl>
+                <dt>应用服务</dt>
+                <dd><a target="_blank" href="http://www.leiniao.com/" rel="nofollow">雷鸟</a></dd>
+                <dd><a target="_blank" href="http://www.huan.tv/" rel="nofollow">欢网</a></dd>
+                <dd><a target="_blank" href="https://jr.tcl.com/home.html" rel="nofollow">金融</a></dd>
+                <dd><a target="_blank" href="http://www.imooc.com/" rel="nofollow">教育</a></dd>
+                <dd><a target="_blank" href="http://www.golive-tv.com/" rel="nofollow">全球播</a></dd>
+                <!--<dd><a target="_blank" href="http://www.tcl-smarthome.com/" rel="nofollow">智能家居</a></dd>-->
+            </dl>
+            <dl>
+                <dt>TCL官网商城</dt>
+                <dd><img style="height:120px;width:120px;"
+                         src="{% static '/index/images/wechat.jpg' %}">
+                </dd>
+            </dl>
+            <dl class="last-r">
+                <p class="red phone">4008-123456</p>
+                <p class="grey">（24小时在线，仅收市话费）</p>
+                <a href="http://www.tcl.com/pages/service/customerServiceKuyu.html" target="_self"
+                   rel="nofollow"><i></i>24小时在线客服</a>
+            </dl>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <div class="foot-logo"></div>
+            <p class="blod"><a target="_blank" href="http://www.tcl.com/group/companyInfo/index"
+                               rel="nofollow">关于TCL</a>|<a target="_blank" rel="nofollow"
+                                                           href="http://www.tcl.com/group/investors/index">投资者关系</a>|<a
+                    target="_blank" rel="nofollow" href="http://www.tcl.com/group/societyDuty/index">社会责任</a>|<a
+                    target="_blank" rel="nofollow" href="http://www.tcl.com/group/news/index">新闻中心</a>|<a
+                    target="_blank" rel="nofollow" href="http://zhaopin.tcl.com/">人才招聘</a>|<a rel="nofollow"
+                                                                                              target="_blank"
+                                                                                              href="http://www.tcl.com/group/companyInfo/slipPath?type=6">成员网站</a>
+            </p>
+            <p>©2010-2018 TCL CORPORATION All Rights Reserved. TCL集团股份有限公司版权所有 粤ICP备05040863号<a target="_blank"
+                                                                                                rel="nofollow"
+                                                                                                class="marginL"
+                                                                                                href="http://www.tcl.com/pages/low/content.html">使用条款</a>|<a
+                    target="_blank" rel="nofollow" href="http://www.tcl.com/group/companyInfo/slipPath?type=5">法律声明</a>|<a
+                    target="_blank" rel="nofollow" href="http://user.tcl.com/group/companyInfo/slipPath?type=4">隐私保护</a>
+            </p>
+            <p><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44133002100088" rel="nofollow"><img
+                    style="margin: -3px 3px 0 0; width:16px;"
+                    src="{% static '/index/images/beian.png' %}">粤网公安备案44133002100088号</a>
+            </p>
+            <div class="foot-r">
+                <div class="language">
+                    <a href="http://www.tcl.com/pages/index/index.html" rel="nofollow" class="lang-item active">中文简体</a>|<a
+                        rel="nofollow" href="http://news.tcl.com/English.php/index/index.html" class="lang-item ">English</a>
+                </div>
+            </div>
+            <div class="AC">
+                <div><img
+                        src="{% static '/index/images/credibility.png' %}">
+                </div>
+                <div><a href="http://wljg.gdgs.gov.cn/corpsrch.aspx?key=440000000011990" target="_blank" title="企业名称：TCL集团股份有限公司
+法定代表人：李东生
+标识状态：已激活 粤工商备P131801001423"><img
+                        src="{% static '/index/images/gdgs.png' %}"
+                        alt="" style="border:0;"></a></div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static '/index/js/vendor.js' %}"></script>
+    <script src="{% static '/index/js/core.js' %}"></script>
+    <script src="{% static '/index/js/config.js' %}"></script>
+    <script src="{% static '/index/js/header-df28c22ffd.js' %}"></script>
+    <!--统计代码-->
+{#    <script type="text/javascript">#}
+{#        !function (e, t, n, g, i) {#}
+{#            e[i] = e[i] || function () {#}
+{#                (e[i].q = e[i].q || []).push(arguments)#}
+{#            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)#}
+{#        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");#}
+{#        gio('init', '9f54f1ba402ad7b8', {});#}
+{##}
+{#        gio('send');#}
+{#    </script>#}
+
+{#    <script>#}
+{#        //百度的#}
+{#        var _hmt = _hmt || [];#}
+{#        if (location.host.indexOf('.tcl.com') > -1) {//只对生产环境产生统计#}
+{#            (function () {#}
+{#                var hm = document.createElement("script");#}
+{#                hm.src = "https://hm.baidu.com/hm.js?34c66f7b3d3ed0d0791c81ebe5ee7340";#}
+{#                var s = document.getElementsByTagName("script")[0];#}
+{#                s.parentNode.insertBefore(hm, s);#}
+{#            })();#}
+{#        }#}
+{#        //广告监测#}
+{#        !(function (a, b, c, d, e, f) {#}
+{#            var g = "", h = a.sessionStorage, i = "__admaster_ta_param__", j = "tmDataLayer" !== d ? "&dl=" + d : "";#}
+{#            if (a[f] = {}, a[d] = a[d] || [], a[d].push({startTime: +new Date, event: "tm.js"}), h) {#}
+{#                var k = a.location.search,#}
+{#                    l = new RegExp("[?&]" + i + "=(.*?)(&|#|$)").exec(k) || [];#}
+{#                l[1] && h.setItem(i, l[1]), l = h.getItem(i), l && (g = "&p=" + l + "&t=" + +new Date)#}
+{#            }#}
+{#            var m = b.createElement(c), n = b.getElementsByTagName(c)[0];#}
+{#            m.src = "//tag.cdnmaster.cn/tmjs/tm.js?id=" + e + j + g,#}
+{#                m.async = !0, n.parentNode.insertBefore(m, n)#}
+{#        })(window, document, "script", "tmDataLayer", "TM-I92QS0", "admaster_tm");#}
+{#    </script>#}
+
+</div>
+<script type="text/javascript">
+    $(function () {
+        var goTop = `<div class="goTop">
+                            <a href="javascript:void(0);" onclick="NTKF.im_openInPageChat('kf_9428_1477382778975')">
+                                <div class="item"></div>
+                            </a>
+                            <a onclick="$('body,html').animate({scrollTop: 0 },500);"></a>
+                        </div>`
+        $('body').append(goTop)
+    });
+    // 如果node层接口错误,补全底部
+    var owHost = "http://www.tcl.com";
+    var footer = $('.officeFooter').eq(0);
+    if (footer.length && !footer.html().trim()) {
+        $.ajax({
+            method: 'GET',
+            url: owHost + '/api/html/footer',
+            success: function (data) {
+                footer.html(data);
+            }
+        });
+    }
+</script>
+
+
+<div class="goTop">
+    <a href="javascript:void(0);" onclick="NTKF.im_openInPageChat('kf_9428_1477382778975')">
+        <div class="item"></div>
+    </a>
+    <a onclick="$('body,html').animate({scrollTop: 0 },500);"></a>
+</div>
+<script src="{% static '/index/js/verifyUsernameToken.js' %}"></script>
+<script type="text/javascript" id="">
+    var _jcq = _jcq || [];
+    _jcq.enableHeatmap = true;
+    _jcq.push(['_setAccount', '9cbb0f997bbd40b4b40a3e5bf923b179']);
+    _jcq.push(['_pageview']);
+
+    (function () {
+        var jc = document.createElement('script');
+        jc.async = true;
+        jc.src = '//' + 'cdn.jice.io/js/jice.min.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(jc, s);
+    })();
+</script>
+<script type="text/javascript" id="">var _smq = _smq || [];
+_smq.push(['_setAccount', '57d4eaa', new Date()]);
+_smq.push(['pageview']);
+(function () {
+    var sm = document.createElement('script');
+    sm.type = 'text/javascript';
+    sm.async = true;
+    sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'site.cdnmaster.cn/sitemaster/collect.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(sm, s);
+})(); </script>
+<script type="text/javascript" id="">
+    var _jcq = _jcq || [];
+    _jcq.enableHeatmap = true;
+    _jcq.push(['_setAccount', '9cbb0f997bbd40b4b40a3e5bf923b179']);
+    _jcq.push(['_pageview']);
+
+    (function () {
+        var jc = document.createElement('script');
+        jc.async = true;
+        jc.src = '//' + 'cdn.jice.io/js/jice.min.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(jc, s);
+    })();
+</script>
+<script type="text/javascript" id="">var _smq = _smq || [];
+_smq.push(['_setAccount', '57d4eaa', new Date()]);
+_smq.push(['pageview']);
+(function () {
+    var sm = document.createElement('script');
+    sm.type = 'text/javascript';
+    sm.async = true;
+    sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'site.cdnmaster.cn/sitemaster/collect.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(sm, s);
+})(); </script>
+</body>
+</html>

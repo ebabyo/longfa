@@ -1,0 +1,695 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% block head %}
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>TCL - 订单信息</title>
+        <meta name="description" content="TCL">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords"
+              content="TCL,TCL商城,TCL集团,TCL官方商城,TCL官网商城,TCL官网,TCL官方网站,TCL官方旗舰店,TCL旗舰店,TCL商城旗舰店,TCL网上商城,TCL电视,TCL曲面4K,TCL 4K,TCL Hero,TCL智能电视,TCL手机,TCL洗衣机,TCL空调,TCL冰箱,么么哒,TV+,娱乐TV+,芒果TV">
+        <meta name="description"
+              content="TCL官方商城(www.tcl.com)是TCL集团的网上购物商城,我们提供正品TCL电视,手机,洗衣机,空调,冰箱,配件等TCL产品。全国包邮、正品低价、快速送达、提供正规发票。">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="renderer" content="webkit">
+        <link rel="icon" href="http://www.tcl.com/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="http://www.tcl.com/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="{% static '/index/css/global.css' %}">
+        <link rel="stylesheet" href="{% static '/index/css/channel.css' %}">
+        <link rel="stylesheet" href="{% static '/index/css/style.css' %}">
+        <link rel="stylesheet" href="{% static '/index/css/common.css' %}">
+        <!--[if (IE 9)|(IE 8) ]>
+		<script src="../../app/js/ie9.js"></script>
+		<![endif]-->
+        <style type="text/css">
+            .active {
+                border: 1px solid red !important;
+            }
+
+            .m_fullcut span {
+                background: #ff0000;
+                color: #fff;
+                padding: 0 15px;
+                line-height: 26px;
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+            .myform_control {
+                border: 1px solid #e5e5e5;
+                background: #fff;
+                padding: 9px 18px;
+                font: 14px/20px "microsoft YaHei";
+                color: #333;
+                width: 200px;
+                height: 40px;
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .checkbox {
+                border-radius: 25px;
+            }
+
+            .btn {
+                cursor: pointer;
+            }
+        </style>
+        <!--[if (IE 9)|(IE 8) ]>
+		<script src="../../app/js/ie9.js"></script>
+		<![endif]-->
+        <style type="text/css">.full-html, .full-body {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+        }
+
+        .full-body * {
+            display: none !important;
+        }
+
+        .full-iframe {
+            display: block !important;
+        }
+
+        .full-inpage {
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+            background: rgb(243, 243, 247) !important;
+        }
+
+        .full-inpage > *:not(.ntalk-mobile-inpage-background) {
+            display: none !important;
+        }</style>
+        <script type="text/javascript" async="" src="{% static '/index/js/ntkfstat.js' %}"></script>
+        <script type="text/javascript" async="" src="{% static '/index/js/collect.js' %}"></script>
+        <script async="" src="{% static '/index/js/jice.js' %}"></script>
+        <script async="" src="{% static '/index/js/gio.js' %}"></script>
+        <script src="{% static '/index/js/tm.js' %}" async=""></script>
+        <script src="{% static '/index/js/hm.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+                data-requiremodule="KUYU.Service"
+                src="{% static '/index/js/service.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+                data-requiremodule="KUYU.SlideBarLogin" src="{% static '/index/js/slideBarLogin.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Header"
+                src="{% static '/index/js/header.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+                data-requiremodule="KUYU.navHeader"
+                src="{% static '/index/js/navHeader.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="juicer"
+                src="{% static '/index/js/juicer.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="xss"
+                src="{% static '/index/js/xss.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+                data-requiremodule="KUYU.plugins.alert" src="{% static '/index/js/alert.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Binder"
+                src="{% static '/index/js/binder.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+                data-requiremodule="KUYU.navFooterLink" src="{% static '/index/js/navFooterLink.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+                data-requiremodule="KUYU.netBridge"
+                src="{% static '/index/js/netBridge.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Util"
+                src="{% static '/index/js/util.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Store"
+                src="{% static '/index/js/store.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+                data-requiremodule="KUYU.userInfo"
+                src="{% static '/index/js/userInfo.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="placeholder"
+                src="{% static '/index/js/placeholder.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="base64"
+                src="{% static '/index/js/base64.js' %}"></script>
+        <link rel="stylesheet" type="text/css" media="screen" href="{% static '/index/css/alert.css' %}">
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Filter"
+                src="{% static '/index/js/filter.js' %}"></script>
+        <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+                data-requiremodule="KUYU.Control"
+                src="{% static '/index/js/control.js' %}"></script>
+        <script type="text/javascript" async="async" charset="utf-8"
+                src="{% static '/index/js/userinfo.js' %}"></script>
+        <script type="text/javascript" async="async" charset="utf-8" src="{% static '/index/js/zh_cn.js' %}"
+                data-requiremodule="lang"></script>
+        <script type="text/javascript" async="async" charset="utf-8" src="{% static '/index/js/chat.js' %}"
+                data-requiremodule="chatManage"></script>
+        <script type="text/javascript" async="async" charset="utf-8" src="{% static '/index/js/mqtt31.js' %}"
+                data-requiremodule="MQTT"></script>
+        <script type="text/javascript" async="async" charset="utf-8" src="{% static '/index/js/mqtt.js' %}"
+                data-requiremodule="Connection"></script>
+    </head>
+{% endblock head %}
+
+<body>
+<!--头部-->
+<!--判断是否编辑增值发票的判断-->
+<input type="hidden" id="acompanyName" value="">
+<input type="hidden" id="acode" value="">
+<input type="hidden" id="aaddress" value="">
+<input type="hidden" id="aregisterMobile" value="">
+<input type="hidden" id="abankName" value="">
+<input type="hidden" id="abankNo" value="">
+<input type="hidden" id="couponNum_" value="">
+<!-- Top html start -->
+<!--头部 end-->
+{% block content %}
+    <form action="" id="orderForm" method="post">
+        <!-- 	经销商引导单 -->
+        <div class="mask j-mask" id="mask-address"
+             style="opacity: 1; z-index: 1501; visibility: visible; display: none;"></div>
+        <div class="mask j-mask" id="mask-ele"></div>
+        <div class="mask j-mask" id="mask-inv"></div>
+        <div class="box gray-back" id="showAddress"><input type="hidden" name="checkArea" id="checkArea" value="">
+            <!-- contrast html start -->
+            <div class="address">
+                <h3>收货地址</h3>
+                <ul class="add-box clearfloat"><input type="hidden" id="receiverName_7487eaf488894395a7be05dfd8511b48"
+                                                      value="啊"> <input type="hidden"
+                                                                        id="receiverAddress_7487eaf488894395a7be05dfd8511b48"
+                                                                        value="爱上但是是"> <input type="hidden"
+                                                                                              id="receiverArea_7487eaf488894395a7be05dfd8511b48"
+                                                                                              value="香港特别行政区九龙观塘区九龙湾">
+                    <input type="hidden" id="receiverMobile_7487eaf488894395a7be05dfd8511b48" value="13555555555">
+                    <li class="item new">
+                        <p class="add-address" id="newAddress"><span class="line"></span> <span class="v-line"></span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <!-- contrast html end -->
+        </div>
+        <div class="order">
+            <ul class="order-ul clearfloat">
+                <!-- 支付方式 -->
+                <li class="item">
+                    <div class="fl name-text">支付方式</div>
+                    <div class="fl"><span class="order-tab red">在线支付(支持支付宝、微信、银联等)</span></div>
+                </li>
+                <!-- 配送方式 -->
+                <li class="item">
+                    <div class="fl name-text">配送方式</div>
+                    <div class="fl mar-l red">快递配送 （全场免运费）</div>
+                </li>
+                <!-- 发票 -->
+                <li class="item">
+                    <div class="fl line-h name-text">发票</div>
+                    <input type="hidden" name="invoiceCate" id="invoiceCate" value="2">
+                    <div class="fl  mar-l"><span class="order-but ele active" id="elei">电子发票</span> <span
+                            class="order-but inc" id="inci">增值税发票</span></div>
+                    <div class="invoice-name">发票抬头：小白</div>
+                    <div class="shouInvoice-tip">电子发票法律效力、基本用途及使用规定同纸质发票。不随商品寄送。
+                        <a href="javascript:;" class="elehide">什么是电子发票<i>?</i></a>
+                        <div class="tip-dialog" style="display: none;">
+                            <ul class="clearfix">
+                                <li>感谢您选择电子发票，电子发票是税局认可的有效付款凭证，其法律效力、基本用户及使用规定同纸质发票，可作为用户维权、保修的有效凭据。如需纸质发票可自行下载打印；</li>
+                                <li>您在订单详情的"发票信息"栏可查看、下载您的电子发票。</li>
+                            </ul>
+                            <a target="_blank" href="http://www.tcl.com/pages/service/toHelp.html?hid=5">了解详情 &gt;</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!--商品及优惠卷-->
+            <div class="item">
+                <div class="name-text"> 商品和优惠券<span class="fr">  <a
+                        href="{% url 'app:shopcar' %}">返回购物车</a>  </span>
+                </div>
+                <div class="discount" id="showStores">
+                    <div class="red font10 warning" style="display: none;">抱歉，您购物车中的部分商品或者赠品暂时缺货，请选择其他送货地区或者购买其他商品</div>
+                    <input type="hidden" name="affix_03d03b6b05604c5cb065aef65b72972e"
+                           id="affix_03d03b6b05604c5cb065aef65b72972e" value="0"><input type="hidden"
+                                                                                        name="shipType_03d03b6b05604c5cb065aef65b72972e"
+                                                                                        id="shipType_03d03b6b05604c5cb065aef65b72972e"
+                                                                                        value="1"><input type="hidden"
+                                                                                                         name="cartTotal_03d03b6b05604c5cb065aef65b72972e"
+                                                                                                         id="cartTotal_03d03b6b05604c5cb065aef65b72972e"
+                                                                                                         value="42297.00"><input
+                        type="hidden" name="storeReduce_03d03b6b05604c5cb065aef65b72972e"
+                        id="storeReduce_03d03b6b05604c5cb065aef65b72972e" value="0.00"><input type="hidden"
+                                                                                              name="storeUuid"
+                                                                                              id="storeUuid"
+                                                                                              value="03d03b6b05604c5cb065aef65b72972e"><input
+                        type="hidden" name="productUuid" value="ebb9d75a94eb49658646e0f5c652619a"><input type="hidden"
+                                                                                                         name="productCost"
+                                                                                                         value="3299"><input
+                        type="hidden" name="productPrice_TP001020102020100291" value="2299.00"><input type="hidden"
+                                                                                                      name="productBasePrice_TP001020102020100291"
+                                                                                                      value="3299"><input
+                        type="hidden" name="productNowPrice_TP001020102020100291" value="2299"><input type="hidden"
+                                                                                                      name="productNum_TP001020102020100291"
+                                                                                                      value="1">
+                    {#                <div class="count-item">#}
+                    {#                    <dl class="clearfloat">#}
+                    {#                        <dt class="pro-text"><img src="{% static '/index/asc/0000733954.asc' %}"#}
+                    {#                                                  style="width:50px;height:50px">TCL10公斤洗烘一体全自动滚筒洗衣机<br></dt>#}
+                    {#                        <dd class="num-text">3299元 x1</dd>#}
+                    {#                        <dd class="goo-text" productuuid="ebb9d75a94eb49658646e0f5c652619a"></dd>#}
+                    {#                        <dd class="pri-text">2299.00元<s style="color:gray;font-size:12px;"> 3299.00元</s></dd>#}
+                    {#                    </dl>#}
+                    {#                </div>#}
+                    {#                <input type="hidden" name="productUuid" value="b47090477bfd49fa95c7124d8685ffa2"><input type="hidden"#}
+                    {#                                                                                                        name="productCost"#}
+                    {#                                                                                                        value="39998"><input#}
+                    {#                    type="hidden" name="productPrice_TP002016112810100398" value="39998.00"><input type="hidden"#}
+                    {#                                                                                                   name="productBasePrice_TP002016112810100398"#}
+                    {#                                                                                                   value="19999"><input#}
+                    {#                    type="hidden" name="productNowPrice_TP002016112810100398" value="19999"><input type="hidden"#}
+                    {#                                                                                                   name="productNum_TP002016112810100398"#}
+                    {#                                                                                                   value="2">#}
+
+                    <div class="count-item">
+                        {#                     {% for i in goods %}#}
+                        {#                         {% for j in pictures %}#}
+                        {#                             {% ifequal i.number j.number %}#}
+                        <dl class="clearfloat">
+                            <dt class="pro-text"><img src="{{ pictures.path }}"
+                                                      style="width:50px;height:50px">{{ goods.gname }}<br></dt>
+                            <dd class="num-text">{{ goods.price }} x{{ geshu }}</dd>
+                            <dd class="goo-text" productuuid="b47090477bfd49fa95c7124d8685ffa2"></dd>
+                            <dd class="pri-text">{{ money }}元</dd>
+                        </dl>
+                        {#                             {% endifequal %}#}
+                        {#                         {% endfor %}#}
+                        {#                    {% endfor %}#}
+                    </div>
+                    <input type="hidden" id="hdn_promotion_reduce_money" value="0"><input type="hidden"
+                                                                                          id="hdn_real_total_money"
+                                                                                          value="42297"><input
+                        type="hidden"
+                        id="hdn_real_total_num0"
+                        value="3"><input
+                        type="hidden" name="totalmoney" id="totalmoney0" value="{{ totalmoney }}"><input type="hidden"
+                                                                                                         id="couponemmoney"
+                                                                                                         value="200">
+
+
+                    <div class="new_discount"><h3 id="showCouponTable_03d03b6b05604c5cb065aef65b72972e"><s></s>使用优惠券
+                    </h3>
+                        <div id="couponTable_03d03b6b05604c5cb065aef65b72972e" class="new_pop" style="display:none">
+                            <div class="tit"><h4 class="active" id="coupon_">优惠券</h4><i></i><h4 id="couponCode">
+                                优惠券码</h4>
+                            </div>
+                            <div class="new_discount_tab" id="coupTab1">
+                                <div style="max-height: 215px;overflow-y: scroll;">
+                                    <table class="m_table">
+                                        <tbody>
+                                        <tr>
+                                            <td class="new_box_wid" style="width:40px;"><span class="checkbox m_odd"
+                                                                                              name="storeCoupon_03d03b6b05604c5cb065aef65b72972e"
+                                                                                              id="098c573a2bd740c8a47ed7cb0139d9ac"
+                                                                                              storeuuid="03d03b6b05604c5cb065aef65b72972e"
+                                                                                              denomination="200"
+                                                                                              isusecoupon="-35797"></span>
+                                            </td>
+                                            <td style="width:165px;">满6500减200</td>
+                                            <td style="width:225px;">有效期至2019-08-31 23:39:00</td>
+                                            <td>可以使用该劵</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="new_box_wid" style="width:40px;"><span class="checkbox m_odd"
+                                                                                              name="storeCoupon_03d03b6b05604c5cb065aef65b72972e"
+                                                                                              id="383a0b23094b4fc2bec3fe77bc463dfc"
+                                                                                              storeuuid="03d03b6b05604c5cb065aef65b72972e"
+                                                                                              denomination="200"
+                                                                                              isusecoupon="-35797"></span>
+                                            </td>
+                                            <td style="width:165px;">满6500减200</td>
+                                            <td style="width:225px;">有效期至2019-08-31 23:39:00</td>
+                                            <td>可以使用该劵</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="new_box_wid" style="width:40px;"><span class="checkbox m_odd"
+                                                                                              name="storeCoupon_03d03b6b05604c5cb065aef65b72972e"
+                                                                                              id="576346f0ef6746138271f8c53dee02db"
+                                                                                              storeuuid="03d03b6b05604c5cb065aef65b72972e"
+                                                                                              denomination="200"
+                                                                                              isusecoupon="-35797"></span>
+                                            </td>
+                                            <td style="width:165px;">满6500减200</td>
+                                            <td style="width:225px;">有效期至2019-08-31 23:39:00</td>
+                                            <td>可以使用该劵</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="new_box_wid" style="width:40px;"><span class="checkbox m_odd"
+                                                                                              name="storeCoupon_03d03b6b05604c5cb065aef65b72972e"
+                                                                                              id="635fd52e7b874fc5879eb43bfc01e9c3"
+                                                                                              storeuuid="03d03b6b05604c5cb065aef65b72972e"
+                                                                                              denomination="30"
+                                                                                              isusecoupon="-40797"></span>
+                                            </td>
+                                            <td style="width:165px;">满1500减30</td>
+                                            <td style="width:225px;">有效期至2019-08-31 23:59:00</td>
+                                            <td>可以使用该劵</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="new_box_wid" style="width:40px;"><span
+                                                    class="checkbox m_odd active"
+                                                    name="storeCoupon_03d03b6b05604c5cb065aef65b72972e"
+                                                    id="bdc31e658bd149319f279076ab46de05"
+                                                    storeuuid="03d03b6b05604c5cb065aef65b72972e"
+                                                    denomination="200"
+                                                    isusecoupon="-35797"></span>
+                                            </td>
+                                            <td style="width:165px;">满6500减200</td>
+                                            <td style="width:225px;">有效期至2019-08-31 23:39:00</td>
+                                            <td>可以使用该劵</td>
+                                        </tr>
+                                        <input type="hidden" name="storeCouponReduce_03d03b6b05604c5cb065aef65b72972e"
+                                               value="200"><input type="hidden"
+                                                                  name="storeCoupon_03d03b6b05604c5cb065aef65b72972e"
+                                                                  value="bdc31e658bd149319f279076ab46de05"></tbody>
+                                    </table>
+                                </div>
+                                <div style="color:#ff0000;cursor: pointer;" class="get-hide">收起</div>
+                            </div>
+                            <div class="new_discount_tab" style="display:none;">
+                                <div class="new_ipt"><input type="text" class="m_ipt"
+                                                            id="couponKeyPress_03d03b6b05604c5cb065aef65b72972e"><span
+                                        id="entityCouponId_03d03b6b05604c5cb065aef65b72972e"
+                                        storeuuid="03d03b6b05604c5cb065aef65b72972e" class="btn">确认</span><span
+                                        class="red new-prompt conpon"
+                                        id="couponKeyPressFirst_msg_03d03b6b05604c5cb065aef65b72972e">23132</span></div>
+                            </div>
+                        </div>
+                        <div class="new_pop" style="display: block;">
+                            <div class="new_discount_tab">
+                                <table class="m_table">
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:165px;padding-bottom:5px;" class="cou-name">满6500减200</td>
+                                        <td style="color:#FF0000;padding-bottom:5px;cursor: pointer;" class="get-more">
+                                            使用其他优惠券
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="remarks">
+                    <span class="txt mgl10 fl">备注</span>
+
+                    <textarea name="remarks" rows="8" cols="80" placeholder="请输入您的详细说明" maxlength="500"
+                              id="buyerMsg"></textarea>
+                    <p class="zishu" id="zishu"><i>0</i>/500</p>
+                    <p style="margin:20px 0 0 50px;font-size:12px;color:#999;">仅支持输入中文、英文、数字和，、。？！</p>
+                </div>
+            </div>
+            <input type="hidden" value="0" id="intetralMoneyShow">
+
+            <div class="myscore clearfix">
+
+                <input type="checkbox" class="checkinput js-scoreCheck"><input type="hidden" value="100"
+                                                                               id="proportion"><input type="hidden"
+                                                                                                      value="1"
+                                                                                                      id="proportion2">
+                <input
+                        type="hidden" value="1" id="percentage">
+                <input type="hidden" value="120" id="useMaxIntegral">
+                <input
+                        type="hidden" id="Integral" value="120"><input type="hidden" value="120" id="integral"><input
+                    type="hidden" value="egralToNow0000000021" id="jifenPromotionUUID" name="jifenPromotionUUID">
+                <div class="useScore fl  mgb70"></div>
+{#                <div class="useScoreDiv clearfix"><span class="txt fl mgt70 mgl10">使用积分#}
+{#                    <input type="text"#}
+{#                                                                                                     pattern="^[0-9]*$"#}
+{#                                                                                                     class="scoreNum js-scoreNum"#}
+{#                                                                                                     name="integralReduceNum"#}
+{#                                                                                                     id="integralReduceNum"#}
+{#                                                                                                     autocomplete="off">      #}
+{#                    <span>你有120积分可用,本次最多可使用<span#}
+{#                        class="totalScore js-totalScore">120</span>积分</span>       <div class="clear"></div>       <span#}
+{#                        class="tip redfont mgl70 fl hide js-tip">您最多使用120积分</span>   </span> #}
+{#                    <span#}
+{#                        class="txt fr mgt70  js-discount">-0.00元</span>#}
+{#                </div>#}
+{#                <div class="noScoreDiv hide"><span class="txt fl mgt70 mgl10 ">   使用<span#}
+{#                        class="totalScore">0</span>积分抵扣<span>0</span>元</span></div>#}
+                <input type="hidden" name="js-discount" id="js-discount" value=""></div>
+            <div class="item clearfloat">
+                <input type="hidden" value="42297" id="orderTotalMoney1">
+                <div id="showTotalMoney">
+
+                    <div class="item-wid">
+                        {#                    <p class="text">商品件数： <span class="red fr" id="real_total_num">{{ jianshu }}件</span></p>#}
+                        <p class="text">金额合计：<span class="red fr" id="real_total_money">{{ money }}元 </span></p>
+                        <p class="text">活动优惠：<span class="red fr" id="promotion_reduce_money">-500.00元</span></p>
+                        <p class="text">优惠券抵扣：<span class="red fr" id="coupon_reduce_money">{{ youhuiquan }}元</span></p>
+{#                        <p class="text">积分抵扣：<span class="red fr" id="integral_reduce_money">{{ jifen }}元</span></p>#}
+                        <p class="text">运费:<span class="red fr">{{ yunfei }}元</span></p>
+                        <p class="text red pay">应付总额：<span class="font24 fr"><input type="hidden" value="{{ money }}"
+                                                                                    name="totalMoneyShow"
+                                                                                    id="totalMoney"><strong
+                                id="totalMoneyShow" orginvalue="{{ money }}"
+                                choose-coupon="">{{ lastmoney }}元</strong></span></p>
+                    </div>
+                </div>
+                <form action="">
+                <div class="fr item-but">
+{#                    <button class="buy submit submitForm disabled" id="submitForm" type="button">提交订单</button>#}
+                    <a href="{{ url }}
+">提交订单</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </form>
+    <input type="hidden" id="checkcoupon" value="">
+    <!--3种弹框-->
+    <div id="addele" style="display: none">
+        <div class="message-box j-ele"
+             style="opacity: 1;filter: alpha(opacity=100); z-index: 1502; visibility: visible;">
+            <span class="close j-close" id="closeinv"></span>
+            <div class="invoice addIvoice ele i-ele" style="display: none;">
+                <h3 class="title">电子发票</h3>
+                <p></p>
+                <div class="en-select j-select">
+                    <!--<span class="inv">发票抬头:</span>-->
+                    <span class="arrow j-select-arrow"></span>
+                    <input type="text" maxlength="30" name="electron_titleContent" id="electron_titleContent"
+                           class="en-input j-select" placeholder="发票抬头（您填写的所有内容都将被系统自动打印到发票上，请如实填写。）" uuid="102200064"
+                           hasno="1" value="小白">
+                    <ul id="myul" class="select-list j-select-list" style="display: none;">
+                        <li class="select-item j-select-item" code="" customeraddressuuid="102200064">小白</li>
+                    </ul>
+                </div>
+                <p>
+                    <span class="red" id="eletitle"></span>
+                </p>
+                <p style="margin-left: 18px;">
+                    <!--<span class="nashuiren">纳税人识别号或统一社会信用代码:</span>-->
+                    <input type="hidden" id="invoiceContentHidden_03d03b6b05604c5cb065aef65b72972e"
+                           name="invoiceContentHidden_03d03b6b05604c5cb065aef65b72972e">
+                    <input type="text" name="electron_invoiceContent" id="electron_ratepayer"
+                           placeholder="纳税人识别号或统一社会信用代码（如您填写的发票抬头为企业名称，请务必填写）" class="text-val">
+                </p>
+                <p>
+                    <span class="red" id="eleratepayer"></span>
+                </p>
+                <!--<input type="text" style="color:#999" name="electron_invoiceContent" id="detail_P" id="electron_invoiceContent" value="商品明细" readonly="true" class="text-val">-->
+                <p></p>
+                <span class="red" id="eleemail"></span>
+                <span class="red" id="elemobile"></span>
+                <div class=" clearfix" style="padding: 0;">
+                    <div class="buy y_btn_custom" btntype="eleinvoice">保存</div>
+                    <div class="buy disabled y_close" btntype="eleinvoice">取消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addinc" style="display: none">
+        <div class="message-box j-inc"
+             style="opacity: 1;filter: alpha(opacity=100); z-index: 1502; visibility: visible;">
+            <span class="close j-close y_close" id="closeinv"></span>
+            <div class="invoice addIvoice inc i-inc" style="display: none;">
+                <h3 class="title">增值税发票</h3>
+                <input type="hidden" id="add_uuid" name="add_uuid" value="">
+                <span class="special-ticket invMargin">如需开具增值税专票，请务必联系官网在线客服，回复文字“增值税专票”，按照要求邮件提供相应开票资料即可。</span>
+                <p class="invMargin">
+                    <!--<span class="inv">发票抬头:</span>-->
+                    <input type="hidden" id="invoiceTitle_03d03b6b05604c5cb065aef65b72972e"
+                           name="invoiceTitle_03d03b6b05604c5cb065aef65b72972e" placeholder="公司名称" maxlength="30"
+                           class="form-control">
+                    <input type="text" name="add_companyName" id="add_companyName"
+                           placeholder="发票抬头（您填写的所有内容都将被系统自动打印到发票上，请如实填写。）" maxlength="30" class="text-val">
+                </p>
+                <!--<p class="proDetail">-->
+                <!--<input type="hidden" id="invoiceContentHidden_03d03b6b05604c5cb065aef65b72972e" name="invoiceContentHidden_03d03b6b05604c5cb065aef65b72972e">-->
+                <!--<input type="text"  style="color:#999" name="electron_invoiceContent" id="electron_invoiceContent" value="商品明细" readonly="true" class="text-val"> </p>-->
+                <p class="invMargin">
+                    <!--<span class="invShui">纳税人识别号:</span>-->
+                    <input type="text" name="add_code" id="add_code" placeholder="纳税人识别号" maxlength="30"
+                           class="text-val">
+                </p>
+                <p class="invMargin">
+                    <!--<span class="inv">注册地址:</span>-->
+                    <input type="text" name="add_address" id="add_address" placeholder="注册地址" maxlength="30"
+                           class="text-val"></p>
+                <p class="invMargin">
+                    <!--<span class="inv">注册电话:</span>-->
+                    <input type="text" name="add_registerMobile" id="add_registerMobile" placeholder="注册电话"
+                           maxlength="15"
+                           class="text-val"></p>
+                <p class="invMargin">
+                    <!--<span class="inv">开户银行:</span>-->
+                    <input type="text" name="add_bankName" id="add_bankName" placeholder="开户银行" maxlength="30"
+                           class="text-val"></p>
+                <p class="invMargin">
+                    <!--<span class="inv">银行账户:</span>-->
+                    <input type="text" name="add_bankNo" id="add_bankNo" placeholder="银行账户" maxlength="25"
+                           class="text-val">
+                </p> <span class="red" id="errortxt"></span>
+                <div class="buy-box" style="padding: 0;">
+                    <div class="buy y_btn_custom2" btntype="addinvoice">保存</div>
+                    <div class="buy disabled y_close" btntype="addinvoice">取消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="addressDiv" style="display: none;">
+        <div class="message-box j-address"
+             style="opacity: 1;filter: alpha(opacity=100); z-index: 1502; visibility: visible;">
+            <span class="close j-close"></span>
+            <form id="addAddressId" method="post" action="/usercenter/customeraddress/addAddress" aria-hidden="true">
+                <div class="invoice add-ress" style="display: none;">
+                    <h3 class="title">添加地址</h3>
+                    <input id="consigneeId" type="hidden" value="">
+                    <div class="text-box clearfloat">
+                        <label class="red">*</label>
+                        <div style="width: 98%; float: right;">
+                            <div>
+                                <input id="consignee" class="text-val" type="text" placeholder="收货人姓名" name="consignee">
+                            </div>
+                            <span id="address_consignee" style="color:red; "></span>
+                        </div>
+                    </div>
+                    <div class="text-box clearfloat">
+                        <label class="red">*</label>
+                        <div style="width: 98%; float: right;">
+                            <div class="form-group">
+                                <div id="provinces" class="col-sm-3"></div>
+                                <div id="areasId" class="col-sm-3"></div>
+                                <div id="regionsId" class="col-sm-3"></div>
+                                <div id="streets" class="col-sm-3"></div>
+                            </div>
+                            <span id="address_address4" style="color:red; "></span>
+                        </div>
+                    </div>
+                    <div class="text-box clearfloat"><label class="red">*</label>
+                        <div style="width: 98%; float: right;">
+                            <div>
+                            <textarea placeholder="请输入您的收获地址" style="resize: none" id="address" name="address"
+                                      class="text-area" maxlength="120"></textarea>
+                            </div>
+                            <span id="address_address" style="color:red; "></span>
+                        </div>
+                    </div>
+                    <div class="text-box clearfloat"><label class="red"></label>
+                        <div style="width: 98%; float: right;">
+                            <div>
+                                <input type="text" placeholder="邮编" id="zipcode" maxlength="6" name="zipcode"
+                                       class="text-val"></div>
+                            <span id="address_zipcode" style="color:red; "></span>
+                        </div>
+                    </div>
+                    <div class="text-box clearfloat"><label class="red">*</label>
+                        <div style="width: 98%; float: right;">
+                            <div>
+                                <input type="text" placeholder="请输入手机号码" maxlength="11" id="mobile" name="mobile"
+                                       class="text-val"></div>
+                            <span id="address_mobile" style="color:red; "></span>
+                        </div>
+                    </div>
+                    <div class="text-box clearfloat">
+                        <label class="red"></label>
+                        <div style="width: 98%; float: right;">
+                            <div>
+                                <input type="text" placeholder="区号-电话号码" id="telephone" name="telephone" maxlength="15"
+                                       class="text-val"></div>
+                            <span id="address_telephone" style="color:red; "></span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="addresstitle" id="addresstitle" value="">
+                    <div class="buy-box" style="padding:0">
+                        <button type="button" class="buy y_btn_custom1">保存</button>
+                        <button type="button" class="buy disabled">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+<!-- <div class="message-box j-editaddress"> <span class="close j-close"></span> <form id="addAddressId" method="post" action="#" > </form> </div> -->
+<!--底部-->
+<!-- Help center html start -->
+{% block beian %}
+    <p><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44133002100088" rel="nofollow"><img
+            style="margin: -3px 3px 0 0; width:16px;" src="{% static '/index/images/beian.png' %}">粤网公安备案44133002100088号</a>
+    </p>
+{% endblock beian %}
+<!-- Help center html end -->
+<!-- footer html end -->
+
+<!-- footer html end -->
+{% block script1 %}
+    <script type="text/javascript" async="" src="{% static '/index/js/ntkfstat.js' %}"></script>
+    <script>
+        (function () {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = (location.protocol == 'https:' ? 'https:' : 'http:') + '//dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9428';
+            var firstScript = document.getElementsByTagName('script')[0];
+            firstScript.parentNode.insertBefore(s, firstScript);
+        })();
+    </script>
+{% endblock script1 %}
+<!--<script type="text/javascript" src="http://dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9428" charset="utf-8"></script>-->
+{% block script %}
+    <script src="{% static '/index/js/vendor.js' %}"></script>
+    <script src="{% static '/index/js/core.js' %}"></script>
+    <script src="{% static '/index/js/config.js' %}"></script>
+    <script src="{% static '/index/js/pro-elinvoice-ae63cd827c.js' %}"></script>
+    <script src="{% static '/index/js/pro-invoice-6eb2427d62.js' %}"></script>
+    <script src="{% static '/index/js/pro-address-62e66cdb31.js' %}"></script>
+    <script src="{% static '/index/js/coupons-808469692e.js' %}"></script>
+    <script src="{% static '/index/js/saveOrder-2115adac6b.js' %}"></script>
+
+    <div id="nTalk_post_hiddenElement"
+         style="left: -10px; top: -10px; visibility: hidden; display: none; width: 1px; height: 1px;"></div>
+    <script type="text/javascript" id="">
+        var _jcq = _jcq || [];
+        _jcq.enableHeatmap = true;
+        _jcq.push(['_setAccount', '9cbb0f997bbd40b4b40a3e5bf923b179']);
+        _jcq.push(['_pageview']);
+
+        (function () {
+            var jc = document.createElement('script');
+            jc.async = true;
+            jc.src = '//' + 'cdn.jice.io/js/jice.min.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jc, s);
+        })();
+    </script>
+    <script type="text/javascript" id="">var _smq = _smq || [];
+    _smq.push(['_setAccount', '57d4eaa', new Date()]);
+    _smq.push(['pageview']);
+    (function () {
+        var sm = document.createElement('script');
+        sm.type = 'text/javascript';
+        sm.async = true;
+        sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'site.cdnmaster.cn/sitemaster/collect.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(sm, s);
+    })(); </script>
+{% endblock script %}
+
+</body>
+</html>

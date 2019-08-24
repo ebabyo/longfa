@@ -1,0 +1,415 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block head %}
+<head>
+    <script type="text/javascript" async=""
+            src="{% static '/index/js/ntkfstat.js' %}"></script>
+    <script type="text/javascript" async=""
+            src="{% static '/index/js/collect.js' %}"></script>
+    <script async="" src="{% static '/index/js/jice.js' %}"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TCL-购物车列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords"
+          content="TCL,TCL商城,TCL集团,TCL官方商城,TCL官网商城,TCL官网,TCL官方网站,TCL官方旗舰店,TCL旗舰店,TCL商城旗舰店,TCL网上商城,TCL电视,TCL曲面4K,TCL 4K,TCL Hero,TCL智能电视,TCL手机,TCL洗衣机,TCL空调,TCL冰箱,么么哒,TV+,娱乐TV+,芒果TV">
+    <meta name="description"
+          content="TCL官方商城(www.tcl.com)是TCL集团的网上购物商城,我们提供正品TCL电视,手机,洗衣机,空调,冰箱,配件等TCL产品。全国包邮、正品低价、快速送达、提供正规发票。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="360-site-verification" content="648523929a97ca92a6c1fa942ebf1e18">
+    <link rel="icon" href="http://www.tcl.com/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.tcl.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '/index/css/global.css' %}">
+    <link rel="stylesheet" href="{% static '/index/css/channel.css' %}">
+    <style type="text/css">
+        .m_fullcut span {
+            background: #ff0000;
+            color: #fff;
+            padding: 0 15px;
+            line-height: 26px;
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .myform_control {
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            padding: 9px 18px;
+            font: 14px/20px "microsoft YaHei";
+            color: #333;
+            width: 200px;
+            height: 40px;
+            padding-left: 14px;
+            padding-right: 14px;
+        }
+
+        .shopping .mart30 {
+            padding-top: 44px;
+            display: block;
+        }
+    </style>
+    <!--[if (IE 9)|(IE 8) ]>
+    <script src="../../app/js/ie9.js"></script>
+    <![endif]-->
+    <!--[if IE 8 ]>
+        <style>
+            .price-box{margin-top:30px}
+        </style>
+    <![endif]-->
+    <script async="" id="madv2014rtg" type="text/javascript"
+            src="{% static '/index/html/Rtgdir2-min.html' %}"></script>
+    <script async="" src="{% static '/index/js/gio.js' %}"></script>
+    <script src="{% static '/index/js/tm.js' %}" async=""></script>
+    <script src="{% static '/index/js/hm.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+            data-requiremodule="KUYU.plugins.alert"
+            src="{% static '/index/js/alert.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="juicer"
+            src="{% static '/index/js/juicer.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Store"
+            src="{% static '/index/js/store.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Header"
+            src="{% static '/index/js/header.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Service"
+            src="{% static '/index/js/service.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Binder"
+            src="{% static '/index/js/binder.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.navHeader"
+            src="{% static '/index/js/navHeader.js' %}"></script>
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="{% static '/index/css/alert.css' %}">
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.netBridge"
+            src="{% static '/index/js/netBridge.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Util"
+            src="{% static '/index/js/util.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.userInfo"
+            src="{% static '/index/js/userInfo.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
+            data-requiremodule="KUYU.navFooterLink"
+            src="{% static '/index/js/navFooterLink.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Filter"
+            src="{% static '/index/js/filter.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="KUYU.Control"
+            src="{% static '/index/js/control.js' %}"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <script src="{% static '/index/js/jquery.min.js' %}"></script>
+
+    <style type="text/css">.full-html, .full-body {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .full-body * {
+        display: none !important;
+    }
+
+    .full-iframe {
+        display: block !important;
+    }
+
+    .full-inpage {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+        background: rgb(243, 243, 247) !important;
+    }
+
+    .full-inpage > *:not(.ntalk-mobile-inpage-background) {
+        display: none !important;
+    }</style>
+    <script type="text/javascript" async="async" charset="utf-8"
+            src="{% static '/index/js/userinfo.js' %}"></script>
+    <script type="text/javascript" async="async" charset="utf-8"
+            src="{% static '/index/js/zh_cn.js' %}" data-requiremodule="lang"></script>
+    <script type="text/javascript" async="async" charset="utf-8"
+            src="{% static '/index/js/chat.js' %}"
+            data-requiremodule="chatManage"></script>
+    <script type="text/javascript" async="async" charset="utf-8"
+            src="{% static '/index/js/mqtt31.js' %}" data-requiremodule="MQTT"></script>
+    <script type="text/javascript" async="async" charset="utf-8"
+            src="{% static '/index/js/mqtt.js' %}"
+            data-requiremodule="Connection"></script>
+</head>
+{% endblock head %}
+<body>
+
+{#<!-- Top html start -->#}
+<div class="translucent fixed" style="z-index: 111">
+
+    {% block top2 %}
+    <div class="nav">
+        <div class="nav-bor">
+            <div class="nav-bar"><span class="close"></span>
+                <div class="menu-wrap"><h1 class="hea-box fl"><a title="TCL官网-TCL官方商城" href="/home" class="logo"
+                                                  style="font-size: 55px;color: white;background-color: red;border-radius: 10px">TCL</a>
+                        </h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        id="headername" style="line-height: 10px;">我的购物车</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock top2 %}
+{% block content %}
+<div class="Cart">
+    <div class="loading" binder-hide="(vm.data &amp;&amp; vm.isLogin) || !vm.isLogin"
+         style="top: 331px; display: none;">
+        <img src="{% static '/index/images/loading.gif' %}">加载中
+    </div>
+    <!--购物车中的商品-->
+    <div id="cartForm" binder-show="vm.data" style="">
+        <div id="shoppingCart">
+            <!-- 购物车不为空时 开始-->
+            <div class="box gray-back ">
+                <div class="contrast-box payTop">
+                    <div class="tab-item sel-wid">
+{#                        <span class="checkbox j-all active"></span>全选#}
+                        <input type="checkbox" class="btn1" />&nbsp;&nbsp;&nbsp;&nbsp;全选
+                    </div>
+                    <div class="tab-item pro-wid">商品信息</div>
+                    <div class="tab-item pri-wid">单价</div>
+                    <div class="tab-item num-wid">数量</div>
+                    <div class="tab-item sub-wid">小计</div>
+                    <div class="tab-item ope-wid">操作</div>
+                </div>
+            </div>
+            <form action="{% url 'app:pay' %}" method="post">
+            <div class="shopping">
+                {% for i in goods %}
+                <div id="shoppingList"><!-- 累加购物车商品数量，用于显示购物车商品总数 -->
+                    <div class="shop-cont-9eb0d9d282f8461fbe244694a543e29d_TP002016112810100508_0">
+                        <dl class="shop-box clearfloat">
+                            <dd class="shop-item sel-wid">
+                                <span data-proid="9eb0d9d282f8461fbe244694a543e29d"
+                                                                data-issuitmain="false" data-totalprice="7499.00"
+                                                                data-price="7999.00" class="checkbox j-odd jar active"
+                                                                suituuid="null" name="items"
+                                                                value="product_9eb0d9d282f8461fbe244694a543e29d_TP002016112810100508"
+                                                                id="product_9eb0d9d282f8461fbe244694a543e29d_TP002016112810100508"
+                                                                buynum="1"></span>
+
+                                <ul id="ul1" style="list-style: none">
+
+                                <li ><input type="checkbox" value="{{ i.gnumber }}" name="a"/></li>
+
+                                </ul>
+
+                            </dd>
+                            <dd class="shop-item pro-wid"><span class="left"><a
+                                    href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=9eb0d9d282f8461fbe244694a543e29d"
+                                    class="cart_productId" id="9eb0d9d282f8461fbe244694a543e29d"><img
+                                    style="width:120px;height: 120px"
+                                    src="{{ i.picture }}"></a></span><span
+                                    class="right"><div class="right-content"><a
+                                    href="http://www.tcl.com/pages/productDetail/productDetail.html?uuid=9eb0d9d282f8461fbe244694a543e29d"><p
+                                    class="m_pro">{{ i.title }}</p></a><div class="order-num m_discount"
+                                                                               binder-event="click|openQuan:h3"></div></div></span>
+                            </dd>
+                            <dd class="shop-item pri-wid"><span class="j-price">{{ i.price }}</span></dd>
+                            <dd class="shop-item num-wid j-select"><span class="reg"
+                                                                         id="reg{{ i.gnumber }}"
+                                                                         data-num="1">-</span>
+                                <input type="text"
+                                                                                                     autocomplete="off"
+                                                                                                     data-max="1093"
+                                                                                                     class="val j-val"
+                                                                                                     id="dd{{ i.gnumber }}"
+                                                                                                     value="1"
+                                                                                                     suituuid="forloop.counter" name="{{ i.gnumber }}">
+                                    <span class="add" id="add{{ i.gnumber }}"
+                                    data-num="1" data-max="1093">+</span></dd>
+                            <dd class="shop-item sub-wid red pri-wid">
+{#                                <input#}
+{#                                    class="jj-subtotal fl total-price" value="{{ i.price }}" id="money{{ i.gnumber }}"type="text">#}
+{#                                <span#}
+{#                                    class="j-pricee throughh fl total-price-old"  style="color:gray;">{{ i.price }}</span>#}
+                                <input type="text" value="{{ i.price }}" id="money{{ i.gnumber }}">
+                            </dd>
+                            <dd class="shop-item ope-wid">
+
+{#                                    <form action="{% url 'app:deleteshopcar' %}" method="post">#}
+{#                                    <input type="submit" value="{{ i.gnumber }}" style="font-size: 14px" hidden name="b">#}
+                                       <button value="{{ i.gnumber }}" type="button" name="" id="delete{{ i.gnumber }}">删除</button>
+{#                                    </form>#}
+                                <script>
+                                   $('#delete{{ i.gnumber }}').click(function () {
+                                       var value = $('#delete{{ i.gnumber }}').val();
+                                       $.ajax({
+                                           type:'POST',
+                                           data:{value:value},
+                                           traditional:true,
+                                           url:"{% url 'app:deleteshopcar' %}",
+                                           cache:false,
+                                           success:function (result,statues,xml) {
+                                               $('.shopping').html(result)
+
+                                           }
+                                       })
+                                   })
+
+                                </script>
+                                <span class="star j-star"
+                                                                productuuid="9eb0d9d282f8461fbe244694a543e29d"></span>
+                                <span
+                                    class="del j-del"></span>
+
+                            </dd>
+                        </dl>
+                        <script>
+                            var a = document.getElementById('add{{ i.gnumber }}')
+                            var b = document.getElementById('reg{{ i.gnumber }}');
+                            i = document.getElementById('dd{{ i.gnumber }}').value;
+                            {#var money = document.getElementById("money{{ i.gnumber }}").value;#}
+                            a.onclick = function () {
+                              i++;
+                              document.getElementById('dd{{ i.gnumber }}').value= i;
+                              document.getElementById("money{{ i.gnumber }}").value = i*{{ i.price }};
+                            }
+                            b.onclick = function () {
+                                if (i>0){
+                                    i--;
+                                    document.getElementById("dd{{ i.gnumber }}").value = i;
+                                    document.getElementById("money{{ i.gnumber }}").value = i*{{ i.price }};
+                                }
+                                else {
+                                    i==0;
+                                    document.getElementById("dd{{ i.gnumber }}").value = i;
+                                    document.getElementById("money{{ i.gnumber }}").value = i*{{ i.price }};
+                                }
+
+                            }
+                        </script>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+                <div class="payment clearfloat" style="margin-top: 30px;">
+                    <div class="price-box">
+                        <!-- 有折扣时 出现下列标志 有4个值：满减 满赠 满折 促销 -->
+                        <div class="m_fullcut" style="display: none"><span>满减</span>促销名称<br></div>
+
+                        <img id="imgLoading" style="display: none"
+                             src="{% static '/index/images/loading.gif' %}">
+                        <a class="fl goonbuy" href="http://www.tcl.com/pages/index/index.html">继续购物&gt;&gt;</a>
+                        <div class="fr">
+{#                            <span id="subtotal"> <span class="pay-text pay-text-count">共{{ length }}件商品 已选择{{ length }}件</span> <span#}
+{#                                    class="pay-text">合计（不含运费）：</span>       <span class="pay-text red">      <em#}
+{#                                    class="font30 j-total">{{ goods.price }}</em>元      <s style="color:gray">2199</s></span></span>#}
+{#                            <button type="button" class="buy" id="buy">去结算</button>#}
+
+                                <input type="submit" value="去结算" style="height: 65px;width: 196px;background-color: red;color: white;font-size: 18px">
+
+                            <div class="tag">请勾选需要结算的商品</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             </form>
+            <!-- 购物车不为空时 结束-->
+
+
+        </div>
+    </div>
+</div>
+
+<!-- 购物车为空时 开始-->
+<div class="buy-box" style="display:none;">
+    <div class="buy-box-content clear">
+        <img class="buy-box-content-img fl" src="{% static '/index/images/cart_01.jpg' %}">
+        <div class="buy-box-content-right fr">
+            <p>购物车空空的哦~去看看心仪的商品吧~</p>
+            <a class="buy-box-content-btn" href="http://www.tcl.com/pages/index/index.html">选购商品</a>
+        </div>
+    </div>
+</div>
+<!-- 购物车为空时 结束-->
+<!-- 未登录时 开始-->
+<div class="buy-box2" style="display:none;">
+    <div class="buy-box-content clear">
+        <img class="buy-box-content-img fl" src="{% static '/index/images/cart_01.jpg' %}">
+        <div class="buy-box-content-right fr">
+            <p>购物车空空的哦~登录后将显示您之前加入的商品</p>
+            <a class="buy-box-content-btn cart_login" href="http://user.tcl.com/proxy/login">去登录</a>
+            <a class="buy-box-content-btn" href="http://www.tcl.com/pages/index/index.html">选购商品</a>
+        </div>
+    </div>
+</div>
+<!-- 未登录时 结束-->
+<!--购物车中的商品 end-->
+<!-- 隐藏域 -->
+<input type="hidden" value="" id="dealerUuid">
+<input type="hidden" value="" id="needRemoveId">
+<input type="hidden" value="" id="suitUuid">
+<!-- 隐藏域 -->
+
+
+{% endblock content %}
+<!-- Help center html end -->
+
+{% block script1 %}
+<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script src="{% static '/index/js/jquery.min.js' %}"></script>
+{#<script src="{% static '/index/js/vendor.js' %}"></script>#}
+{#<script src="{% static '/index/js/core.js' %}"></script>#}
+{#<script src="{% static '/index/js/config.js' %}"></script>#}
+{#<script src="{% static '/index/js/cart-da1a49533e.js' %}"></script>#}
+
+{% endblock script1 %}
+
+{% block script %}
+
+
+
+<script type="text/javascript" id="">
+
+    var _jcq = _jcq || [];
+    _jcq.enableHeatmap = true;
+    _jcq.push(['_setAccount', '9cbb0f997bbd40b4b40a3e5bf923b179']);
+    _jcq.push(['_pageview']);
+
+    (function () {
+        var jc = document.createElement('script');
+        jc.async = true;
+        jc.src = '//' + 'cdn.jice.io/js/jice.min.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(jc, s);
+    })();
+</script>
+<script type="text/javascript" id="">var _smq = _smq || [];
+_smq.push(['_setAccount', '57d4eaa', new Date()]);
+_smq.push(['pageview']);
+(function () {
+    var sm = document.createElement('script');
+    sm.type = 'text/javascript';
+    sm.async = true;
+    sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'site.cdnmaster.cn/sitemaster/collect.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(sm, s);
+})(); </script>
+    <script>
+
+                window.onload = function () {
+                                    var isCheckAll = false;
+                                    console.log('1111')
+                                    $('.btn1').click(function () {
+                                        if (isCheckAll) {
+                                            $("input[type='checkbox']").each(function () {
+                                                this.checked = false;
+                                            });
+                                            isCheckAll = false;
+                                        } else {
+                                            $("input[type='checkbox']").each(function () {
+                                                this.checked = true;
+                                            });
+                                            isCheckAll = true;
+                                        }
+
+                                    })}
+</script>
+{% endblock script %}
+</body>
+</html>

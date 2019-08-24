@@ -1,0 +1,77 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <section class="rt_wrap content mCustomScrollbar">
+        <div class="rt_content">
+            <div class="page_title">
+                <h2 class="fl">商品详情示例</h2>
+                <a class="fr top_rt_btn">返回产品列表</a>
+            </div>
+            <section>
+                <ul class="ulColumn2">
+                    <form action="{% url 'adm:sec' 9 page %}" method="post" enctype="">
+                        {% csrf_token %}
+                        <li>
+                            <span class="item_name" style="width:120px;">商品名称：</span>
+                            <input type="text" class="textbox textbox_295" name="gname" maxlength="30" minlength="3" required placeholder="商品名称..."/>
+                            {% for error in form.gname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </li>
+                        <li>
+                            <span class="item_name" style="width:120px;">商品编号：</span>
+                            <input type="text" class="textbox" name="number" maxlength="30" minlength="3" required placeholder="商品编号..."/>
+                            {% for error in form.number.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </li>
+                        <li>
+                            <span class="item_name" style="width:120px;">商品系列：</span>
+                            <input type="text" class="textbox" name="number" maxlength="30" minlength="3" required placeholder="商品系列..."/>
+                            {% for error in form.serious.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </li>
+{#                        <li>#}
+{#                            <span class="item_name" style="width:120px;"></span>#}
+{#                            <select class="select">#}
+{#                                <option>选择品牌</option>#}
+{#                            </select>#}
+{#                            <span class="errorTips">错误提示信息...</span>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <span class="item_name" style="width:120px;">分类：</span>#}
+{#                            <select class="select">#}
+{#                                <option>选择产品分类</option>#}
+{#                            </select>#}
+{#                            <span class="errorTips">错误提示信息...</span>#}
+{#                        </li>#}
+                        <li>
+                            <span class="item_name" style="width:120px;">推荐：</span>
+                            <label class="single_selection"><input type="checkbox" name="name"/>新品</label>
+                            <label class="single_selection"><input type="checkbox" name="name"/>热销</label>
+                            <label class="single_selection"><input type="checkbox" name="keywords"/>促销</label>
+                        </li>
+{#                        <li>#}
+{#                            <span class="item_name" style="width:120px;">上传图片：</span>#}
+{#                            <label class="uploadImg">#}
+{#                                <input type="file"/>#}
+{#                                <span>上传图片</span>#}
+{#                            </label>#}
+{#                        </li>#}
+                        <li>
+                            <span class="item_name" style="width:120px;">产品详情：</span>
+{#                            <script id="editor" type="text/plain" style="width:1024px;height:500px;margin-left:120px;margin-top:0;"></script>#}
+                            <span><textarea id="content" class="ckeditor"></textarea></span>
+
+                        </li>
+                        <li>
+                            <span class="item_name" style="width:120px;"></span>
+                            <input type="submit" class="link_btn"/>
+                        </li>
+                    </form>
+                </ul>
+            </section>
+        </div>
+    </section>
+{% endblock content %}

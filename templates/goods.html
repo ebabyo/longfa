@@ -1,0 +1,1838 @@
+{% load static %}
+{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>【TCL电视】55T6 55吋全场景AI人工智能电视 - TCL官网</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="TCL电视, TCL官网 "/>
+    <meta name="description" content="TCL电视官方渠道售卖, TCL官网提供55T6 55吋全场景AI人工智能电视TCL电视, 欢迎了解TCL官方产品介绍、最新价格等信息。 "/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="360-site-verification" content="648523929a97ca92a6c1fa942ebf1e18"/>
+    <meta name="renderer" content="webkit"/>
+    <link rel="stylesheet" href="{% static '/index/css/store.css' %}">
+    <link rel="stylesheet" href="{% static '/index/css/lightbox.css' %}">
+    <link rel="stylesheet" href="{% static '/index/css/detail-32e902ceca.css' %}">
+    <link rel="stylesheet" href="{% static '/index/css/redEnvelop-c8b9b9edce.css' %}">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '/index/css/global.css' %}">
+    <link rel="stylesheet" href="{% static '/index/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/index/css/channel.css' %}">
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+
+
+    <!--[if (IE 9)|(IE 8) ]>
+    <script src="/app/js/ie9.js"></script>
+    <![endif]-->
+</head>
+<body onload='getProvince()'>
+<!-- 视频3d展示框 -->
+<div class="pop-mask"></div>
+<div class="pop-main">
+    <div class="pop-content">
+        <div class="video-3d-main">
+
+            <ul>
+
+                <li>
+                    <video src="" controls webkit-playsinline="webkit-playsinline" playsinline="playsinline"
+                           ref="videoEle"></video>
+                </li>
+
+
+            </ul>
+
+            <div class="btn-close">×</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="header translucent fixed" style="z-index: 111">
+    <div id="topads">
+    </div>
+
+    <div id="topads">
+        </div>
+        <div id="topads">
+        </div>
+        {% if 'username' in request.session %}
+
+            <div class="top-bar">
+                <div class="top-bar-wrap">
+                    <ul class="nav-left" id="top_bar_nav">
+
+
+                        <li><a target="_blank" href="http://www.tcl.com/group/news/index" titel="TCL新闻"
+                               style="color: rgb(204, 204, 204);">TCL新闻</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow"
+                               href="http://www.tcl.com/pages/bulkpurchase/newBulkpurchase.html"
+                               titel="企业采购" style="color: rgb(204, 204, 204);">企业采购</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow" href="http://www.tcl.com/dealer/toLogin" titel="经销商之家"
+                               style="color: rgb(204, 204, 204);">经销商之家</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/uec/operation" titel="用户体验中心"
+                               style="color: rgb(204, 204, 204);">用户体验中心</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/" titel="铁粉社区"
+                               style="color: rgb(204, 204, 204);">铁粉社区</a></li>
+
+
+                        <li><a target="_blank" rel="nofollow" href="http://zhaopin.tcl.com/" titel="人才招聘"
+                               style="color: rgb(204, 204, 204);">人才招聘</a></li>
+
+
+                    </ul>
+                    <ul class="nav-right" id="nav-right">
+                        <li class="wechat_box" id="wechat"><a href="#" style="color: rgb(255,255, 255);">微信商城</a>
+                            <div class="wechat" style="display: none;" id="chat"><img
+                                    src="{% static '/index/images/wechat.jpg' %}">
+                                <p>关注公众号<br>一键下单购买</p>
+
+                            </div>
+                        </li>
+                       <script>
+                         var a= document.getElementById('wechat');
+                         var b= document.getElementById('chat');
+
+                            a.onmouseover=function () {
+
+                                b.style.display= 'block';
+                            };
+                            a.onmouseout=function () {
+
+                               b.style.display= 'none';
+                            }
+
+                        </script>
+                        <i></i>
+                        <li><a href="http://www.tcl.com/pages/orderList/orderList.html"
+                               style="color: rgb(204, 204, 204);">我的订单</a></li>
+                        <i></i>
+                        <li class="index_cart_li"><a class="index_cart shoping" href="{% url 'app:shopcar' %}"
+                                                     style="color: rgb(204, 204, 204);">购物车</a><span
+                                class="newheader-circle"
+                                id="newhead_cart">{{ length }}</span>
+                        </li>
+                        <i></i>
+                        <li class="index_cus_id" id="person2"><a href="javascript:;" id="onlyName"
+                                                    data-id="e356d7bf0dc6456292d66a7c0669665a"
+                                                    style="color: rgb(204, 204, 204);"> {{ request.session.username }} </a>
+
+
+                            <div class="info clearfix" style="display: none;" id="person1">
+                                <div class="infotop clearfix"><a href="http://user.tcl.com/proxy/user/information"
+                                                                 style="color: rgb(204, 204, 204);"><img
+                                        src="{% static '/index/images/tcl_image1.jpeg' %}"></a>
+                                    <div class="inforight">
+                                        <div class="p1"><span class="user_name"
+                                                              title=" 15040748080">{{ request.session.username }}</span><span><img
+                                                id="userlevel"
+                                                src="{% static '/index/images/Artboard1.png' %}"></span>
+                                        </div>
+                                        <div class="p2"><span>积分</span> <a id="userjifen"
+                                                                           href="http://user.tcl.com/proxy/integral"
+                                                                           title="110"
+                                                                           style="color: rgb(204, 204, 204);">110</a>　<span>优惠券 </span>
+                                            <a href="http://www.tcl.com/pages/coupondetails/coupondetails.html"
+                                               title="0"
+                                               style="color: rgb(204, 204, 204);">0</a></div>
+                                    </div>
+                                </div>
+                                <div class="infobom clearfix" id="person"><a href="http://user.tcl.com/proxy/home/index"
+                                                                 style="color: rgb(204, 204, 204);"><span>个人中心</span></a><a
+                                        href="http://hy.tcl.com/account/product/myproduct.html"
+                                        style="color: rgb(204, 204, 204);"><span>我的产品<span></span></span></a><a
+                                        href="http://user.tcl.com/proxy/equity/index"
+                                        style="color: rgb(204, 204, 204);"><span>我的权益<span></span></span></a><a
+                                        href="http://user.tcl.com/proxy/my/collection/goods"
+                                        style="color: rgb(204, 204, 204);"><span>我的收藏</span></a><a
+                                        href="http://user.tcl.com/proxy/user/information" target="_blank"
+                                        style="color: rgb(204, 204, 204);"><span>账号管理</span></a><a
+                                        href="http://www.tcl.com/pages/productappraise/productappraise.html#productappraise"
+                                        style="color: rgb(204, 204, 204);"><span>评价管理<span></span></span></a><a
+                                        id="exit"
+                                        href="{% url 'app:logout' %}"
+                                        style="color: rgb(204, 204, 204);"><span>退出登录</span></a>
+                                </div>
+                                <script>
+                                    var a = document.getElementById('person2')
+                                    var b = document.getElementById('person1')
+                                    a.onmouseover=function () {
+
+                                    b.style.display= 'block';
+                                                                };
+                                    a.onmouseout=function () {
+
+                                     b.style.display= 'none';}
+
+                                </script>
+                                <script>
+                                    var c = document.getElementById('wechat')
+                                    var d = document.getElementById('chat')
+                                    c.onmouseover=function () {
+
+                                    d.style.display= 'block';
+                                                                };
+                                    c.onmouseout=function () {
+
+                                     d.style.display= 'none';}
+
+                                </script>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        {% else %}
+
+
+            <div class="top-bar">
+            <div class="top-bar-wrap">
+                <ul class="nav-left" id="top_bar_nav">
+
+
+                    <li><a target="_blank" href="http://www.tcl.com/group/news/index" titel="TCL新闻">TCL新闻</a></li>
+
+
+                    <li><a target="_blank" rel="nofollow"
+                           href="http://www.tcl.com/pages/bulkpurchase/newBulkpurchase.html"
+                           titel="企业采购">企业采购</a></li>
+
+
+                    <li><a target="_blank" rel="nofollow" href="http://www.tcl.com/dealer/toLogin"
+                           titel="经销商之家">经销商之家</a>
+                    </li>
+
+
+                    <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/uec/operation"
+                           titel="用户体验中心">用户体验中心</a>
+                    </li>
+
+
+                    <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/" titel="铁粉社区">铁粉社区</a></li>
+
+
+                    <li><a target="_blank" rel="nofollow" href="http://zhaopin.tcl.com/" titel="人才招聘">人才招聘</a></li>
+
+
+                </ul>
+                <ul class="nav-right" id="nav-right">
+                    <li class="wechat_box" id="wechat"><a href="#" style="color: rgb(204, 204, 204);">微信商城</a>
+                        <div class="wechat" style="display: none;" id="chat"><img
+                                src="{% static '/index/images/wechat.jpg' %}">
+                            <p>关注公众号<br>一键下单购买</p></div>
+                    </li>
+                     <script>
+                         var a= document.getElementById('wechat');
+                         var b= document.getElementById('chat');
+
+                            a.onmouseover=function () {
+
+                                b.style.display= 'block';
+                            };
+                            b.onmouseout=function () {
+
+
+                               b.style.display= 'none';
+                            }
+
+                        </script>
+
+                    <i></i>
+                    <li class="index_cart_li"><a class="index_cart" rel="nofollow"
+                                                 href="{% url 'app:shopcar' %}">购物车</a><span
+                            class="newheader-circle" id="newhead_cart">( 0 )</span>
+                    </li>
+                    <i></i>
+                    <li><a class="index_reg" href="{% url 'app:register' %}" rel="nofollow">注册</a></li>
+                    <i></i>
+                    <li><a class="index_login" href="{% url 'app:login' %}" rel="nofollow">登录</a></li>
+
+                </ul>
+            </div>
+        {% endif %}
+
+{#    <div class="top-bar">#}
+{#        <div class="top-bar-wrap">#}
+{#            <ul class="nav-left" id="top_bar_nav">#}
+{##}
+{##}
+{#                <li><a target="_blank" href="http://www.tcl.com/group/news/index" titel="TCL新闻">TCL新闻</a></li>#}
+{##}
+{##}
+{#                <li><a target="_blank" rel="nofollow" href="http://www.tcl.com/pages/bulkpurchase/newBulkpurchase.html"#}
+{#                       titel="企业采购">企业采购</a></li>#}
+{##}
+{##}
+{#                <li><a target="_blank" rel="nofollow" href="http://www.tcl.com/dealer/toLogin" titel="经销商之家">经销商之家</a>#}
+{#                </li>#}
+{##}
+{##}
+{#                <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/uec/operation" titel="用户体验中心">用户体验中心</a>#}
+{#                </li>#}
+{##}
+{##}
+{#                <li><a target="_blank" rel="nofollow" href="http://fans.tcl.com/" titel="铁粉社区">铁粉社区</a></li>#}
+{##}
+{##}
+{#                <li><a target="_blank" rel="nofollow" href="http://zhaopin.tcl.com/" titel="人才招聘">人才招聘</a></li>#}
+{##}
+{##}
+{#            </ul>#}
+{#            <ul class="nav-right" id="nav-right">#}
+{#                <li class="wechat_box">#}
+{#                    <a href="###">微信商城</a>#}
+{#                    <div class="wechat">#}
+{#                        <img src="{% static '/index/images/wechat.jpg' %}">#}
+{#                        <p>关注公众号<br>一键下单购买</p>#}
+{#                    </div>#}
+{#                </li>#}
+{#                <i></i>#}
+{#                <li class="index_cart_li"><a class="index_cart" rel="nofollow" href="/pages/cart/cart.html">购物车</a><span#}
+{#                        class="newheader-circle" id="newhead_cart">( 0 )</span>#}
+{#                </li>#}
+{#                <i></i>#}
+{#                <li><a class="index_reg" href="http://user.tcl.com/proxy/register" rel="nofollow">注册</a></li>#}
+{#                <i></i>#}
+{#                <li><a class="index_login" href="http://user.tcl.com/proxy/login" rel="nofollow">登录</a></li>#}
+{##}
+{#            </ul>#}
+{#        </div>#}
+    </div>
+    <div class="nav">
+        <div class="nav-bor">
+            <div class="nav-bar"><span class="close"></span>
+                <!--<div class="hea-box hot"></div>-->
+                <div class="saerch">
+                    <span class="fl">&#xe614;</span>
+                    <input type="text" class="nav-saerch" value="" placeholder="输入查询的商品">
+                    <div class="hot-words"></div>
+                </div>
+                <div class="menu-wrap clearfix">
+                    <h1 class="hea-box fl"><a title="TCL官网-TCL官方商城" href="/home" class="logo"
+                                                  style="font-size: 55px;color: white;background-color: red">TCL</a>
+                        </h1>
+                    <div class="act-box">
+
+                    </div>
+                    <div class="menu fl">
+                        <i class="menu_line"></i>
+                        <div class="mes" data-id="0">
+                            <a href="{% url 'app:index' %}">首页</a>
+                        </div>
+                        <div class="mes" data-id="1">
+                            <a href="/air">空调</a>
+                        </div>
+                        <div class="mes" data-id="2">
+                            <a href="/tv">电视</a>
+                        </div>
+                        <div class="mes" data-id="3">
+                            <a href="/refrigerator">冰箱</a>
+                        </div>
+                        <div class="mes" data-id="4">
+                            <a href="/washer">洗衣机</a>
+                        </div>
+                        <div class="mes" data-id="5">
+                            <a href="/homeappliance">健康电器</a>
+                        </div>
+                        <div class="mes" data-id="6">
+                            <a href="/smart">智能硬件</a>
+                        </div>
+                    </div>
+                    <div class="menu-late fr">
+                        <font class="font"></font>
+                        <a href="/pages/service-home/index.html" rel="nofollow" target="_blank">服务</a>
+                        <a href="http://www.tcl.com/pages/serviceRevision/autoCheck.html" rel="nofollow"
+                           target="_blank">视频教程</a>
+                        <a href="/pages/xess-shopShow/index.html" rel="nofollow" target="_blank">XESS门店</a>
+                        <a href="http://hy.tcl.com/" rel="nofollow" target="_blank">积分兑换</a>
+                        <span class="menu-late-search">
+                            <input class="ser-input" placeholder="" value=""/>
+                            <span><font class="sear">搜</font></span>
+                            <ul class="input-list" style="display: none;">
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-list" style="display: none;">
+
+
+        <div class="li" data-id="0"></div>
+
+        <div class="li menuBarLi" data-id="1">
+            <ul>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/air/dfc16b89558148de9ee85883d369175d">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/BA/Ckgbll0i5TWAP7JeAABAQhKzWms449.jpg"
+                                                 data-load=false class="header_img" alt="TCL大3匹三级变频冷暖空调"></span>
+                        <p class="m_tit">TCL大3匹三级变频冷暖空调</p>
+                        <p class="red" id="plathead_'dfc16b89558148de9ee85883d369175d">
+
+                            4399.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/air/b7574aa561d44ac5805ee45d45ff5d68">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_dvKAZo8AAAA8EMijr8A215.png"
+                                                 data-load=false class="header_img" alt="TCL大2匹除湿钛金柜机空调"></span>
+                        <p class="m_tit">TCL大2匹除湿钛金柜机空调</p>
+                        <p class="red" id="plathead_'b7574aa561d44ac5805ee45d45ff5d68">
+
+                            2999.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/air/8edc495716304e399f2dc4f878510698">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/AE/Ckgbll0JD2iAS79aAAA5F_sw1K8459.jpg"
+                                                 data-load=false class="header_img" alt="TCL大1匹钛金静音冷暖空调"></span>
+                        <p class="m_tit">TCL大1匹钛金静音冷暖空调</p>
+                        <p class="red" id="plathead_'8edc495716304e399f2dc4f878510698">
+
+                            1499.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/air/675e7bad0c584091a6f8cd184ecf9a4c">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/9D/Ckgbllzp9vmAF-NpAAA86w_lT4U310.jpg"
+                                                 data-load=false class="header_img" alt="TCL 大1匹1级能效冷暖变频空调"></span>
+                        <p class="m_tit">TCL 大1匹1级能效冷暖变频空调</p>
+                        <p class="red" id="plathead_'675e7bad0c584091a6f8cd184ecf9a4c">
+
+                            2299.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/air/941fa77e0ba1431fbb473be26a0c4769">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/AE/Ckgbll0JD4qAMOCjAAApLwvlWVk684.jpg"
+                                                 data-load=false class="header_img" alt="TCL大1.5匹变频1级节能冷暖空调"></span>
+                        <p class="m_tit">TCL大1.5匹变频1级节能冷暖空调</p>
+                        <p class="red" id="plathead_'941fa77e0ba1431fbb473be26a0c4769">
+
+                            2199.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="li menuBarLi" data-id="2">
+            <ul>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/tv/5e64a8ac38fa43f68d284454646c16d1">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_di6AZ9SnAADx2RpkBmc451.jpg"
+                                                 data-load=false class="header_img"
+                                                 alt="TCL 75A950U 75英寸哈曼卡顿巨幕4K电视"></span>
+                        <p class="m_tit">TCL 75A950U 75英寸哈曼卡顿巨幕4K电视</p>
+                        <p class="red" id="plathead_'5e64a8ac38fa43f68d284454646c16d1">
+
+                            8999.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/tv/fac3b6484ffd403c91535923c47865bc">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/AF/Ckgbll0KDByATMtqABx4Sv_1Q_A601.png"
+                                                 data-load=false class="header_img" alt="65T6 65英寸全场景AI人工智能电视"></span>
+                        <p class="m_tit">65T6 65英寸全场景AI人工智能电视</p>
+                        <p class="red" id="plathead_'fac3b6484ffd403c91535923c47865bc">
+
+                            4999.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/tv/4ae188c589a24e7598c7bc9a0bd8d0ef">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/AF/Ckgbll0KDGGAUR59ACA3_I_davE426.png"
+                                                 data-load=false class="header_img" alt="55Q2 55英寸旗舰新剧院电视"></span>
+                        <p class="m_tit">55Q2 55英寸旗舰新剧院电视</p>
+                        <p class="red" id="plathead_'4ae188c589a24e7598c7bc9a0bd8d0ef">
+
+                            5499.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/tv/6f40a97a7e4e4441b4f3ccf6fd31a6f1">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/C0/Ckgbll01ig-AXF87ABTIKQJigoo638.png"
+                                                 data-load=false class="header_img" alt="65V2 65英寸全金属AI超智慧电视"></span>
+                        <p class="m_tit">65V2 65英寸全金属AI超智慧电视</p>
+                        <p class="red" id="plathead_'6f40a97a7e4e4441b4f3ccf6fd31a6f1">
+
+                            2899.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/tv/e37d1a1c07c1423280aa4a11096f9ccf">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/C0/Ckgbll01igiARUd2AAsnT_EQqt0512.png"
+                                                 data-load=false class="header_img" alt="65T3 65英寸新影院运动曲面超清薄电视"></span>
+                        <p class="m_tit">65T3 65英寸新影院运动曲面超清薄电视</p>
+                        <p class="red" id="plathead_'e37d1a1c07c1423280aa4a11096f9ccf">
+
+                            4199.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="li menuBarLi" data-id="3">
+            <ul>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/refrigerator/d087efe4f731466494e9eaa26e61b482">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_eemARdUTAABRQsgcw0g233.jpg"
+                                                 data-load=false class="header_img" alt="TCL519L对开门风冷无霜冰箱"></span>
+                        <p class="m_tit">TCL519L对开门风冷无霜冰箱</p>
+                        <p class="red" id="plathead_'d087efe4f731466494e9eaa26e61b482">
+
+                            1999.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/refrigerator/521b3b80bee742c6bd8496cbf6db87a3">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/BE/Ckgbll0xh76ABhmyAABX8cQvXKo630.jpg"
+                                                 data-load=false class="header_img" alt="TCL410升T形对开门风冷养鲜"></span>
+                        <p class="m_tit">TCL410升T形对开门风冷养鲜</p>
+                        <p class="red" id="plathead_'521b3b80bee742c6bd8496cbf6db87a3">
+
+                            2499.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/refrigerator/a52f9e7c0b0a400bb51f659181d479ee">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/BE/Ckgbll0xh8KAOn21AAA6_KagK9k211.jpg"
+                                                 data-load=false class="header_img" alt="TCL228L三门风冷无霜冰箱"></span>
+                        <p class="m_tit">TCL228L三门风冷无霜冰箱</p>
+                        <p class="red" id="plathead_'a52f9e7c0b0a400bb51f659181d479ee">
+
+                            2049.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/refrigerator/931674b455924694aea8538e39a3e957">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/9D/Ckgbllzp-XGAGM1zAABRXmi4nVE379.jpg"
+                                                 data-load=false class="header_img" alt="TCL205L三门节能静音冰箱"></span>
+                        <p class="m_tit">TCL205L三门节能静音冰箱</p>
+                        <p class="red" id="plathead_'931674b455924694aea8538e39a3e957">
+
+                            1099.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/refrigerator/4e9612debdbb4e26936b7e8e197850cd">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_ek-AHT2wAAAp7U_q8Pg002.jpg"
+                                                 data-load=false class="header_img" alt="TCL163L双门节能家用小冰箱"></span>
+                        <p class="m_tit">TCL163L双门节能家用小冰箱</p>
+                        <p class="red" id="plathead_'4e9612debdbb4e26936b7e8e197850cd">
+
+                            1049.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="li menuBarLi" data-id="4">
+            <ul>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/washer/ebb9d75a94eb49658646e0f5c652619a">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/BE/Ckgbll0xhrWAc2RsAACsnuSfX6Q232.jpg"
+                                                 data-load=false class="header_img" alt="TCL10公斤洗烘一体全自动滚筒洗衣机"></span>
+                        <p class="m_tit">TCL10公斤洗烘一体全自动滚筒洗衣机</p>
+                        <p class="red" id="plathead_'ebb9d75a94eb49658646e0f5c652619a">
+
+                            1899.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/washer/f663dc52b6a949bbbec4c3e0f5b6aae7">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_fDGAG2KzAACDYcXDNps542.jpg"
+                                                 data-load=false class="header_img" alt="TCL9公斤变频滚筒洗衣机"></span>
+                        <p class="m_tit">TCL9公斤变频滚筒洗衣机</p>
+                        <p class="red" id="plathead_'f663dc52b6a949bbbec4c3e0f5b6aae7">
+
+                            1499.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/washer/41846988aac04d30ae30d88871b2b937">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/B1/Ckgbll0Mi6qAEac9AABUN73yUgo440.jpg"
+                                                 data-load=false class="header_img" alt="TCL 9公斤全自动波轮洗衣机"></span>
+                        <p class="m_tit">TCL 9公斤全自动波轮洗衣机</p>
+                        <p class="red" id="plathead_'41846988aac04d30ae30d88871b2b937">
+
+                            899.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/washer/7e74fc484e4f431cb099603e58063ef9">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/A6/Ckgbllz_fASAD1CtAABEm0JbQpY959.jpg"
+                                                 data-load=false class="header_img" alt="TCL 7公斤全自动波轮洗衣机"></span>
+                        <p class="m_tit">TCL 7公斤全自动波轮洗衣机</p>
+                        <p class="red" id="plathead_'7e74fc484e4f431cb099603e58063ef9">
+
+                            769.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/washer/f3ae6e6d152d42f3a6a4e7eb20467d03">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/B2/Ckgbll0MoI2AIMRRAABW3OxQDJI642.jpg"
+                                                 data-load=false class="header_img" alt="TCL5.5公斤小型全自动波轮洗衣机"></span>
+                        <p class="m_tit">TCL5.5公斤小型全自动波轮洗衣机</p>
+                        <p class="red" id="plathead_'f3ae6e6d152d42f3a6a4e7eb20467d03">
+
+                            699.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="li menuBarLi" data-id="5">
+            <ul>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/homeappliance/4a2381fbef244d26a3cdcffe00afc02f">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/9D/Ckgbllzp_vmAEtNcAACpFoEpsRI024.jpg"
+                                                 data-load=false class="header_img"
+                                                 alt="TCL 3222J+5205B液化气烟灶套装组合"></span>
+                        <p class="m_tit">TCL 3222J+5205B液化气烟灶套装组合</p>
+                        <p class="red" id="plathead_'4a2381fbef244d26a3cdcffe00afc02f">
+
+                            1248.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/homeappliance/f3b1d815da9b4a538658206efc733a3c">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/8D/Ckgblly5Z_uAXI5ZAACPlsI652E279.jpg"
+                                                 data-load=false class="header_img"
+                                                 alt="TCL 3626J+5602B液化气烟灶套装组合"></span>
+                        <p class="m_tit">TCL 3626J+5602B液化气烟灶套装组合</p>
+                        <p class="red" id="plathead_'f3b1d815da9b4a538658206efc733a3c">
+
+                            2258.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/homeappliance/16de9035e13847bfad74713d8c7122f6">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/9D/Ckgbllzp_zCAb70IAABN14fJWlM330.jpg"
+                                                 data-load=false class="header_img" alt="TCL嵌入式智能烘干消毒柜"></span>
+                        <p class="m_tit">TCL嵌入式智能烘干消毒柜</p>
+                        <p class="red" id="plathead_'16de9035e13847bfad74713d8c7122f6">
+
+                            899.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/homeappliance/722b9586c7f142c895a8580fc57f019e">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/8D/Ckgblly5Z-6AO43DAABs302TBrs260.jpg"
+                                                 data-load=false class="header_img" alt="TCL60L变频节能速热电热水器"></span>
+                        <p class="m_tit">TCL60L变频节能速热电热水器</p>
+                        <p class="red" id="plathead_'722b9586c7f142c895a8580fc57f019e">
+
+                            1099.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/homeappliance/fe416b906e054ee0b8d9ce06c906b2eb">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/B1/Ckgbll0Mhw2AAfJ_AABW7C7G5Pg314.jpg"
+                                                 data-load=false class="header_img" alt="TCL三档大出风口移动冷风扇（A款）"></span>
+                        <p class="m_tit">TCL三档大出风口移动冷风扇（A款）</p>
+                        <p class="red" id="plathead_'fe416b906e054ee0b8d9ce06c906b2eb">
+
+                            459.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="li menuBarLi" data-id="6">
+            <ul>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/other/c797d9e8dfeb4d23bfbbdcbed09e9751">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/8C/Ckgblly4H9CARyUVAABAcpM03RY837.jpg"
+                                                 data-load=false class="header_img" alt="XESS时尚智能美妆镜R1"></span>
+                        <p class="m_tit">XESS时尚智能美妆镜R1</p>
+                        <p class="red" id="plathead_'c797d9e8dfeb4d23bfbbdcbed09e9751">
+
+                            699.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/other/2859c5a8c2854ea1a3544b8f970ce7df">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/8C/Ckgblly4JOiAA9WuAAA9a49KrcA840.jpg"
+                                                 data-load=false class="header_img" alt="XESS智能V脸射频美容仪BR-1"></span>
+                        <p class="m_tit">XESS智能V脸射频美容仪BR-1</p>
+                        <p class="red" id="plathead_'2859c5a8c2854ea1a3544b8f970ce7df">
+
+                            2499.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/other/4bd35ab9b3504e99b25c3170514d0fbf">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/8C/Ckgblly4HNOAaqPdAABYdZrgNPo109.jpg"
+                                                 data-load=false class="header_img" alt="XESS光波双净智能牙刷D3 宫廷红"></span>
+                        <p class="m_tit">XESS光波双净智能牙刷D3 宫廷红</p>
+                        <p class="red" id="plathead_'4bd35ab9b3504e99b25c3170514d0fbf">
+
+                            999.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/other/919bf7abf0da4fe8ae022530d44d33e2">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/90/CkgbllzBHEmAE3RRAAA2CY1lf0A145.jpg"
+                                                 data-load=false class="header_img" alt="TCL物联网智能门锁K1S-W"></span>
+                        <p class="m_tit">TCL物联网智能门锁K1S-W</p>
+                        <p class="red" id="plathead_'919bf7abf0da4fe8ae022530d44d33e2">
+
+                            2199.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a target="_blank" href="http://www.tcl.com/smart/056169cdb3d840a0853ed5ed9022110b">
+                        <span class="m_img"><img src="{% static '/index/images/loading.gif' %}"
+                                                 data-o="http://s0.mall.tcl.com/group1/M00/05/8C/Ckgblly4HUKAJuZxAABDOsf_mIc980.jpg"
+                                                 data-load=false class="header_img" alt="TCL SOCL100入耳式耳机 深空灰"></span>
+                        <p class="m_tit">TCL SOCL100入耳式耳机 深空灰</p>
+                        <p class="red" id="plathead_'056169cdb3d840a0853ed5ed9022110b">
+
+                            69.00
+                            元
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+<!--body start-->
+<input id="GLOBAL_UUID" type="hidden" value="9a6983e02cc246dea017f5de6e129f51">
+<input id="GLOBAL_TYPE" type="hidden" value="false">
+<input type="hidden" id="GLOBAL_categoryUuid" value="6caf24fe36fb4667a87ac4fd3f36d597">
+
+<!-- go to top html-->
+<div class="goTop">
+    <a onclick="$('body,html').animate({scrollTop: 0 },500);"></a>
+</div>
+
+<!--crumbs html start-->
+<div class="m_crumbs bg_f0">
+    <div class="min-wid">
+        <div class="fl" id="crumbs">
+            <a href="/">TCL官网</a> > <a href="/tv">电视</a> >55T6 55吋全场景AI人工智能电视
+        </div>
+    </div>
+</div>
+
+<!-- purchase html start -->
+<div class="box purchase clearfloat">
+    <div class="purc-l">
+        <div class="imgLoad">
+
+            <div class='purc-img'>
+                {% for i in pictures %}
+                    {% ifequal i.isfirst 0 %}
+                <div class="item active" style="text-align: center;"><img id="bigImgSrc"
+                        src="{{ i.path }}">
+                </div>
+                    {% endifequal %}
+                {% endfor %}
+
+            </div>
+            <div class="purc-list">
+                {% for i in pictures %}
+                    {% ifequal i.isfirst 0 %}
+                    <span class="radius active"><img src="{{ i.path }}"></span>
+
+                    {% endifequal %}
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </div>
+    <!-- purchase html end -->
+    <!-- 右侧数据 -->
+    <!--crumbs html end-->
+    <div id="pForm">
+        <input type="hidden" id="activeStatus" value=""/>
+        <input type="hidden" id="preSaleType" value=""/>
+        <input type="hidden" id="showTypedisp" value=""/>
+        <input type="hidden" name="skuNo" id="skuNo" value="TP002016112810100492"/>
+        <input type="hidden" name="parentSkuNo" id="parentSkuNo" value="P002016112810100492"/>
+        <input type="hidden" name="reservePromotionUuid" id="reservePromotionUuid" value=""/>
+        <input type="hidden" name="specSize" id="specSize" value="0"/>
+        <input type="hidden" name="areaId" id="areaId" value=""/>
+        <input type="hidden" name="bcustomerUuid" id="bcustomerUuid" value=""/>
+        <input type="hidden" name="distributorUuid" id="distributorUuid" value=""/>
+        <input type="hidden" name="activityUuid" id="activityUuid" value=""/>
+        <input type="hidden" name="bType" id="bType" value=""/>
+        <input type="hidden" name="productUuid" id="productUuid" value="9a6983e02cc246dea017f5de6e129f51"/>
+        <input type="hidden" name="storeUuid" id="storeUuid" value="03d03b6b05604c5cb065aef65b72972e"/>
+        <input type="hidden" name="productPrice" id="productPrice" value="3299.00"/>
+        <input type="hidden" name="productBasePrice" id="productBasePrice" value="3999.00"/>
+        <input type="hidden" name="promotionUuid" id="promotionUuid" value=""/>
+        <input type="hidden" name="initSelectSpecUuids" id="initSelectSpecUuids" value=""/>
+        <input type="hidden" name="productName" id="productName" value="">
+        <input type="hidden" name="reserveOrderId" id="reserveOrderId" value="">
+        <input type="hidden" name="specColorUuid" id="specColorUuid" value=""/>
+        <input type="hidden" name="secondParentCategoryName" id="secondParentCategoryName" value="电视">
+        <input type="hidden" name="returnCode" id="returnCode" value="">
+        <input type="hidden" name="remindSeconds" id="remindSeconds" value="">
+        <input type="hidden" name="setTitle" id="setTitle" value="
+            【TCL 电视】55T6 55吋全场景AI人工智能电视_TCL 电视 -TCL官网
+        ">
+        <input type="hidden" name="nowPromotion" id="nowPromotion" value=""/>
+        <!-- purchase html start -->
+        <div class="purc-r">
+            <!-- 商品名称及二维码一栏 -->
+            <div class="purc-text purc-paddt" id="render-product-title">
+                <h1 class="purc-name"><span title="55T6 55吋全场景AI人工智能电视">{{ goods.gname }}</span></h1>
+
+                <div class="purc-item"><p class="desc"><font style="font: bold; color: red">{{ goods.description }}
+                    </font></p><span class="purc-start"><em></em>收藏</span></div>
+                <div class="purc-item clearfloat jifen">
+                    <div class="fl">
+                        <span>可获取积分：<em>{{ goods.price }}</em></span>
+                    </div>
+                </div>
+            </div>
+            <!-- 秒杀 -->
+            <div id="seckill">
+
+            </div>
+            <!-- 商品价格-->
+
+            <div id="render-price">
+                <div class="purc-text hidden">
+                    <div class="qrcode_pos ">
+                        <div class="fr qrcode"><img style="margin-top:-2px;" src="{% static '/index/images/qrcode.png' %}"/>&nbsp;&nbsp;手机购买
+                            <div class="fixed-code"><img class="fl pQrCode" src="{% static '/index/images/wechat.jpg' %}"/>
+                                <p class="code-text fl" style="line-height:1.5">关注公众号<br/>一键下单购买</p>
+                            </div>
+                        </div>
+                        <p><strong class="bold">促销价：</strong><i class="red"><em class="font30 lato-price">{{ goods.price }}</em>元</i>
+{#                            <span class="fr line-through productBasePrice">RMB：3999.00元</span>#}
+                        </p>
+                        <!-- 促销信息 -->
+                        <div id="getStorePromotion">
+
+                        </div>
+                        <!-- 赠品 -->
+                        <!-- 预约抢购活动 -->
+                    </div>
+                </div>
+            </div>
+            <!--优惠券-->
+            <div class="purc-text hidden coupon-main" style="display: block">
+                <strong class="bold" style="font-weight: normal;">优惠券：</strong>
+                <ul class="coupon-show">
+                    {% for i in favors %}
+                    <li><span>{{ i.description }}</span></li>
+                    {% endfor %}
+                </ul>
+
+                <div class="m_discount_pop">
+                    <ol>
+
+                    </ol>
+                </div>
+            </div>
+            <!-- 商品规格属性选择一栏-->
+            <!-- 颜色和尺寸等选择 start-->
+
+
+            <!-- 颜色和尺寸等选择 end-->
+            <!-- 组合商品start -->
+            <!-- 组合商品start -->
+
+            <div class="purc-text groupedProduct" id="groupedProduct">
+                <div class="sele">{{ goods.serious }}</div>
+                <div class="options">
+
+                    {% for i in pictures %}
+                        {% ifequal i.isfirst 0 %}
+                    <span class="groupedproduct active" title="{{ i.saled }}" data-uuid=9a6983e02cc246dea017f5de6e129f51>{{ i.saled }}</span>
+                        {% endifequal %}
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="purc-text">
+
+                <div class="select j-select"> <!-- binder-attr="vm.promotionLimitBuy?true:false | disabled:true "-->
+                    <p style="white-space: nowrap">
+                    <form action="{% url 'app:directbuy' %}" method="post" style="float: left">
+                    <input type="text" class="val" value="1" autoComplete="off" name="buyNum"
+                           binder-event="keyup|changeBlur" id="buyNum"/>
+{#                    </form>#}
+                    <div class="mun">
+                        <span class="add" binder-event="click|addBuyNum"id="add">+</span>
+                        <span class="reg" binder-event="click|reduceBuyNum" id="reg">-</span>
+                        <script>
+                            var a = document.getElementById('add');
+                            var b = document.getElementById('reg');
+                            i = document.getElementById('buyNum').value;
+                            a.onclick = function () {
+                              i++;
+                              document.getElementById('buyNum').value= i
+                            };
+                            b.onclick = function () {
+                                if (i>0){
+                                    i--;
+                                    document.getElementById("buyNum").value = i;
+                                }
+                                else {
+                                    i==0;
+                                    document.getElementById("buyNum").value = i;
+                                }
+
+                            }
+                        </script>
+
+                    </div>
+                </div>
+
+{#                <form id="d1" >#}
+                <div class="purc-text purc-submit" id="promotionSub">
+
+
+{#                        <form action="{% url 'app:pay' %}" style="float: left">#}
+{#                       <a class="buy " id="buyAId" binder-event="click|toFastBuy" href="{% url 'app:directbuy' %}">立即购买</a>#}
+                    <button id="d1" type="submit" value="立即购买"style="height: 65px;width: 180px;background-color: white;color: red;font-size: 18px">立即购买</button>
+
+                    </form>
+{#                    <a href="{% url 'app:shopcar' %}" binder-event="click|toAddtoCartBuy" class="buy buy-to-cart" id="fastBuy">加入购物车</a>#}
+{#                    <input id="d1" type="submit" value="立即购买"style="height: 65px;width: 190px;background-color: red;color: white;font-size: 18px">#}
+                        <form action="{% url 'app:shopcar' %}" style="float: left">
+                        <button id="d2" type="submit" value="加入购物车"style="height: 65px;width: 180px;background-color: white;color: red;font-size: 18px">加入购物车</button>
+                        </form>
+                    </p>
+
+                </div>
+{#                </form>#}
+            </div>
+
+        <script>
+                    $(document).ready(function(){
+        $('#d2').click(function(){
+        var phone = $('#buyNum').val()
+            console.log('phone')
+                $.ajax({
+                    type:"POST",
+                    data: {phone:phone},
+
+                    url: "{% url 'app:incar' %}",
+                    cache: false,
+                    dataType: "html",
+                    success: function(result, statues, xml){
+                        console.log('1')
+                        alert(result);
+                    },
+                    error: function(){
+                        alert(result);
+                    }
+                });
+                return false;
+            });
+        });
+        </script>
+            <!-- 配送区域一栏-->
+            <div class="pro-service">服务：全国联保 | 7天退换货 | 积分抵扣 | 包邮(偏远地区除外)</div>
+        </div>
+        <!-- purchase html end -->
+    </div>
+</div>
+<!--组合商品-->
+<div class="g-box border productDetailSuitList" id="suitList" style="display:none;"></div>
+
+<!-- 商品描述图片、服务政策及购买按钮一栏 -->
+<!-- Product details html start-->
+<div class="details-box light-gray">
+    <div id="topDetails"></div>
+    <!-- 滚动顶部固定条 -->
+    <div class="details-r">
+        <ul>
+            <li class="item active"><a href="#topDetails">产品介绍</a></li>
+            <li class="item checkIfProductAttribute"><a href="#productAttribute">规格参数</a></li>
+            <li class="item policyCla"><a href="#policy">服务政策</a></li>
+            <li class="item"><a href="#question">常见问题</a></li>
+            <li class="item" id="commenttap"><a href="#comment">评价（4）</a></li>
+
+        </ul>
+    </div>
+    <div class="fixed-buy">
+        <div class="fixed-box">
+            <div class="fr">
+                <span class="fl" style="line-height: 76px">手机购买</span>
+                <div class="fl qrcode fixed_qrcode">
+                    <img src="{% static '/index/images/qrcode.png' %}"/>
+                    <div class="fixed-code"><img class="fl pQrCode" src=""/>
+                        <p class="code-text fl" style="line-height:1.5">关注公众号<br/>一键下单购买</p>
+                    </div>
+                </div>
+                <span id="fixedBuy">
+
+                        <a binder-event="click|toFastBuy" class="buy" id="fixedFastBuy" href="{% url 'app:pay' %}">立即购买</a>
+                        <a href="javascript:;" binder-event="click|toAddtoCartBuy" class="buy buy-to-cart" id="fastBuy">加入购物车</a>
+
+                </span>
+                <!--<a href="javascript:;" class="buy" id="fixedFastBuy">立即购买</a>-->
+            </div>
+
+            <div class="fl fixed-fl">
+
+                <span>55T6</span>
+
+                <strong class="red">{{ goods.price }}</strong>
+
+            </div>
+
+            <div class="details-fixed fl">
+                <ul>
+                    <li class="item active"><a href="#topDetails">产品介绍</a></li>
+                    <li class="item checkIfProductAttribute"><a href="#productAttribute">规格参数</a></li>
+                    <li class="item policyCla"><a href="#policy">服务政策</a></li>
+                    <li class="item"><a href="#question">常见问题</a></li>
+                    <li class="item" id="commenttap"><a href="#comment">评价（4）</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{#    <div id="productAttr">#}
+{##}
+{##}
+{#        <p>电视类型 : 智能电视</p>#}
+{##}
+{#        <p>最佳观看距离 : 尺寸-55-60</p>#}
+{##}
+{#        <p>底座材质 : </p>#}
+{##}
+{#        <p>屏幕类型 : 平板电视</p>#}
+{##}
+{#        <p>分辨率 : 3840*2160（4K分辨率/UHD）</p>#}
+{##}
+{#        <p>显示比例 : </p>#}
+{##}
+{#        <p>响应时间 : </p>#}
+{##}
+{#        <p>扫描频率 : </p>#}
+{##}
+{#        <p>背光源 : </p>#}
+{##}
+{#        <p>动态对比度 : </p>#}
+{##}
+{#        <p>色域 : </p>#}
+{##}
+{#        <p>可视视角 : </p>#}
+{##}
+{#        <p>屏幕寿命 : </p>#}
+{##}
+{#        <p>3D类型 : </p>#}
+{##}
+{#        <p>网络连接 : 支持</p>#}
+{##}
+{#        <p>连接方式 : </p>#}
+{##}
+{#        <p>核心数 : </p>#}
+{##}
+{#        <p>CPU（中央处理器） : </p>#}
+{##}
+{#        <p>GPU（图形处理器） : </p>#}
+{##}
+{#        <p>VPU（图像处理器） : </p>#}
+{##}
+{#        <p>APU（音频处理器） : </p>#}
+{##}
+{#        <p>RAM运行内存（内存） : </p>#}
+{##}
+{#        <p>ROM存储内存（闪存） : </p>#}
+{##}
+{#        <p>操作系统 : 智能电视、Android</p>#}
+{##}
+{#        <p>能效等级 : </p>#}
+{##}
+{#        <p>整机额定功率 : </p>#}
+{##}
+{#        <p>待机功耗 : </p>#}
+{##}
+{#        <p>工作电压 : </p>#}
+{##}
+{#        <p>净重(不含底座) : </p>#}
+{##}
+{#        <p>主机尺寸（不含底座） : </p>#}
+{##}
+{#        <p>净重(含底座) : </p>#}
+{##}
+{#        <p>主机尺寸（含底座） : </p>#}
+{##}
+{#        <p>音频输出功率 : </p>#}
+{##}
+{#        <p>音响配置 : </p>#}
+{##}
+{#        <p>音频解码 : </p>#}
+{##}
+{#        <p>扬声器数量 : </p>#}
+{##}
+{#        <p>HDMI接口 : </p>#}
+{##}
+{#        <p>USB 接口 : </p>#}
+{##}
+{#        <p>RJ45接口 : </p>#}
+{##}
+{#        <p>VGA接口 : </p>#}
+{##}
+{#        <p>AV输出接口 : </p>#}
+{##}
+{#        <p>AV输入接口 : </p>#}
+{##}
+{#        <p>色差分量接口 : </p>#}
+{##}
+{#        <p>RF接口 : </p>#}
+{##}
+{#        <p>麦克风接口 : </p>#}
+{##}
+{#        <p>数字音频输出接口 : </p>#}
+{##}
+{#        <p>SD卡槽 : </p>#}
+{##}
+{#        <p>PCMCIA卡槽 : </p>#}
+{##}
+{#        <p>USB支持视频格式 : </p>#}
+{##}
+{#        <p>USB支持音频格式 : </p>#}
+{##}
+{#        <p>USB支持图片格式 : </p>#}
+{##}
+{#        <p>功能、应用 : </p>#}
+{##}
+{#        <p>价格区间 : </p>#}
+
+
+    </div>
+    <!-- 商品详情图片 -->
+    <div class="details">
+
+        <div class="details-l m-details-l" style="display: block;">
+            <div id="productad"></div>
+            <div id="details-l">
+                {% for i in pictures %}
+                    {% ifequal i.isfirst 0 %}
+
+                <p><img src= '{{ i.path }}' style="" title="fdf82b2119ef47dbafc4ae54051eda98edit.jpg"/></p>
+                     {% endifequal %}
+                {% endfor %}
+
+                <p><br/></p>
+
+            </div>
+            <div id="productadTail"></div>
+            <!-- services html start -->
+            <div class="y_servicebox" id="policy">
+
+                <ul class="y_servicetab">
+                    <li>物流配送</li>
+                    <li class="active">商品签收</li>
+                    <li>产品安装</li>
+                    <li>发票</li>
+                    <li>售后服务</li>
+                </ul>
+                <div class="y_sercecontent">
+
+
+                    <div class="y_sercepane wuliu">
+                        <p><img src="http://s0.mall.tcl.com/group1/M00/05/BC/Ckgbll0oVWmAI-kvAAINWJZZLCQ4923582"
+                                alt="790.jpg"/></p>
+                    </div>
+
+
+                    <div class="y_sercepane qianshou active">
+                        <p><img src="http://s0.mall.tcl.com/group1/M00/05/6E/CkgbllxhKc2Ac20ZAAPAXh-g3Qk7166717"
+                                title="" alt="签收提醒(1)(2).jpg"/></p>
+                    </div>
+
+
+                    <div class="y_sercepane anzhuang">
+                        <p class="y_ser_h3 y_mb22"><span style="font-size: 14px; color: rgb(0, 0, 0);">1. 需要安装可致电TCL全国统一服务热线4008123456预约当地工程师上门安装调试，上门需要收取一定费用。
+						自行安装产生的损坏或意外，商城不承担相应责任。</span></p>
+                        <p class="y_ser_h3 y_mb22"><span style="font-size: 14px; color: rgb(0, 0, 0);">2. 电视一般标配底座（个别型号除外，具体请咨询客服），如果挂架请拨打4008123456联系工程师带挂架上门，挂架需要您付款，普通墙体安装免费。</span>
+                        </p>
+                        <p class="y_ser_h3 y_mb22"><span style="font-size: 14px; color: rgb(0, 0, 0);">3. <span
+                                style="font-size: 14px;">收费标准：工程师上门安装底座收取30-160元，安装挂架</span>收取60-320元不等，由于墙体及区域不同，具体费用以当地售后为准。</span>
+                        </p>
+                    </div>
+
+
+                    <div class="y_sercepane fapiao">
+                        <p><img src="http://s0.mall.tcl.com/group1/M00/05/91/CkgbllzCWwOAYUmwAAB9wLobE2E183.jpg"/><img
+                                src="http://s0.mall.tcl.com/group1/M00/05/6F/CkgbllxiOQKAXA9aAApdlR901PA904.jpg"/></p>
+                    </div>
+
+
+                    <div class="y_sercepane shouhou">
+                        <p class="y_ser_h3 y_mb22"><strong><span
+                                style="font-size: 14px; color: rgb(0, 0, 0);">1. 退货标准</span></strong><span
+                                style="font-size: 14px; color: rgb(0, 0, 0);">：</span></p>
+                        <p class="y_ser_h3 y_mb22"><span style="font-size: 14px; color: rgb(0, 0, 0);">支持7天无理由退货，如7天内出现质量问题，可选择退货、换货或维修，30天内出现质量问题，可选择换机或维修。 整机保修一年，主要部件保修三年（以物流显示签收时间开始计算）</span>
+                        </p>
+                        <p class="y_ser_h3 y_mb22"><strong><span style="font-size: 14px; color: rgb(0, 0, 0);">2. 七天无理由退货</span></strong>
+                        </p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">①退货条件：自签收日起商品应当完好，配件齐全。</span></p>
+                        <p style="white-space: normal;"><span style="font-size: 14px; color: rgb(0, 0, 0);">②发票：<span
+                                style="font-size: 16px; color: rgb(0, 0, 0); font-family: Helvetica;">本商城统一开具电子发票，下单后可凭订单号到电子发票查询平台</span><span
+                                style="font-family: Helvetica; color: rgb(0, 0, 0); font-size: 16px;"><a
+                                href="evernotecid://306305FA-095F-418B-8301-47100DD70393/ENNote/www.chaxunfapiao.com">www.chaxunfapiao.com</a>进行查询下载。</span></span>
+                        </p>
+                        <p style="white-space: normal;"><span style="font-size: 14px; color: rgb(0, 0, 0);">③赠品：赠品未签收的，请直接拒收；若已签收，请保持好赠品，联系在线客服咨询寄回地址，请不要将赠品直接交给上门拉机的服务人员。</span>
+                        </p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">④退货费用：无理由退货，42英寸（含）以上需承担200元运费，42英寸以下需要承担100元运费。</span>
+                        </p>
+                        <p><strong><span style="font-size: 14px; color: rgb(0, 0, 0);">3. 质量问题</span></strong></p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">①商品质量问题需要退换货，请第一时间联系商城客服或致电4008123456服务热线反馈。</span>
+                        </p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">②如符合退货条件，待电视拉回，发票赠品回收后3个工作日内完成退款；</span>
+                        </p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">③如符合换货条件，联系客服反馈，我们会在15个工作日内帮您处理完毕。</span>
+                        </p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">4. 退款</span></p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">①用户如需退款，请先联系官方购物商城在线客服；</span></p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">②申请退款时，如客服查询未有任何配送信息，我们将会取消发货，并在3个工作日内完成退款；</span>
+                        </p>
+                        <p><span style="font-size: 14px; color: rgb(0, 0, 0);">③如查询实际已经出库，无法拦截取消，请在配送员送货上门时，拒收货物，由于电视是贵重易碎品，
+							配送成本高，需要您承担退货产生的费用（42英寸（含）以上需承担200元运费，42英寸以下需要承担100元运费），
+							我们将会在电视返回仓库后为您办理退款。</span></p>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- services html end -->
+            <!--常见问题解答start-->
+            <div id="question">
+
+                <section class="container question_detial">
+                    <h2 class="procuct_title">常见问题</h2>
+                    <div id="questionitem" align="center">
+                        <table cellspacing="30" height="314">
+                            <tbody>
+                            <tr class="firstRow">
+                                <td style="word-break: break-all;" valign="top" width="350"><p><span
+                                        style="font-family: 微软雅黑,Microsoft YaHei; color: rgb(0, 0, 0);">付款后什么时候发货，送上门吗？</span>
+                                </p>
+                                    <p><span
+                                            style="color: rgb(0, 0, 0); font-family: 微软雅黑,Microsoft YaHei;"><br/></span>
+                                    </p>
+                                    <p><span
+                                            style="font-family: 微软雅黑,Microsoft YaHei; font-size: 12px; color: rgb(165, 165, 165);">您好，支付后我们将会在72小时内发出，3-7日送达；如有产品补货在途、物流无法送达等特殊情况，将会及时与您联系。</span>
+                                    </p>
+                                    <p><br/></p></td>
+                                <td style="word-break: break-all;" valign="top" width="350"><p><span
+                                        style="font-family: 微软雅黑,Microsoft YaHei; color: rgb(0, 0, 0);">配挂架吗？安装要不要收费？</span>
+                                </p>
+                                    <p><br/></p>
+                                    <p><span
+                                            style="font-family: 微软雅黑,Microsoft YaHei; font-size: 12px; color: rgb(165, 165, 165);">您好，电视标配的是座架，<span
+                                            style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; color: rgb(165, 165, 165); font-size: 12px;">工程师上门安装底座收取30-50元，安装挂架收取90-150元不等，由于墙体及区域不同，具体费用以当地售后为准，预约热线<span
+                                            style="color: rgb(165, 165, 165); font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 12px;">4008-123456。</span></span></span>
+                                    </p>
+                                    <p><br/></p></td>
+                            </tr>
+                            <tr>
+                                <td style="word-break: break-all;" valign="top" width="350"><p><span
+                                        style="font-family: 微软雅黑,Microsoft YaHei; color: rgb(0, 0, 0);">有发票吗？</span></p>
+                                    <p><br/></p>
+                                    <p><span
+                                            style="font-family: 微软雅黑,Microsoft YaHei; font-size: 12px; color: rgb(165, 165, 165);">您好，2016年6月28日0点起，购物将开具电子发票，抬头默认为收件人姓名，发货后可登陆www.chaxunfapiao.com 输入订单编号，查询下载，如需开具专用增值税发票，请在付款前联系在线客服。</span>
+                                    </p>
+                                    <p><br/></p></td>
+                                <td style="word-break: break-all;" valign="top" width="350"><p><span
+                                        style="font-family: 微软雅黑,Microsoft YaHei; color: rgb(0, 0, 0);">收货要注意什么？怎么保修？</span>
+                                </p>
+                                    <p><br/></p>
+                                    <p><span
+                                            style="font-family: 微软雅黑,Microsoft YaHei; font-size: 12px; color: rgb(165, 165, 165);">签收时务必确保外包装完好，否者请协商开箱验机或联系商城客服并拒收。产品使用&amp;质量问题，在第一时间联系在线客服，或拨打TCL售后服务热线：4008-123456 咨询预约。</span>
+                                    </p>
+                                    <p><br/></p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p><br/></p>
+                    </div>
+                </section>
+
+            </div>
+            <!--常见问题解答 end-->
+            <!-- 评价start -->
+            <div id="comment">
+
+                <div class="details-comm">
+                    <div class="comm-left tx-left">
+                        <p>与描述相符 <strong>4.7</strong></p>
+                        <ul class="comm-star j-star">
+
+                            <li class="item active"></li>
+                            <li class="item active"></li>
+                            <li class="item active"></li>
+                            <li class="item active"></li>
+                            <li class="item "></li>
+
+                        </ul>
+                        <p>已有4人评价</p>
+                    </div>
+                    <div class="comm-right tx-left">
+
+                        <p class="comm-title">最新好评</p>
+                        <table cellspacing="0" cellpadding="0" class="comm-table">
+                            <tbody>
+                            <tr>
+                                <td class="user-img"><img src="{% static '/index/images/default.png' %}"></td>
+                                <td class="tx-left">1***0</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colspan="2" class="tx-left"><p class="tab-mar">电视很高清，Ai很智能哟。</p></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="tx-left">2019-07-03</td>
+                                <td class="text-r"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="reply-title">
+                    <ul class="reply-tab">
+                        <li class="reply-item active">全部(4)</li>
+                    </ul>
+                </div>
+                <div class="reply-list commentList">
+
+                    <table cellspacing="0" cellpadding="0" class="comm-table">
+                        <tbody>
+                        <tr>
+                            <td class="user-img"><img src="{% static '/index/images/default.png' %}"></td>
+                            <td>1***0<span class="fr">2019-07-03</span></td>
+                            <td class="user-star">
+                                <ul class="comm-star star-r j-star">
+
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p class="tab-mar">电视很高清，Ai很智能哟。</p>
+                                <p class="reply-img">
+
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="comm-child">
+
+                                <p class="reply-img">
+
+                                </p>
+                                <p></p>
+                            </td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table cellspacing="0" cellpadding="0" class="comm-table">
+                        <tbody>
+                        <tr>
+                            <td class="user-img"><img src="{% static '/index/images/default.png' %}"></td>
+                            <td>1***6<span class="fr">2019-06-06</span></td>
+                            <td class="user-star">
+                                <ul class="comm-star star-r j-star">
+
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p class="tab-mar">清晰度够用，音响也可以，语音功能好用，可无遥控器控制，后续会追加！</p>
+                                <p class="reply-img">
+
+                                    <a class=""
+                                       href="http://s0.mall.tcl.com/group1/M00/05/A4/Ckgbllz4-DKAbK2QAC0MeNKActE329.jpg"
+                                       data-lightbox="img">
+                                        <img class="maxheight" src=/app/images/loadbg.gif
+                                             data-original="http://s0.mall.tcl.com/group1/M00/05/A4/Ckgbllz4-DKAbK2QAC0MeNKActE329.jpg">
+                                    </a>
+
+                                    <a class=""
+                                       href="http://s0.mall.tcl.com/group1/M00/05/A4/Ckgbllz4-DiATuXsAC5bCwvG81s885.jpg"
+                                       data-lightbox="img">
+                                        <img class="maxheight" src=/app/images/loadbg.gif
+                                             data-original="http://s0.mall.tcl.com/group1/M00/05/A4/Ckgbllz4-DiATuXsAC5bCwvG81s885.jpg">
+                                    </a>
+
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="comm-child">
+
+                                <p class="reply-img">
+
+                                </p>
+                                <p></p>
+                            </td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table cellspacing="0" cellpadding="0" class="comm-table">
+                        <tbody>
+                        <tr>
+                            <td class="user-img"><img src="{% static '/index/images/default.png' %}"></td>
+                            <td>1***5<span class="fr">2019-05-30</span></td>
+                            <td class="user-star">
+                                <ul class="comm-star star-r j-star">
+
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p class="tab-mar">收到电视看了几天，目前电视没有问题挺好，功能也挺好，没有电源键？关不了电，建议注意物流运输安全质量。</p>
+                                <p class="reply-img">
+
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="comm-child">
+
+                                <p class="reply-img">
+
+                                </p>
+                                <p></p>
+                            </td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <table cellspacing="0" cellpadding="0" class="comm-table">
+                        <tbody>
+                        <tr>
+                            <td class="user-img"><img src="{% static '/index/images/default.png' %}"></td>
+                            <td>1***2<span class="fr">2019-05-23</span></td>
+                            <td class="user-star">
+                                <ul class="comm-star star-r j-star">
+
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+                                    <li class="item active"></li>
+
+
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <p class="tab-mar">
+                                    3年2次购买TCL电视了，整体感觉不错，清淅，响应速度快。就是语音控制不太好用，经常出错。电视背景页面太多，且烦锁。简洁一点用户体验会更好。系统背景强制升级，用户没有选择余地，多考虑升级时用户的选择权，效果会更好！</p>
+                                <p class="reply-img">
+
+                                    <a class=""
+                                       href="http://s0.mall.tcl.com/group1/M00/05/9B/CkgbllzmEq-AFouNABmbifh3ZUs315.jpg"
+                                       data-lightbox="img">
+                                        <img class="maxheight" src=/app/images/loadbg.gif
+                                             data-original="http://s0.mall.tcl.com/group1/M00/05/9B/CkgbllzmEq-AFouNABmbifh3ZUs315.jpg">
+                                    </a>
+
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="comm-child">
+
+                                <p class="reply-img">
+
+                                </p>
+                                <p></p>
+                            </td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="padding-box">
+                    <div class="padding clearmar">
+
+                        <button class="prev" style="background:#fff">&lt;</button>
+
+
+                        <span class="item active" title="第1页">1</span>
+
+
+                        <button class="next" disabled="" style="background:#fff">&gt;</button>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- 评价end -->
+        </div>
+
+    </div>
+</div>
+{% endblock head %}
+
+<!--body end-->
+
+<div class="help">
+    <div class="min-wid">
+        <dl>
+            <dt>帮助中心</dt>
+            <dd>
+                <a target="_blank" rel="nofollow" href="/pages/service/toHelp.html?hid=1">购物指南</a>
+            </dd>
+            <dd>
+                <a target="_blank" rel="nofollow" href="/pages/service/toHelp_pay.html">支付方式</a>
+            </dd>
+            <dd>
+                <a target="_blank" rel="nofollow" href="/pages/service/toHelp_send.html">配送方式</a>
+            </dd>
+            <dd>
+                <a target="_blank" rel="nofollow" href="/pages/service/toHelp_terms.html">交易条款</a>
+            </dd>
+            <dd>
+                <a target="_blank" rel="nofollow" href="/pages/service/toHelp_invoice.html">电子发票</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>服务支持</dt>
+            <dd>
+                <a target="_blank" rel="nofollow"
+                   href="/page/serviceRevision/policy?id=56d4f28d21ca473f871a3b845f61aee9">售后服务</a>
+            </dd>
+            <dd>
+                <a target="_blank" rel="nofollow" href="/pages/serviceRevision/repair.html">自助服务</a>
+            </dd>
+            <dd>
+                <a target="_blank" rel="nofollow" href="/pages/service-home/index.html#query-wrapper">进度查询</a>
+            </dd>
+            <dd>
+                <a target="_blank" rel="nofollow" href="http://fans.tcl.com/uec/operation">用户体验中心</a>
+            </dd>
+            <dd>
+                <a style="color:red" href="http://www.tcl.com/pages/serviceRevision/autoCheck.html" rel="nofollow"
+                   target="_blank">视频教程</a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>客户服务</dt>
+            <dd><a style="color:red" target="_blank" href="http://staff.tcl.com/" rel="nofollow">内购平台</a></dd>
+            <dd><a target="_blank" href="/pages/bulkpurchase/newBulkpurchase.html" rel="nofollow">企业采购</a></dd>
+            <dd><a target="_blank" rel="nofollow" href="http://www.tcl.com/dealer/toLogin" rel="nofollow">经销商之家</a></dd>
+            <dd><a target="_blank" href="http://www.shifendaojia.com/index.html" rel="nofollow">十分到家</a></dd>
+        </dl>
+        <dl>
+            <dt>关注我们</dt>
+            <dd><a target="_blank" rel="nofollow" href="/pages/connectWithUs/connectWithUs.html" rel="nofollow">联系我们</a>
+            </dd>
+            <dd><a target="_blank" rel="nofollow" class="botSina"
+                   href="http://weibo.com/tcljituan?topnav=1&wvr=6&topsug=1&is_hot=1">官方微博</a></dd>
+            <dd><a target="_blank" rel="nofollow" href="http://fans.tcl.com/">铁粉社区</a></dd>
+        </dl>
+        <dl>
+            <dt>应用服务</dt>
+            <dd><a target="_blank" href="http://www.leiniao.com/" rel="nofollow">雷鸟</a></dd>
+            <dd><a target="_blank" href="http://www.huan.tv/" rel="nofollow">欢网</a></dd>
+            <dd><a target="_blank" href="https://jr.tcl.com/home.html" rel="nofollow">金融</a></dd>
+            <dd><a target="_blank" href="http://www.imooc.com/" rel="nofollow">教育</a></dd>
+            <dd><a target="_blank" href="http://www.golive-tv.com/" rel="nofollow">全球播</a></dd>
+            <!--<dd><a target="_blank" href="http://www.tcl-smarthome.com/" rel="nofollow">智能家居</a></dd>-->
+        </dl>
+        <dl>
+            <dt>TCL官网商城</dt>
+            <dd><img style="height:120px;width:120px;" src="{% static '/index/images/wechat.jpg' %}"></dd>
+        </dl>
+        <dl class="last-r">
+            <p class="red phone">4008-123456</p>
+            <p class="grey">（24小时在线，仅收市话费）</p>
+            <a href="/pages/service/customerServiceKuyu.html" target="_self" rel="nofollow"><i>&#xe64a;</i>24小时在线客服</a>
+        </dl>
+    </div>
+</div>
+</div>
+<div class="footer">
+    <div>
+        <div class="foot-logo">&#xe674;</div>
+        <p class="blod"><a target="_blank" href="/group/companyInfo/index" rel="nofollow">关于TCL</a>|<a target="_blank"
+                                                                                                       rel="nofollow"
+                                                                                                       href="/group/investors/index">投资者关系</a>|<a
+                target="_blank" rel="nofollow" href="/group/societyDuty/index">社会责任</a>|<a target="_blank"
+                                                                                           rel="nofollow"
+                                                                                           href="/group/news/index">新闻中心</a>|<a
+                target="_blank" rel="nofollow" href="http://zhaopin.tcl.com/">人才招聘</a>|<a rel="nofollow" target="_blank"
+                                                                                          href="/group/companyInfo/slipPath?type=6">成员网站</a>
+        </p>
+        <p>©2010-2018 TCL CORPORATION All Rights Reserved. TCL集团股份有限公司版权所有 粤ICP备05040863号<a target="_blank"
+                                                                                            rel="nofollow"
+                                                                                            class="marginL"
+                                                                                            href="/pages/low/content.html">使用条款</a>|<a
+                target="_blank" rel="nofollow" href="http://www.tcl.com/group/companyInfo/slipPath?type=5">法律声明</a>|<a
+                target="_blank" rel="nofollow" href="/group/companyInfo/slipPath?type=4">隐私保护</a></p>
+        <p><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44133002100088" rel="nofollow"><img
+                style="margin: -3px 3px 0 0; width:16px;" src="{% static '/index/images/beian.png' %}">粤网公安备案44133002100088号</a></p>
+        <div class="foot-r">
+            <div class="language">
+                <a href="/pages/index/index.html" rel="nofollow" class="lang-item active">中文简体</a>|<a rel="nofollow"
+                                                                                                      href="http://news.tcl.com/English.php/index/index.html"
+                                                                                                      class="lang-item ">English</a>
+            </div>
+        </div>
+        <div class="AC">
+            <div><img src="{% static '/index/images/credibility.png' %}"/></div>
+            <div><a href="http://wljg.gdgs.gov.cn/corpsrch.aspx?key=440000000011990" target="_blank"
+                    title="企业名称：TCL集团股份有限公司&#10;法定代表人：李东生&#10;标识状态：已激活 粤工商备P131801001423"><img
+                    src="{% static '/index/images/gdgs.png' %}" alt="" style="border:0;"/></a></div>
+        </div>
+    </div>
+</div>
+<script src="{% static '/index/js/vendor.js' %}"></script>
+<script src="{% static '/index/js/core.js' %}"></script>
+<script src="{% static '/index/js/config.js' %}"></script>
+<script src="{% static '/index/js/header.js' %}"></script>
+<script src="{% static '/index/js/jquery.min.js' %}"></script>
+ <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+<script language="javascript" src="{% static '/index/js/areacitys.js' %}" type="text/javascript" charset="utf-8"></script>
+
+<!--统计代码-->
+<script type='text/javascript'>
+    !function (e, t, n, g, i) {
+        e[i] = e[i] || function () {
+            (e[i].q = e[i].q || []).push(arguments)
+        }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+    }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+    gio('init', '9f54f1ba402ad7b8', {});
+
+    gio('send');
+</script>
+
+
+<script src="{% static '/index/js/detail-25c1b1a4d7.js' %}"></script>
+<script src="{% static '/index/js/redEnvelop-1360ca28e5.js' %}"></script>
+
+<script>
+    //百度的
+    var _hmt = _hmt || [];
+    if (location.host.indexOf('.tcl.com') > -1) {//只对生产环境产生统计
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?34c66f7b3d3ed0d0791c81ebe5ee7340";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    }
+    //广告监测
+    !(function (a, b, c, d, e, f) {
+        var g = "", h = a.sessionStorage, i = "__admaster_ta_param__", j = "tmDataLayer" !== d ? "&dl=" + d : "";
+        if (a[f] = {}, a[d] = a[d] || [], a[d].push({startTime: +new Date, event: "tm.js"}), h) {
+            var k = a.location.search,
+                l = new RegExp("[?&]" + i + "=(.*?)(&|#|$)").exec(k) || [];
+            l[1] && h.setItem(i, l[1]), l = h.getItem(i), l && (g = "&p=" + l + "&t=" + +new Date)
+        }
+        var m = b.createElement(c), n = b.getElementsByTagName(c)[0];
+        m.src = "//tag.cdnmaster.cn/tmjs/tm.js?id=" + e + j + g,
+            m.async = !0, n.parentNode.insertBefore(m, n)
+    })(window, document, "script", "tmDataLayer", "TM-I92QS0", "admaster_tm");
+
+
+
+
+</script>
+
+</body>
+</html>
+
+

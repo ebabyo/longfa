@@ -1,0 +1,638 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>TCL用户中心-</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit|ie-stand"/>
+    <link rel="stylesheet" href="{% static '/index/css/common.css' %}">
+    <link rel="stylesheet" href="{% static '/index/css/styles.css' %}">
+    <script charset="utf-8" src="{% static '/index/js/jquery-1.js' %}"></script>
+    <!--[if lt IE 9]>
+<script src="{% static '/index/js/json2.js' %}"></script>
+<![endif]-->
+    <script charset="utf-8" src="{% static '/index/js/plugin.js' %}"></script>
+    <script charset="utf-8" src="{% static '/index/js/index.js' %}"></script>
+    <script charset="utf-8" src="{% static '/index/js/artTemplate.js' %}"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+
+
+</head>
+<body>
+
+<!-- fans nav start -->
+<div class="headerbox">
+    <p class="header"><a class="logo fl" href="/proxy/home/index"><img src="{% static '/index/images/logo.png' %}"></a><span
+            class="crumb fl J-UserTop">TCL账号</span></p>
+</div>
+<!-- fans nav end -->
+
+
+<!-- main html start -->
+
+<div class="login-box" style="background-color: lightgrey" >
+    <div class="main pr">
+        <!-- register First step  -->
+
+        <div class="login-cont J-First pa" >
+            <p class="log-title marb15">注册TCL账号</p>
+              <form action="#" id="d1">
+
+            <div class="fm-group pr">
+                <span class="ikyuser pa iky05"></span>
+
+{#                <span class="yzm-code red pa font12  J-GetPhoneCode">获取验证码</span>#}
+{#                <a href="{% url 'app:duanxin' %}" class="yzm-code red pa font12  J-GetPhoneCode" >获取验证码</a>#}
+                 <nobr><input type="text" class="linfo J-phone" onKeyUp="value=value.replace(/[^\d]/g,'')" placeholder="手机号码"
+                       maxlength="11" name="phone" id="phone" style="width: 200px">
+                     <input type="submit" value="获取验证码" style="width: 100px;height: 40px " ></nobr>
+
+
+                <span class="hint J-PhoneCodeHint"></span>
+            </div>
+
+               </form>
+            <form action="{% url 'app:register' %}" method="post">
+            <div class="fm-group pr">
+                <span class="ikyuser pa iky04"></span>
+
+                 <input type="text" class="linfo J-PhoneCode" placeholder="短信验证码" maxlength="6" name="duanxin">
+                 <p style="color: red">{{ errormessage }}</p>
+                <span class="hint J-PhoneHint"></span>
+            </div>
+
+
+            <div class="protocol">
+                <input type="checkbox" class="clause-checkbox J-Protocol" checked="checked">
+                <span class="agree-text J-ProtocolText">已阅读并同意用户服务条款和隐私政策</span>
+            </div>
+            <p class="login-btn">
+
+{#                <button class="J-Register J-FirstRegister">注册</button>#}
+                <input type="submit" value="注册" style="background-color: red ;width: 275px; height: 45px">
+            </p>
+            </form>
+
+                <script>
+                    $(document).ready(function(){
+        $('#d1').submit(function(){
+        var phone = $('#phone').val()
+                $.ajax({
+                    type:"POST",
+                    data: {phone:phone},
+
+                    url: "{% url 'app:duanxin' %}",
+                    cache: false,
+                    dataType: "html",
+                    success: function(result, statues, xml){
+                        alert(result);
+                    },
+                    error: function(){
+                        alert(result);
+                    }
+                });
+                return false;
+            });
+        });
+                </script>
+
+            <p class="mart10" id="o-methds">
+                <a id="btn-goLogin" href="/proxy/login" class="font14 fl">已有账号直接登录</a>
+                <a href="/proxy/login" class="font14 fr red">推荐第三方登录</a>
+            </p>
+        </div>
+
+        <!-- register First step  -->
+
+        <!-- register Second part  -->
+        <form action="{% url 'app:check_password' %}" method="post">
+        <div class="J-Second" style="display: {{ show }}">
+            <div class="login-cont pa">
+                <p class="log-title font18 login-mar">您注册的账号为：<span class="J-RegPhone"></span></p>
+                <p class="setPSW">请设置密码：</p>
+                <div class="fm-group pr mart20">
+                    <span class="ikyuser pa iky02"></span>
+                    <input type="password" class="linfo J-Pass" value="" placeholder="设置密码" name="password">
+                    <span class="hint J-PassHint"></span>
+                </div>
+                <div class="fm-group pr mart20">
+                    <span class="ikyuser pa iky02"></span>
+                    <input type="password" class="linfo RepPass J-RepPass" placeholder="确认密码" name="repassword">
+                    <span class="hint J-RepPassHint"></span>
+                </div>
+                <p class="font14 center marb10 gcolor">密码由8-16位英文字母、数字或者符号组成</p>
+                <p style="color: red">{{ errormessage }}</p>
+{#                <p class="login-btn"><span class="J-LoginSubmit">确认提交</span></p>#}
+                <input type="submit" value="确认提交" style="background-color: red ;width: 275px; height: 45px">
+            </div>
+        </div>
+        </form>
+
+        <!-- register Second part  -->
+
+{#        <!-- register Third part  -->#}
+        <div class="J-Third" style="display: {{ dsp }}">
+            <div class="login-cont pa">
+                <p class="log-title center" style="margin-top:48px">恭喜您注册成功！</p>
+                <div class="center set-success">
+                    <img width="140" height="140" src="{% static '/index/images/success.png' %}"/>
+                </div>
+                <p class="font14 center marb10" id="dd"><span id="cutdown"></span>3s后自动跳转</p>
+                <p class="login-btn"><a href="{% url 'app:login' %}">登录</a></p>
+            </div>
+        </div>
+    </div>
+    {% ifequal dsp 'block' %}
+     <script type="text/javascript">
+        window.onload = function () {
+            var time = 3;
+            var secondEle = document.getElementById("dd");
+            var timer = setInterval(function () {
+                secondEle.innerHTML = time;
+                time--;
+                if (time == 0) {
+                    clearInterval(timer);
+                    location.href = "{% url 'app:index' %}";
+                }
+
+            }, 1000);
+        }
+    </script>
+    {% endifequal %}
+
+    <!-- register Third part  -->
+    <div class="protocolmask J-ProtocolMask"></div>
+    <div class="agreement J-Agreement"><h3>协议说明<span class="close J-ProtocolClose">×</span></h3>
+        <div class="agr-main">
+            <div class="agr-content">
+                <dl>
+                    <dt>TCL用户协议</dt>
+                    <dd class="infomation infomation-pc policy_info"><b></b><br>
+                        <div style="text-align: left; line-height: 1.7;">
+                            <div><span>客户在接受商品订购与送货的同时，有义务遵守以下交易条款。您在TCL官方商城下订单之前或接受TCL官方商城送货之前，请您仔细阅读以下条款：</span></div>
+                            <strong>
+                                <div><strong>一、本站服务条款的确认和接纳</strong></div>
+                            </strong>
+                            <div><span>&nbsp;本站的各项电子服务的所有权和运作权归本站。本站提供的服务将完全按照其发布的服务条款和操作规则严格执行。用户必须完全同意所有服务条款并完成注册程序，才能成为本站的正式用户及TCL集团的普通会员。用户确认：本协议条款是处理双方权利义务的当然约定依据，除非违反国家强制性法律，否则始终有效。在下订单的同时，您也同时承认了您拥有购买这些产品的权利能力和行为能力，并且将您对您在订单中提供的所有信息的真实性负责。</span>
+                            </div>
+                            <strong>
+                                <div><strong>二、服务简介</strong></div>
+                            </strong>
+                            <div><span>本站运用自己的操作系统通过国际互联网络为用户提供网络服务。同时，用户必须：</span></div>
+                            <div><span>&nbsp;1.自行配备上网的所需设备，包括个人电脑、调制解调器或其他必备上网装置。</span></div>
+                            <div><span>2.自行负担个人上网所支付的与此服务有关的电话费用、网络费用。</span></div>
+                            <div><span>3.基于本站所提供的网络服务的重要性，用户应同意：提供详尽、准确的个人资料；不断更新注册资料，符合及时、详尽、准确的要求。</span></div>
+                            <div><span>4.为使您感受到更好的会员服务，TCL集团可能会委托相关合作方向您提供一部分会员服务而无须经过您的同意或特别告知您；对此，您完全理解并予以同意。</span>
+                            </div>
+                            <strong>
+                                <div><strong>三、价格和数量</strong></div>
+                            </strong>
+                            <div><span>本站将尽最大努力保证您所购商品与网站上公布的价格一致，但价目表和声明并不构成要约。商品的价格都包含了增值税。如果发生了意外情况，在确认了您的订单后，由于供应商提价，税额变化引起的价格变化，或是由于网站的错误等造成商品价格变化，您有权取消您的订单，并希望您能及时通过电子邮件或电话通知本站客户服务部。</span>
+                            </div>
+                            <div><span>由于市场变化及各种以合理商业努力难以控制的因素的影响，本站无法承诺用户通过提交订单所希望购买的商品都会有货，用户订购的商品如果发生缺货，用户和本站皆有权取消该订单。同时，本站保留对产品订购数量的限制权。</span>
+                            </div>
+                            <strong>
+                                <div><strong>四、送货及费用</strong></div>
+                            </strong>
+                            <div><span>本站将会把产品送到您所指定的送货地址。所有在本站上列出的送货时间为参考时间，参考时间的计算是根据库存状况、正常的处理过程和送货时间、送货地点的基础上估计得出的。送货费用根据您选择的配送方式的不同而异。</span>
+                            </div>
+                            <div><span>请清楚准确地填写您的真实姓名、送货地址及联系方式。因如下情况造成订单延迟或无法配送等，本站将不承担责任：</span></div>
+                            <div><span>1.客户提供错误信息和不详细的地址；</span></div>
+                            <div><span>2.货物送达无人签收，由此造成的重复配送所产生的费用及相关的后果。</span></div>
+                            <div><span>3.不可抗力，例如：自然灾害、交通戒严、突发战争等。</span></div>
+                            <strong>
+                                <div><strong>五、服务条款的修改</strong></div>
+                            </strong>
+                            <div><span>本站将可能不定期的修改本用户协议的有关条款，一旦条款及服务内容产生变动，本站将会在重要页面上提示修改内容。您应经常访问本页面了解这些内容，一旦接受本条款，即意味着您已经同时详细阅读并接受了服务条款的变动。</span>
+                            </div>
+                            <div><span>如果不同意本站对条款内容所做的修改，用户可以主动取消获得的网络服务。</span></div>
+                            <strong>
+                                <div><strong>&nbsp;六、用户隐私制度</strong></div>
+                            </strong>
+                            <div><span>本站尊重并保护用户的个人隐私权。本站将以高度的勤勉、审慎义务对待用户的资料信息，除在如下情况下，本站依据您的个人意愿或法律的规定外，不会将这些信息对外披露或向第三方提供：</span>
+                            </div>
+                            <div><span>1.经您事先同意，向第三方披露；</span></div>
+                            <div><span>2.根据法律的有关规定，或者行政司法机构的要求，向第三方或者行政、司法机构披露；</span></div>
+                            <div><span>3.为提供您所要求的产品和服务，而必须向第三方分享您的个人信息；</span></div>
+                            <div><span>4.其他本站根据法律、法规或者网站政策认为合适的披露。</span></div>
+                            <strong>
+                                <div><strong>七、用户的帐号，密码和安全性</strong></div>
+                            </strong>
+                            <div><span>用户一旦注册成功，成为本站的合法用户，将得到一个密码和用户名。您可随时根据指示改变您的密码。用户将对用户名和密码安全负全部责任。另外，每个用户都要对以其用户名进行的所有活动和事件负全责。用户若发现任何非法使用用户帐号或存在安全漏洞的情况，请立即通告本站。</span>
+                            </div>
+                            <strong>
+                                <div><strong>八、不承诺提供担保</strong></div>
+                            </strong>
+                            <div><span>用户个人对网络服务的使用承担风险。除非另有明确的书面说明，本站及其所包含的其他方式通过本站提供给您的全部信息、内容、商品（包括软件）和服务，是在“现状”和“现存”的基础上提供的。除非另有明确的书面说明，我们不对本网站的运营及包含在本网站上的信息、内容、商品（包括软件）或服务作任何形式的、明示或默示的声明或担保，且不会承诺其提供给用户的全部信息或发出的电子邮件没有病毒或其他有害成分。在适用法律所允许的最大限度内，我们不承诺所有明示或默示的担保，包括但不限于对适销性和满足特定目的的默示担保。您明确同意自担风险使用本网站。</span>
+                            </div>
+                            <strong>
+                                <div><strong>九、责任限制</strong></div>
+                            </strong>
+                            <div><span>本站对因不可抗力或其他无法控制的原因（如本站销售服务系统异常或无法使用导致网上交易无法完成或丢失有关的信息、记录等），应尽可能合理地协助处理善后事宜，努力使客户免受经济损失。用户因使用本站而引起的损害或经济损失，本站将依据相应的法律规定承担合理的责任，但承担的全部责任均不超过用户所购买的与该索赔有关的商品价格。</span>
+                            </div>
+                            <strong>
+                                <div><strong>十、对用户信息的存储和限制</strong></div>
+                            </strong>
+                            <div><span>本站有判定用户的行为是否符合本站服务条款的要求和精神的保留权利，如果用户违背了服务条款的规定，本站有中断对其提供网络服务的权利。对有违反法律法规、捏造事实、恶意诋毁等行为的，本站有停止传输并删除其信息，禁止用户发言，限制用户订购，注销用户账户并向相关机关进行披露。</span>
+                            </div>
+                            <strong>
+                                <div><strong>十一、用户管理</strong></div>
+                            </strong>
+                            <div><span>用户单独承担发布内容的责任。用户对服务的使用是根据所有适用于本站的国家法律、地方法律和国际法律标准的。用户必须遵循：</span></div>
+                            <div><span>&nbsp;1.从中国境内向外传输技术性资料时必须符合中国有关法规。</span></div>
+                            <div><span>2.使用网络服务不作非法用途。</span></div>
+                            <div><span>3.不干扰或混乱网络服务。</span></div>
+                            <div><span>4.遵守所有使用网络服务的网络协议、规定、程序和惯例。</span></div>
+                            <div><span>用户须承诺不传输任何非法的、骚扰性的、中伤他人的、辱骂性的、恐性的、伤害性的、庸俗的，淫秽等信息资料。</span></div>
+                            <div>
+                                <span>另外，用户也不能传输何教唆他人构成犯罪行为的资料；不能传输助长国内不利条件和涉及国家安全的资料；不能传输任何不符合当地法规、国家法律和国际法律的资料。</span>
+                            </div>
+                            <div><span>未经许可而非法进入其它电脑系统是禁止的。</span></div>
+                            <div><span>若用户的行为不符合以上提到的服务条款，本站将作出独立判断立即取消用户服务帐号。</span></div>
+                            <div><span>用户需对自己在网上的行为承担法律责任。用户若在本站上散布和传播反动、色情或其他违反国家法律的信息，本站的系统记录有可能作为用户违反法律的证据。</span>
+                            </div>
+                            <strong>
+                                <div><strong>十二、保障用户</strong></div>
+                            </strong>
+                            <div><span>同意保障和维护本站全体成员的利益，负责支付由用户使用超出业务范围引起的律师费用，违反服务条款的损害补偿费用等。</span></div>
+                            <strong>
+                                <div><strong>十三、终止服务</strong></div>
+                            </strong>
+                            <div><span>在下列情况下，本站可以通过注销账户的方式终止服务，同时保留对用户的违法行为追究法律责任的权利：</span></div>
+                            <div><span>1.用户违反法律法规及本协议相关条款规定；</span></div>
+                            <div><span>2.用户注册信息中的内容虚假；</span></div>
+                            <div><span>3.用户提供的注册信息填写的联系方式不存在或无效；</span></div>
+                            <div><span>4.本协议条款更新时，用户明示不愿接受新的条款；</span></div>
+                            <div><span>5.用户对本站实施欺诈、胁迫、恶意攻击等行为；</span></div>
+                            <div><span>6.本站认为需要终止服务的其他情况。</span></div>
+                            <strong>
+                                <div><strong>十四、通告</strong></div>
+                            </strong>
+                            <div><span>所有发给用户的通告都可通过重要页面的公告或电子邮件或常规的信件传送。用户协议条款的修改、服务变更、或其它重要事件的通告都会以此形式进行。</span></div>
+                            <strong>
+                                <div><strong>十五、参与广告策划</strong></div>
+                            </strong>
+                            <div><span>用户在他们发表的信息中加入宣传资料或参与广告策划，在本站的免费服务上展示他们的产品，任何这类促销方法，包括运输货物、付款、服务、商业条件、担保及与广告有关的描述都只是在相应的用户和广告销售商之间发生。本站不承担任何责任，本站没有义务为这类广告销售负任何一部分的责任。</span>
+                            </div>
+                            <strong>
+                                <div><strong>十六、网络服务内容的所有权</strong></div>
+                            </strong>
+                            <div><span>本站定义的网络服务内容包括：文字、软件、声音、图片、录象、图表、广告中的全部内容；电子邮件的全部内容；本站为用户提供的其他信息。所有这些内容受版权、商标、标签和其它财产所有权法律的保护。所以，用户只能在本站和广告商授权下才能使用这些内容，而不能擅自复制、再造这些内容、或创造与内容有关的派生产品。本站所有的文章版权归原文作者和本站共同所有，任何人需要转载本站的文章，必须征得原文作者或本站授权。</span>
+                            </div>
+                            <strong>
+                                <div><strong>十七、法律管辖和适用</strong></div>
+                            </strong>
+                            <div><span>本协议的订立、执行和解释及争议的解决均应适用中国法律。</span></div>
+                            <div><span>如发生本站服务条款与中国法律相抵触时，则这些条款将完全按法律规定重新解释，而其它合法条款则依旧保持对用户产生法律效力和影响。</span></div>
+                            <div><span>本协议的规定是可分割的，如本协议任何规定被裁定为无效或不可执行，该规定可被删除而其余条款应予以执行。</span></div>
+                            <div><span>如双方就本协议内容或其执行发生任何争议，双方应尽力友好协商解决；协商不成时，任何一方均可向本站所在地的人民法院提起诉讼。</span></div>
+                        </div>
+                    </dd>
+                    <dd></dd>
+                </dl>
+            </div>
+            <div class="agree-box">
+                <button class="agree J-ProtocolSubmit">同意</button>
+            </div>
+        </div>
+    </div>
+{#    <script type="text/javascript">#}
+{#        //初始化链接，该带参数的带参数#}
+{#        util.setUrlParm($('#o-methds'));#}
+{#        document.title = 'TCL用户中心-注册TCL账号';#}
+{#        $('.J-UserTop').text('TCL账号登录');#}
+{#        //记录来源#}
+{#        if (!$.cookie('referrer')) {#}
+{#            $.cookie('referrer', document.referrer, {path: '/'});#}
+{#        }#}
+{#        // 验证手机号码的正则#}
+{#        var captchaCode = '';#}
+{#        // var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;#}
+{#        var myreg = /^1[3-9]\d{9}$/;#}
+{#        var pass = function (val) {#}
+{#            if (/^[ -~]*$/.test(val)) {#}
+{#                if (val.length < 8 || val.length > 16) {#}
+{#                    return false;#}
+{#                } else if (/^(?:\d+|[a-zA-Z]+)$/.test(val)) {#}
+{#                    return false;#}
+{#                } else {#}
+{#                    return true;#}
+{#                }#}
+{#            } else {#}
+{#                return false;#}
+{#            }#}
+{#        };#}
+{#        // /^(?![\d]+$)(?![a-zA-Z]+$)(?![!#$%^&*]+$)[\da-zA-Z!#$%^&*]{8,16}$/;#}
+{#        var obj = {};#}
+{#        var timer = true, number = 59, power = null, register = true;#}
+{##}
+{#        //点击重新获取验证图片#}
+{#        acquire.GetRegisterImg(function (data) {#}
+{#            if (data && data.code == 1) {#}
+{#                obj.captchaKey = data.data.key;#}
+{#                $('.J-GetImgCode').attr('src', data.data.url);#}
+{#            } else {#}
+{#                $('.J-ImgCodeHint').text('验证码获取失败，请重新获取！');#}
+{#            }#}
+{#        });#}
+{#        $(document).on('click', '.J-GetImgCode', function () {#}
+{#            acquire.GetRegisterImg(function (data) {#}
+{#                if (data && data.code == 1) {#}
+{#                    obj.captchaKey = data.data.key;#}
+{#                    $('.J-GetImgCode').attr('src', data.data.url);#}
+{#                } else {#}
+{#                    $('.J-ImgCodeHint').text('验证码获取失败，请重新获取！');#}
+{#                }#}
+{#            });#}
+{#        });#}
+{#        //是否同意注册协议#}
+{#        $(document).on('click', '.J-Protocol', function () {#}
+{#            if ($(this).is(':checked')) {#}
+{#                $('.J-FirstRegister').removeAttr('disabled');#}
+{#            } else {#}
+{#                $('.J-FirstRegister').attr('disabled', 'disabled');#}
+{#            }#}
+{#        });#}
+{#        $(document).on('click', '.J-ProtocolSubmit', function () {#}
+{#            $('.J-Protocol').prop("checked", "checked");#}
+{#            $('.J-FirstRegister').removeAttr('disabled');#}
+{#            $('.J-ProtocolMask, .J-Agreement').hide();#}
+{#        });#}
+{##}
+{#        // 点击查看注册协议#}
+{#        $(document).on('click', '.J-ProtocolText', function () {#}
+{#            $('.J-ProtocolMask, .J-Agreement').show();#}
+{#        }).on('click', '.J-ProtocolMask, .J-ProtocolClose', function () {#}
+{#            $('.J-ProtocolMask, .J-Agreement').hide();#}
+{#        });#}
+{##}
+{#        // 检查手机号码是否可验证#}
+{#        $(document).on('blur', '.J-phone', function () {#}
+{##}
+{#            var val = $.trim($(this).val());#}
+{#            obj.mobile = val;#}
+{#            if (!obj.mobile || obj.mobile == '') {#}
+{#                $('.J-PhoneHint').text('手机号码不能为空！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            if (!myreg.test(obj.mobile)) {#}
+{#                $('.J-PhoneHint').text('请输入合法的手机号码！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            $('.J-PhoneHint').text(' ');#}
+{#            // http.post('/ajax/register/check/username', {'mobile':val}, function(data){#}
+{#            //   if (data && data.code == 1) {#}
+{#            //     register = data.data.result;#}
+{#            //     if (!data.data.result) {#}
+{#            //       $('.J-PhoneHint').text('账号已注册！');#}
+{#            //     };#}
+{#            //   } else {#}
+{#            //     $('.J-PhoneHint').text(data.msgChi);#}
+{#            //   }#}
+{#            // });#}
+{##}
+{##}
+{#        });#}
+{##}
+{##}
+{#        // 点击获取短信验证码#}
+{##}
+{#        $(document).on('click', '.J-GetPhoneCode', function () {#}
+{#            var self = $(this);#}
+{#            $('.J-PhoneHint').text('');#}
+{#            if (!obj.mobile || obj.mobile == '') {#}
+{#                $('.J-PhoneHint').text('手机号码不能为空！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            if (!myreg.test(obj.mobile)) {#}
+{#                $('.J-PhoneHint').text('请输入合法的手机号码！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            if (!$('.J-ImgCode').val() || $('.J-ImgCode').val() == '') {#}
+{#                $('.J-ImgCodeHint').text('请输入图片验证码！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            if (!obj.captchaKey || $.trim(obj.captchaKey) == '') {#}
+{#                $('.J-ImgCodeHint').text('图片验证码错误！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            obj.captchaCode = $('.J-ImgCode').val();#}
+{#            obj.bussinessType = 1;#}
+{##}
+{#            if (timer && register) {#}
+{#                $('.J-PhoneCodeHint, .J-PhoneHint, .J-ImgCodeHint').text('');#}
+{#                timer = false;#}
+{#                http.post('/ajax/register/sendmsm2', obj, function (data) {#}
+{#                    if (data && data.code == 1) {#}
+{#                        $('.J-ImgCodeHint').text('');#}
+{#                        power = setInterval(function () {#}
+{#                            number--#}
+{#                            if (number == 0) {#}
+{#                                number = 59;#}
+{#                                timer = true;#}
+{#                                clearInterval(power);#}
+{#                                self.text('获取验证码');#}
+{#                            } else {#}
+{#                                self.text('重新获取(' + number + ')');#}
+{#                            }#}
+{#                        }, 1000);#}
+{#                    } else {#}
+{#                        timer = true;#}
+{#                        if (data.msgEng != 'success') {#}
+{#                            $('.J-ImgCodeHint').text(data.msgChi);#}
+{#                        }#}
+{#                        ;#}
+{#                        acquire.GetRegisterImg(function (data) {#}
+{#                            if (data && data.code == 1) {#}
+{#                                obj.captchaKey = data.data.key;#}
+{#                                $('.J-GetImgCode').attr('src', data.data.url);#}
+{#                            } else {#}
+{#                                $('.J-ImgCodeHint').text('验证码获取失败，请重新获取！');#}
+{#                            }#}
+{#                        });#}
+{#                    }#}
+{#                });#}
+{#            }#}
+{#            ;#}
+{##}
+{#        });#}
+{##}
+{#        // 提交手机注册#}
+{#        $(document).on('click', '.J-Register', function (data) {#}
+{##}
+{#            var checksms = {#}
+{#                mobile: $.trim($('.J-phone').val()),#}
+{#                checkCode: $.trim($('.J-PhoneCode').val()),#}
+{#                bussinessType: 1#}
+{#            }#}
+{#            if (checksms.mobile == '') {#}
+{#                $('.J-PhoneHint').text('手机号码不能为空！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            if (!myreg.test(checksms.mobile)) {#}
+{#                $('.J-PhoneHint').text('请输入合法的手机号码！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            if (checksms.checkCode == '') {#}
+{#                $('.J-PhoneCodeHint').text('请输入手机验证码！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{##}
+{#            obj.mobile = checksms.mobile;#}
+{#            obj.checkCode = checksms.checkCode;#}
+{##}
+{#            http.post('/ajax/register/checksms', checksms, function (data) {#}
+{#                if (data && data.code == 1) {#}
+{#                    if (data.data.result) {#}
+{#                        // $('.J-PhoneHint').text('可以注册');#}
+{#                        $('.J-First').hide();#}
+{#                        $('.J-Second').show();#}
+{#                        $('.J-RegPhone').text(obj.mobile);#}
+{#                    } else {#}
+{#                        $('.J-PhoneHint').text('此账号已注册！');#}
+{#                        return false;#}
+{#                    }#}
+{#                } else {#}
+{#                    if (data.msgEng != 'success') {#}
+{#                        $('.J-PhoneCodeHint').text(data.msgChi);#}
+{#                    }#}
+{#                    ;#}
+{#                }#}
+{#            });#}
+{##}
+{#        });#}
+{##}
+{##}
+{#        // 验证密码输入是否输入和密码#}
+{#        $(document).on('blur', '.J-Pass', function () {#}
+{#            var val = $(this).val();#}
+{#            if ($.trim(val) == '') {#}
+{#                $('.J-PassHint').text('密码不能为空！');#}
+{#                return false;#}
+{#            }#}
+{#            if (!pass(val)) {#}
+{#                $('.J-PassHint').text('密码由8-16位英文字母、数字或者符号组成！');#}
+{#            } else {#}
+{#                $('.J-PassHint').text('');#}
+{#            }#}
+{#        }).on('blur', '.J-RepPass', function () {#}
+{#            var star = $('.J-Pass').val();#}
+{#            var val = $(this).val();#}
+{#            if ($.trim(val) == '') {#}
+{#                $('.J-RepPassHint').text('密码不能为空！');#}
+{#                return false;#}
+{#            }#}
+{#            if (val != star) {#}
+{#                $('.J-RepPassHint').text('两次输入的密码不一致！');#}
+{#                return false;#}
+{#            }#}
+{#            ;#}
+{#            if (!pass(val)) {#}
+{#                $('.J-RepPassHint').text('密码由8-16位英文字母、数字或者符号组成！');#}
+{#            } else {#}
+{#                $('.J-RepPassHint').text('');#}
+{#            }#}
+{#        });#}
+{##}
+{##}
+{#        // 点击注册#}
+{#        $(document).on('click', '.J-LoginSubmit', function () {#}
+{##}
+{#            var star = $('.J-Pass').val();#}
+{#            var end = $('.J-RepPass').val();#}
+{#            if ($.trim(star) == '') {#}
+{#                $('.J-PassHint').text('密码不能为空！');#}
+{#                return false;#}
+{#            }#}
+{#            if ($.trim(end) == '') {#}
+{#                $('.J-RepPassHint').text('密码不能为空！');#}
+{#                return false;#}
+{#            }#}
+{#            if (!pass(star)) {#}
+{#                $('.J-PassHint').text('密码由8-16位英文字母、数字或者符号组成！');#}
+{#                return false;#}
+{#            }#}
+{#            if (!pass(end)) {#}
+{#                $('.J-RepPassHint').text('密码由8-16位英文字母、数字或者符号组成！');#}
+{#                return false;#}
+{#            }#}
+{#            if (star != end) {#}
+{#                $('.J-RepPassHint').text('两次输入的密码不一致！');#}
+{#                return false;#}
+{#            }#}
+{#            obj.confirmPassword = util.encryptPwd($('.J-Pass').eq(0).val());//密码加密#}
+{#            if (util.getUrlParam('from')) {#}
+{#                obj.callBackUrl = util.getUrlParam('from');#}
+{#            } else {#}
+{#                obj.callBackUrl = $.cookie('referrer') ? $.cookie('referrer') : '/';#}
+{#            }#}
+{#            delete obj.bussinessType;#}
+{#            http.post('/ajax/register/commit/registerinfo', obj, function (data) {#}
+{#                if (data && data.code == 1) {#}
+{#                    $('.J-Second').hide();#}
+{#                    $('.J-Third').show();#}
+{#                    var n = 3;#}
+{#                    $('#cutdown').text(n);#}
+{#                    var interval = setInterval(function () {#}
+{#                        if (n == 1) {#}
+{#                            clearInterval(interval);#}
+{#                            if (data.data.callUrl.indexOf('/proxy/login') != -1) {#}
+{#                                location.href = '/'#}
+{#                            } else {#}
+{#                                location.href = data.data.callUrl ? data.data.callUrl : '/';#}
+{#                            }#}
+{#                        } else {#}
+{#                            $('#cutdown').text(--n);#}
+{#                        }#}
+{#                    }, 1000)#}
+{#                } else {#}
+{#                    $('.J-RepPassHint').text(data.msgChi);#}
+{#                }#}
+{##}
+{#            });#}
+{##}
+{#        });#}
+{##}
+{#        function locationParam(key) {#}
+{#            var urlParam = location.search.slice(1).split('&'),#}
+{#                locationParam = {};#}
+{#            for (var i = 0; i < urlParam.length; i++) {#}
+{#                var dataArr = urlParam[i].split('=');#}
+{#                locationParam[dataArr[0]] = dataArr[1];#}
+{#            }#}
+{#            return locationParam[key] ? locationParam[key] : '';#}
+{#        }#}
+{##}
+{#    </script>#}
+
+
+</div>
+<!-- main html end -->
+
+<!-- @main html end -->
+
+<!-- footer html start -->
+<div class="footerbox">
+    <p class="footnav"><a href="http://www.tcl.com/group/companyInfo/index">关于TCL</a> <a
+            href="http://www.tcl.com/group/societyDuty/index">社会责任</a> <a
+            href="http://www.tcl.com/group/investors/index">投资者关系</a> <a
+            href="http://www.tcl.com/group/news/index">新闻中心</a> <a href="http://www.tcl.com/dealer/toLogin">经销商之家</a>
+    </p>
+    <p class="copyright"> ©2010-2016 TCL CORPORATION All Rights Reserved. <a
+            href="http://www.tcl.com:80/frontshow/content/getContent/bf9d8fe2ec834c178f7bd2ba2272adfa">使用条款</a>
+        TCL集团股份有限公司版权所有 粤ICP备05040863号</p>
+</div>
+<!-- footer html end -->
+</body>
+</html>

@@ -1,0 +1,98 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <section class="rt_wrap content mCustomScrollbar">
+        <div class="rt_content">
+            <div class="page_title">
+                <h2 class="fl">产品回收站示例</h2>
+                <a class="fr top_rt_btn">返回上一页</a>
+            </div>
+{#            <section class="mtb">#}
+{##}
+{#                    <option>下拉菜单</option>#}
+{#                    <option>新品</option>#}
+{#                    <option>促销</option>#}
+{#                    <option>秒杀</option>#}
+{#            </section>#}
+                <input type="text" class="textbox textbox_225" placeholder="输入产品关键词或产品货号..."/>
+                <input type="button" value="查询" class="group_btn"/>
+
+            <table class="table">
+
+                <tr>
+                    <th>缩略图</th>
+                    <th>商品名</th>
+                    <th>商品号</th>
+                    <th>单价</th>
+                    <th>促销</th>
+                    <th>新品</th>
+                    <th>热销</th>
+                    <th>库存</th>
+                    <th>操作</th>
+                </tr>
+                {% for sh in pager.object_list %}
+                    <tr>
+                     {% for j in pictures %}
+                        {% ifequal sh.number j.number %}
+                        <td class="center"><img src="{{ sh.picture }}" width="50" height="50" alt=""/>
+                        </td>
+                         {% endifequal %}
+                    {% endfor %}
+                        <td>{{ sh.gname }}</td>
+                        <td class="center">{{ sh.number }}</td>
+                        <td class="center"><strong class="rmb_icon">{{ sh.price }}</strong></td>
+                        <td class="center"><a title="是" class="link_icon">{% if sh.issale == 1 %}&#89;{% else %}
+                            &#88;{% endif %}</a></td>
+                        <td class="center"><a title="否" class="link_icon">{% if sh.isnew == 1 %}&#89;{% else %}
+                            &#88;{% endif %}</a></td>
+                        <td class="center"><a title="是" class="link_icon">{% if sh.ishot == 1 %}&#89;{% else %}
+                            &#88;{% endif %}</a></td>
+                        <td class="center">{{ sh.count }}</td>
+                        <td class="center">
+                            {#                            <a href="http://www.aspku.com" title="预览" class="link_icon" target="_blank">&#118;</a>#}
+{#                            <a href="{% url 'adm:sec' 9 sh.id %}" title="编辑" class="link_icon">&#101;</a>#}
+                            <a href="{% url 'adm:raddg' 1 sh.id %}" title="恢复到产品列表" class="link_icon">&#47;</a>
+                            <a href="{% url 'adm:raddg' 0 sh.id %}" title="删除" class="link_icon">&#100;</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <aside class="paging">
+                <div class="row">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li  {% if not pager.has_previous %} class="disabled" {% else %} class="" {% endif %}>
+                                {% if pager.has_previous %}
+                                    <a href="{% url 'adm:sec' 10 pager.previous_page_number %}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                {% else %}
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                {% endif %}
+                            </li>
+                            {% for page in pager.page_range %}
+                                <li {% ifequal pager.number page %} class="active" {% endifequal %}>
+                                    <a href="{% url 'adm:sec' 10 page %}">{{ page }}</a>
+                                </li>
+                            {% endfor %}
+                            <li {% if not pager.has_next %} class="disabled" {% else %} class="" {% endif %}>
+                                {% if pager.has_next %}
+                                    <a href="{% url 'adm:sec' 10 pager.next_page_number %}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                {% else %}
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        </div>
+    </section>
+{% endblock content %}
+

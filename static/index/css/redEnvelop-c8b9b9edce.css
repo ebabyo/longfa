@@ -1,0 +1,1 @@
+.pack_box,.redpack_box{width:100%;height:100%}*{box-sizing:border-box}.pack_box{background:rgba(0,0,0,.7);top:0;position:fixed;z-index:1000}.redpack_box{overflow:hidden}.redpack_box li{position:absolute;animation:all 3s linear;top:-100px}.redpack_box li a{display:block}
